@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanzlei Berger &amp; Partner – Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2f3e55;--accent-ink:#fff;--ink:#1c1d20;--muted:#62646a;--paper:#fbfaf8;--stone:#efece6;--line:#dedad2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 17px/1.7 Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Libre Baskerville",Georgia,serif;font-weight:400;line-height:1.2}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:18px}
+.kick{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+.btn{display:inline-block;padding:15px 28px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.93rem;transition:.25s}
+.btn:hover{filter:brightness(1.15)}
+.btn.o{background:none;color:var(--ink);border:1px solid var(--ink)}
+.img{background:radial-gradient(120% 90% at 30% 20%,#e9e5de 0%,#cfc8bc 60%,#b9b1a4 100%);position:relative}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.4)}
+header{border-bottom:1px solid var(--line);background:var(--paper)}
+.top{display:flex;justify-content:space-between;align-items:center;height:86px;gap:20px}
+.brand{font-family:"Libre Baskerville",serif;font-size:1.25rem}
+.brand small{display:block;font-family:Inter;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;gap:32px;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:620px}
+.hero .txt{padding:100px 60px 100px max(24px,calc((100vw - 1160px)/2 + 24px));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.7rem);margin-bottom:24px}
+.hero h1 em{color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:500px;margin-bottom:36px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:110px 0}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:50px}
+.area{padding:40px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s;background:var(--paper)}
+.area:hover{background:#fff}
+.area span{font-family:"Libre Baskerville";color:var(--accent);font-size:.95rem}
+.area h3{font-size:1.3rem;margin:16px 0 10px}
+.area p{color:var(--muted);font-size:.95rem}
+.band{background:var(--stone)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.split .img{aspect-ratio:4/5}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;padding-top:30px;border-top:1px solid var(--line)}
+.nums b{font-family:"Libre Baskerville";font-size:2.2rem;font-weight:400;color:var(--accent);display:block;line-height:1.1}
+.nums span{font-size:.85rem;color:var(--muted)}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:50px}
+.team .img{aspect-ratio:3/4;margin-bottom:18px}
+.team h3{font-size:1.2rem}
+.team p{color:var(--muted);font-size:.9rem}
+.contact{background:var(--ink);color:#f3f1ed}
+.contact .kick{color:#c9c4ba}
+.contact p{color:#b9b5ad}
+form{display:grid;gap:14px}
+input,textarea,select{font:inherit;padding:14px 16px;background:transparent;border:1px solid #4a4b50;color:#fff;width:100%}
+input:focus,textarea:focus{outline:none;border-color:#fff}
+textarea{min-height:120px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+footer{background:#141518;color:#8d8b86;font-size:.85rem;padding:30px 0}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:900px){
+  nav{display:none}
+  .hero,.split{grid-template-columns:1fr}
+  .hero .txt{padding:70px 24px}
+  .hero .img{min-height:320px}
+  .areas,.team{grid-template-columns:1fr}
+  .split{gap:40px}
+  section{padding:80px 0}
+}
+@media(max-width:560px){.w{padding:0 16px}.hero .txt{padding:60px 16px}.r2,.nums{grid-template-columns:1fr}.top .btn{display:none}}
+</style>
+</head>
+<body data-vorlage="Vorlage 01 · Kanzlei &amp; Beratung">
+<header><div class="w top">
+  <a class="brand" href="#">Berger &amp; Partner<small>Rechtsanwälte · Steuerberater</small></a>
+  <nav><a href="#bereiche">Rechtsgebiete</a><a href="#kanzlei">Kanzlei</a><a href="#team">Team</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#kontakt">Termin vereinbaren</a>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <div class="txt">
+    <div class="kick">Seit 1998 in Musterstadt</div>
+    <h1>Klarer Rat in <em>entscheidenden</em> Momenten.</h1>
+    <p>Wir beraten Unternehmen und Privatpersonen persönlich, verständlich und mit dem Blick fürs Wesentliche.</p>
+    <div class="cta"><a class="btn" href="#kontakt">Erstberatung anfragen</a><a class="btn o" href="#bereiche">Rechtsgebiete</a></div>
+  </div>
+  <div class="img" data-l="Kanzleifoto"></div>
+</section>
+
+<section id="bereiche"><div class="w">
+  <div class="rv"><div class="kick">Rechtsgebiete</div><h2>Worauf wir uns spezialisiert haben.</h2></div>
+  <div class="areas">
+    <div class="area rv"><span>I.</span><h3>Arbeitsrecht</h3><p>Kündigung, Arbeitsverträge, Abfindungen – für Arbeitgeber und Arbeitnehmer.</p></div>
+    <div class="area rv"><span>II.</span><h3>Gesellschaftsrecht</h3><p>Gründung, Nachfolge und Verträge für mittelständische Unternehmen.</p></div>
+    <div class="area rv"><span>III.</span><h3>Steuerberatung</h3><p>Jahresabschluss, Steuererklärung und vorausschauende Planung.</p></div>
+    <div class="area rv"><span>IV.</span><h3>Erbrecht</h3><p>Testament, Erbfolge und Pflichtteil – einfühlsam und klar begleitet.</p></div>
+    <div class="area rv"><span>V.</span><h3>Mietrecht</h3><p>Für Vermieter und Mieter, außergerichtlich und vor Gericht.</p></div>
+    <div class="area rv"><span>VI.</span><h3>Vertragsrecht</h3><p>Prüfung und Gestaltung von Verträgen, die Sie wirklich schützen.</p></div>
+  </div>
+</div></section>
+
+<section id="kanzlei" class="band"><div class="w split">
+  <div class="img rv" data-l="Besprechungsraum"></div>
+  <div class="rv">
+    <div class="kick">Die Kanzlei</div>
+    <h2>Persönlich statt anonym.</h2>
+    <p style="color:var(--muted)">Bei uns haben Sie von Anfang an eine feste Ansprechperson. Wir erklären Ihre Situation in klaren Worten und zeigen Ihnen realistische Wege – ohne Fachchinesisch.</p>
+    <div class="nums"><div><b>25+</b><span>Jahre Erfahrung</span></div><div><b>8</b><span>Fachanwälte</span></div><div><b>48 h</b><span>Rückmeldung</span></div></div>
+  </div>
+</div></section>
+
+<section id="team"><div class="w">
+  <div class="rv"><div class="kick">Team</div><h2>Ihre Ansprechpartner.</h2></div>
+  <div class="team">
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Dr. Anna Berger</h3><p>Fachanwältin für Arbeitsrecht</p></div>
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Markus Lehmann</h3><p>Steuerberater</p></div>
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Sophie Wagner</h3><p>Fachanwältin für Erbrecht</p></div>
+  </div>
+</div></section>
+
+<section id="kontakt" class="contact"><div class="w split">
+  <div class="rv">
+    <div class="kick">Kontakt</div>
+    <h2>Schildern Sie uns Ihr Anliegen.</h2>
+    <p>Musterstraße 12 · 00000 Musterstadt<br>Telefon 000 000 000 · Mo–Fr 8–18 Uhr</p>
+  </div>
+  <form class="rv">
+    <div class="r2"><input placeholder="Name" required><input type="email" placeholder="E-Mail" required></div>
+    <select><option>Rechtsgebiet wählen</option><option>Arbeitsrecht</option><option>Gesellschaftsrecht</option><option>Steuerberatung</option><option>Erbrecht</option></select>
+    <textarea placeholder="Ihr Anliegen in wenigen Sätzen"></textarea>
+    <button class="btn" style="border:0;cursor:pointer">Anfrage senden</button>
+  </form>
+</div></section>
+<footer><div class="w"><span>© Berger &amp; Partner</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

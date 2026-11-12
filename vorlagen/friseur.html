@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon Kante – Friseur Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2b2b2b;--accent-ink:#fff;--ink:#191817;--muted:#706d68;--paper:#efede8;--white:#faf9f6;--line:#d7d3cb}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 17px/1.65 "DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1220px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1}
+h2{font-size:clamp(2.4rem,5.4vw,4.4rem);margin-bottom:18px}
+h1 i,h2 i{color:var(--accent)}
+.kick{font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.btn{display:inline-block;padding:15px 30px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:500;font-size:.93rem;transition:.25s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.img{background:radial-gradient(90% 80% at 35% 25%,#e2ded6 0%,#bfb8ac 60%,#9f978a 100%);position:relative;border-radius:6px}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.35)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:88px}
+.brand{font-family:"DM Serif Display";font-size:1.8rem}
+nav{display:flex;gap:30px;font-size:.92rem}
+nav a{position:relative}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:currentColor;transition:.3s}
+nav a:hover::after{right:0}
+.hero{padding:40px 0 100px}
+.hero h1{font-size:clamp(3.6rem,12vw,11rem);letter-spacing:-.02em;line-height:.9}
+.hero-grid{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:20px;margin-top:40px;align-items:end}
+.hero-grid .img:nth-child(1){aspect-ratio:3/4}
+.hero-grid .img:nth-child(2){aspect-ratio:4/3}
+.hero-grid .txt p{color:var(--muted);margin-bottom:26px}
+section{padding:110px 0}
+.white{background:var(--white)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.svc article .img{aspect-ratio:3/4;margin-bottom:16px;transition:.4s}
+.svc article:hover .img{transform:translateY(-6px)}
+.svc h3{font-size:1.6rem}
+.svc p{color:var(--muted);font-size:.92rem}
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 70px;margin-top:40px}
+.price-grid h3{font-size:1.5rem;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--ink)}
+.pr{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.97rem}
+.pr b{font-weight:500}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.team .img{aspect-ratio:1;border-radius:50%;margin-bottom:18px}
+.team div{text-align:center}
+.team h3{font-size:1.5rem}
+.team p{color:var(--muted);font-size:.9rem}
+.book{background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.book h2 i{color:inherit;opacity:.7}
+.book p{opacity:.75}
+form{display:grid;gap:12px}
+input,select{font:inherit;padding:15px 18px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;width:100%}
+input::placeholder{color:inherit;opacity:.6}
+select option{color:#111}
+.book .btn{background:var(--accent-ink);color:var(--accent)}
+footer{padding:40px 0;font-size:.85rem;color:var(--muted)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:960px){nav{display:none}.hero-grid{grid-template-columns:1fr 1fr}.hero-grid .txt{grid-column:1/-1}.svc{grid-template-columns:1fr 1fr}.price-grid,.book{grid-template-columns:1fr}.team{grid-template-columns:1fr 1fr 1fr}.book{padding:44px 30px}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.top .btn,header .btn{display:none}.svc,.team{grid-template-columns:1fr}.team .img{max-width:220px;margin:0 auto 18px}.book{padding:34px 20px}}
+</style>
+</head>
+<body data-vorlage="Vorlage 08 · Friseur &amp; Salon">
+<header><div class="w">
+  <a class="brand" href="#">Kante.</a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#preise">Preise</a><a href="#team">Team</a><a href="#termin">Termin</a></nav>
+  <a class="btn" href="#termin">Online buchen</a>
+</div></header>
+
+<div class="w hero">
+  <h1 class="rv">Haare mit <i>Haltung.</i></h1>
+  <div class="hero-grid">
+    <div class="img rv" data-l="Salonfoto"></div>
+    <div class="img rv" data-l="Styling"></div>
+    <div class="txt rv">
+      <div class="kick">Friseursalon · Musterstadt</div>
+      <p>Schnitte, Farbe und Styling, die zu dir passen – mit ehrlicher Beratung und Zeit für dich.</p>
+      <a class="btn" href="#termin">Termin buchen</a>
+    </div>
+  </div>
+</div>
+
+<section id="leistungen" class="white"><div class="w">
+  <div class="rv"><div class="kick">Leistungen</div><h2>Was wir <i>können.</i></h2></div>
+  <div class="svc">
+    <article class="rv"><div class="img" data-l="Foto"></div><h3>Schnitt</h3><p>Von klassisch bis modern, abgestimmt auf Gesicht und Haar.</p></article>
+    <article class="rv"><div class="img" data-l="Foto"></div><h3>Farbe</h3><p>Balayage, Strähnen, Glossing und natürliche Grauabdeckung.</p></article>
+    <article class="rv"><div class="img" data-l="Foto"></div><h3>Pflege</h3><p>Intensive Treatments für gesundes, glänzendes Haar.</p></article>
+    <article class="rv"><div class="img" data-l="Foto"></div><h3>Anlässe</h3><p>Hochsteckfrisuren und Styling für Hochzeit und Feste.</p></article>
+  </div>
+</div></section>
+
+<section id="preise"><div class="w">
+  <div class="rv"><div class="kick">Preise</div><h2>Klar und <i>fair.</i></h2></div>
+  <div class="price-grid rv">
+    <div><h3>Damen</h3><div class="pr"><span>Waschen, Schneiden, Föhnen</span><b>ab 59 €</b></div><div class="pr"><span>Farbe Ansatz</span><b>ab 49 €</b></div><div class="pr"><span>Balayage</span><b>ab 129 €</b></div><div class="pr"><span>Hochsteckfrisur</span><b>ab 69 €</b></div></div>
+    <div><h3>Herren &amp; Kinder</h3><div class="pr"><span>Herrenschnitt</span><b>ab 32 €</b></div><div class="pr"><span>Maschinenschnitt</span><b>ab 22 €</b></div><div class="pr"><span>Bart trimmen</span><b>ab 15 €</b></div><div class="pr"><span>Kinder bis 12 Jahre</span><b>ab 18 €</b></div></div>
+  </div>
+</div></section>
+
+<section id="team" class="white"><div class="w">
+  <div class="rv" style="text-align:center"><div class="kick">Team</div><h2>Die Hände <i>hinter Kante.</i></h2></div>
+  <div class="team">
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Sarah</h3><p>Inhaberin · Colour-Expertin</p></div>
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Deniz</h3><p>Herren &amp; Barber</p></div>
+    <div class="rv"><div class="img" data-l="Portrait"></div><h3>Mia</h3><p>Styling &amp; Anlässe</p></div>
+  </div>
+</div></section>
+
+<section id="termin"><div class="w"><div class="book rv">
+  <div><div class="kick">Termin</div><h2>Zeit für einen <i>neuen Look?</i></h2><p>Bahnhofstraße 8 · 00000 Musterstadt<br>Di–Fr 9–19 Uhr · Sa 8–15 Uhr</p></div>
+  <form>
+    <input placeholder="Name" required><input type="tel" placeholder="Telefon" required>
+    <select><option>Leistung wählen</option><option>Schnitt</option><option>Farbe</option><option>Pflege</option><option>Anlass-Styling</option></select>
+    <input type="date">
+    <button class="btn">Termin anfragen</button>
+  </form>
+</div></div></section>
+<footer><div class="w"><span>© Salon Kante</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

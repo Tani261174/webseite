@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landhaus Seeblick – Hotel Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2d5f63;--accent-ink:#fff;--ink:#1d2120;--muted:#69706e;--paper:#f8f7f4;--soft:#eeece7;--line:#dcd9d2}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:300 17px/1.75 Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.12}
+h2{font-size:clamp(2.1rem,4.4vw,3.3rem);margin-bottom:18px}
+.kick{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px}
+.btn{display:inline-block;padding:15px 30px;background:var(--accent);color:var(--accent-ink);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:.25s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.12)}
+.btn.o{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.img{background:linear-gradient(180deg,#cfd6d5 0%,#b6c0be 45%,#8f9a95 75%,#6f7a74 100%);position:relative}
+.img.w2{background:radial-gradient(90% 80% at 40% 30%,#efebe4 0%,#d5cec2 60%,#bcb3a5 100%)}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.35)}
+header{position:absolute;inset:0 0 auto;z-index:5;color:#fff}
+.top{display:flex;align-items:center;justify-content:space-between;height:92px}
+.brand{font-family:Marcellus;font-size:1.45rem;letter-spacing:.06em}
+.brand small{display:block;font-family:Inter;font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;opacity:.75}
+nav{display:flex;gap:34px;font-size:.88rem}
+.hero{height:92vh;min-height:620px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.35)),linear-gradient(180deg,#9fb0b1 0%,#7d908f 40%,#56645f 70%,#3a4440 100%)}
+.hero h1{font-size:clamp(2.8rem,7vw,5.8rem);margin-bottom:20px}
+.hero p{max-width:540px;margin:0 auto;opacity:.9;font-size:1.1rem}
+.avail{position:absolute;left:24px;right:24px;bottom:-46px;max-width:1000px;margin:0 auto;background:#fff;color:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr auto;box-shadow:0 24px 50px rgba(0,0,0,.12);text-align:left}
+.avail label{padding:18px 22px;border-right:1px solid var(--line);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:grid;gap:2px}
+.avail input,.avail select{border:0;font:inherit;font-size:.98rem;letter-spacing:0;text-transform:none;color:var(--ink);background:none;padding:0;width:100%}
+.avail .btn{height:100%}
+section{padding:110px 0}
+.intro{padding-top:150px;text-align:center;max-width:760px;margin:0 auto}
+.intro p{color:var(--muted)}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px}
+.room{background:#fff;transition:.3s}
+.room:hover{box-shadow:0 20px 44px rgba(0,0,0,.08);transform:translateY(-4px)}
+.room .img{aspect-ratio:4/3}
+.room .b{padding:26px 26px 30px}
+.room h3{font-size:1.5rem;margin-bottom:6px}
+.room .m{display:flex;gap:14px;font-size:.84rem;color:var(--muted);margin-bottom:16px;flex-wrap:wrap}
+.room .p{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px}
+.room .p b{font-family:Marcellus;font-weight:400;font-size:1.4rem}
+.room .p small{color:var(--muted)}
+.room .p a{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.soft{background:var(--soft)}
+.amen{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.amen div{text-align:center;padding:30px 16px;background:#fff}
+.amen svg{margin:0 auto 14px;color:var(--accent)}
+.amen h3{font-size:1.15rem;margin-bottom:4px}
+.amen p{font-size:.88rem;color:var(--muted)}
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:12px}
+.mosaic .img:first-child{grid-row:span 2}
+.mosaic .img:nth-child(4){grid-column:span 2}
+.quote{text-align:center;max-width:760px;margin:0 auto}
+.quote p{font-family:Marcellus;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.4;margin-bottom:16px}
+.quote small{color:var(--muted);font-size:.85rem}
+.contact{background:var(--accent);color:var(--accent-ink);text-align:center}
+.contact .kick{color:inherit;opacity:.75}
+.contact p{opacity:.8;margin-bottom:30px}
+.contact .btn{background:var(--accent-ink);color:var(--accent)}
+footer{padding:36px 0;font-size:.82rem;color:var(--muted)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:960px){nav{display:none}.rooms{grid-template-columns:1fr}.amen{grid-template-columns:1fr 1fr}.avail{position:relative;left:0;right:0;bottom:auto;grid-template-columns:1fr 1fr;margin-top:40px}.avail label:nth-child(2){border-right:0}.hero{height:auto;padding:150px 0 50px}.intro{padding-top:90px}.mosaic{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.mosaic .img:first-child{grid-row:auto;grid-column:span 2}.mosaic .img:nth-child(4){grid-column:auto}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.avail{grid-template-columns:1fr}.avail label{border-right:0;border-bottom:1px solid var(--line)}.top .btn{display:none}}
+</style>
+</head>
+<body data-vorlage="Vorlage 10 · Hotel &amp; Ferienwohnung">
+<header><div class="w top">
+  <a class="brand" href="#">Seeblick<small>Landhaus am See</small></a>
+  <nav><a href="#zimmer">Zimmer</a><a href="#ausstattung">Ausstattung</a><a href="#galerie">Galerie</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#zimmer">Jetzt buchen</a>
+</div></header>
+
+<section class="hero"><div class="w" style="width:100%">
+  <div class="kick" style="color:rgba(255,255,255,.85)">Willkommen am See</div>
+  <h1>Ankommen.<br>Durchatmen.</h1>
+  <p>Ein familiengeführtes Landhaus mit 12 Zimmern, eigenem Seezugang und Frühstück aus der Region.</p>
+  <form class="avail" onsubmit="event.preventDefault()">
+    <label>Anreise<input type="date"></label>
+    <label>Abreise<input type="date"></label>
+    <label>Gäste<select><option>2 Erwachsene</option><option>1 Erwachsener</option><option>2 Erwachsene, 1 Kind</option><option>Familie (4)</option></select></label>
+    <button class="btn" type="button">Verfügbarkeit prüfen</button>
+  </form>
+</div></section>
+
+<div class="w intro rv">
+  <div class="kick">Das Landhaus</div>
+  <h2>Ein Ort für ruhige Tage.</h2>
+  <p>Morgens Nebel über dem Wasser, mittags ein Bad im See, abends ein Glas Wein auf der Terrasse. Bei uns geht es nicht um viel – sondern um das Richtige.</p>
+</div>
+
+<section id="zimmer"><div class="w">
+  <div class="rv"><div class="kick">Zimmer &amp; Wohnungen</div><h2>Wo Sie wohnen.</h2></div>
+  <div class="rooms">
+    <article class="room rv"><div class="img w2" data-l="Zimmerfoto"></div><div class="b"><h3>Doppelzimmer Garten</h3><div class="m"><span>22 m²</span><span>2 Personen</span><span>Terrasse</span></div><div class="p"><span><b>ab 119 €</b> <small>/ Nacht</small></span><a href="#">Details →</a></div></div></article>
+    <article class="room rv"><div class="img" data-l="Zimmerfoto"></div><div class="b"><h3>Suite Seeblick</h3><div class="m"><span>38 m²</span><span>2–3 Personen</span><span>Balkon</span></div><div class="p"><span><b>ab 179 €</b> <small>/ Nacht</small></span><a href="#">Details →</a></div></div></article>
+    <article class="room rv"><div class="img w2" data-l="Wohnungsfoto"></div><div class="b"><h3>Ferienwohnung Ufer</h3><div class="m"><span>65 m²</span><span>bis 4 Personen</span><span>Küche</span></div><div class="p"><span><b>ab 149 €</b> <small>/ Nacht</small></span><a href="#">Details →</a></div></div></article>
+  </div>
+</div></section>
+
+<section id="ausstattung" class="soft"><div class="w">
+  <div class="rv" style="text-align:center"><div class="kick">Ausstattung</div><h2>Alles, was gut tut.</h2></div>
+  <div class="amen">
+    <div class="rv"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 16c2 0 2-1.5 4-1.5S8 16 10 16s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 20c2 0 2-1.5 4-1.5S8 20 10 20s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M8 12V5a2 2 0 0 1 4 0"/></svg><h3>Seezugang</h3><p>Eigener Steg mit Liegewiese</p></div>
+    <div class="rv"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 11h14v3a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6v-3ZM18 12h1a2 2 0 0 1 0 4h-1M8 4v3M12 3v4"/></svg><h3>Frühstück</h3><p>Regional und hausgemacht</p></div>
+    <div class="rv"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M2 9a14 14 0 0 1 20 0"/><circle cx="12" cy="19" r="1"/></svg><h3>WLAN</h3><p>Kostenlos im ganzen Haus</p></div>
+    <div class="rv"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M5 11l2-5h10l2 5M7 17v2M17 17v2"/></svg><h3>Parken</h3><p>Kostenlos direkt am Haus</p></div>
+  </div>
+</div></section>
+
+<section id="galerie"><div class="w">
+  <div class="rv"><div class="kick">Galerie</div><h2>Eindrücke.</h2></div>
+  <div class="mosaic rv" style="margin-top:30px"><div class="img" data-l="Außenansicht"></div><div class="img w2" data-l="Frühstück"></div><div class="img" data-l="See"></div><div class="img w2" data-l="Terrasse"></div></div>
+</div></section>
+
+<section class="soft"><div class="w quote rv">
+  <div class="kick">Ihre Gastgeber</div>
+  <p>„Wir möchten, dass Sie sich bei uns fühlen wie bei guten Freunden – nur mit besserem Frühstück.“</p>
+  <small>Familie Brandt · Gastgeber in dritter Generation</small>
+</div></section>
+
+<section id="kontakt" class="contact"><div class="w rv">
+  <div class="kick">Kontakt</div>
+  <h2>Wir freuen uns auf Sie.</h2>
+  <p>Seeweg 1 · 00000 Musterdorf · Telefon 000 000 000</p>
+  <a class="btn" href="#">Anfrage senden</a>
+</div></section>
+<footer><div class="w"><span>© Landhaus Seeblick</span><span>Impressum · Datenschutz · AGB</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

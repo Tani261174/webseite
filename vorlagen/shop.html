@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hausgut – Online-Shop Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2f3e55;--accent-ink:#fff;--ink:#1a1a1a;--muted:#6f6d68;--paper:#fff;--soft:#f4f2ee;--line:#e6e3dd}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 16px/1.6 Outfit,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.w{max-width:1280px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:500;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.btn{display:inline-block;padding:14px 28px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font-weight:500;font-size:.95rem;transition:.25s;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.15)}
+.btn.o{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.img{background:radial-gradient(80% 70% at 50% 40%,#fbfaf7 0%,#e6e2da 60%,#d3cdc2 100%);position:relative;border-radius:12px}
+.img::after{content:attr(data-l);position:absolute;left:14px;bottom:12px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(0,0,0,.3)}
+.bar{background:var(--accent);color:var(--accent-ink);text-align:center;font-size:.82rem;padding:9px 16px}
+header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);z-index:5}
+.top{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.brand{font-size:1.5rem;font-weight:600;letter-spacing:-.03em}
+nav{display:flex;gap:28px;font-size:.93rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.icons{display:flex;gap:18px;align-items:center}
+.icons button{background:none;border:0;cursor:pointer;color:var(--ink);position:relative;display:grid;place-items:center}
+.cart-n{position:absolute;top:-6px;right:-8px;background:var(--accent);color:var(--accent-ink);font-size:.66rem;font-weight:600;min-width:17px;height:17px;border-radius:9px;display:grid;place-items:center;padding:0 4px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px 0 0}
+.hero .main{background:var(--soft);border-radius:16px;padding:70px 56px;display:flex;flex-direction:column;justify-content:center;min-height:520px}
+.hero h1{font-size:clamp(2.4rem,5vw,4.2rem);margin-bottom:18px}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:420px;margin-bottom:30px}
+.hero .side{display:grid;grid-template-rows:1fr 1fr;gap:20px}
+.hero .side .img{min-height:240px}
+.usp{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:40px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.usp div{display:flex;gap:12px;align-items:center}
+.usp svg{flex:none;color:var(--accent)}
+section{padding:80px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{position:relative}
+.cat .img{aspect-ratio:1}
+.cat span{position:absolute;left:14px;top:14px;background:#fff;padding:6px 14px;border-radius:999px;font-size:.88rem;font-weight:500}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:28px 20px}
+.prod .img{aspect-ratio:4/5;margin-bottom:14px;overflow:hidden}
+.prod .tag{position:absolute;left:12px;top:12px;background:var(--accent);color:var(--accent-ink);font-size:.72rem;padding:4px 10px;border-radius:999px}
+.prod .add{position:absolute;left:12px;right:12px;bottom:12px;padding:12px;border-radius:8px;border:0;background:#fff;color:var(--ink);font-weight:500;cursor:pointer;opacity:0;transform:translateY(8px);transition:.25s;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.prod:hover .add,.prod .add:focus{opacity:1;transform:none}
+.prod h3{font-size:1rem;font-weight:500}
+.prod p{color:var(--muted);font-size:.88rem}
+.prod b{font-weight:500}
+.prod s{color:var(--muted);font-size:.88rem;margin-left:6px}
+.story{background:var(--soft);border-radius:16px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.story .img{border-radius:0;min-height:420px}
+.story div.t{padding:60px}
+.story p{color:var(--muted);margin:16px 0 26px}
+.news{text-align:center;max-width:620px;margin:0 auto}
+.news p{color:var(--muted);margin:10px 0 24px}
+.news form{display:flex;gap:10px}
+.news input{flex:1;font:inherit;padding:14px 16px;border-radius:8px;border:1px solid var(--line);min-width:0}
+.toast{position:fixed;left:50%;bottom:72px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:8px;font-size:.9rem;opacity:0;transition:.3s;pointer-events:none;z-index:20}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+footer{background:var(--soft);padding:50px 0;font-size:.88rem;color:var(--muted);margin-top:40px}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:960px){nav{display:none}.hero,.story{grid-template-columns:1fr}.hero .main{padding:50px 30px;min-height:auto}.usp,.cats,.prods{grid-template-columns:1fr 1fr}.prod .add{opacity:1;transform:none}.story div.t{padding:40px 28px}.story .img{min-height:260px}}
+@media(max-width:560px){.w{padding:0 16px}.hero .side{grid-template-rows:auto;grid-template-columns:1fr 1fr}.hero .side .img{min-height:160px}.usp{grid-template-columns:1fr}.news form{flex-direction:column}.prods{gap:20px 12px}}
+</style>
+</head>
+<body data-vorlage="Vorlage 09 · Online-Shop">
+<div class="bar">Kostenloser Versand ab 50 € · 30 Tage Rückgaberecht</div>
+<header><div class="w top">
+  <a class="brand" href="#">hausgut</a>
+  <nav><a href="#neu">Neuheiten</a><a href="#kategorien">Wohnen</a><a href="#kategorien">Küche</a><a href="#geschichte">Über uns</a></nav>
+  <div class="icons">
+    <button aria-label="Suche"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></button>
+    <button aria-label="Konto"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></button>
+    <button aria-label="Warenkorb"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-n" id="cn">0</span></button>
+  </div>
+</div></header>
+
+<div class="w">
+  <div class="hero">
+    <div class="main rv">
+      <p style="font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">Neue Kollektion</p>
+      <h1>Dinge, die man gern benutzt.</h1>
+      <p>Handgemachte Keramik, Leinen und Holz aus kleinen Manufakturen – für ein Zuhause mit Charakter.</p>
+      <div><a class="btn" href="#neu">Jetzt entdecken</a> <a class="btn o" href="#geschichte">Unsere Geschichte</a></div>
+    </div>
+    <div class="side"><div class="img rv" data-l="Produktfoto"></div><div class="img rv" data-l="Lifestyle"></div></div>
+  </div>
+  <div class="usp">
+    <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Versand in 1–3 Tagen</div>
+    <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>30 Tage Rückgabe</div>
+    <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Sicher bezahlen</div>
+    <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c5 3 7 7 7 11a7 7 0 0 1-14 0c0-4 2-8 7-11Z"/></svg>Nachhaltig produziert</div>
+  </div>
+</div>
+
+<section id="kategorien"><div class="w">
+  <div class="head rv"><h2>Kategorien</h2></div>
+  <div class="cats">
+    <a class="cat rv" href="#"><div class="img"></div><span>Keramik</span></a>
+    <a class="cat rv" href="#"><div class="img"></div><span>Textilien</span></a>
+    <a class="cat rv" href="#"><div class="img"></div><span>Küche</span></a>
+    <a class="cat rv" href="#"><div class="img"></div><span>Dekoration</span></a>
+  </div>
+</div></section>
+
+<section id="neu" style="padding-top:0"><div class="w">
+  <div class="head rv"><h2>Neuheiten</h2><a class="btn o" href="#">Alle Produkte</a></div>
+  <div class="prods">
+    <div class="prod rv"><div class="img" data-l=""><span class="tag">Neu</span><button class="add">In den Warenkorb</button></div><h3>Steingut-Becher</h3><p>Sandfarben · 350 ml</p><b>24,00 €</b></div>
+    <div class="prod rv"><div class="img"><button class="add">In den Warenkorb</button></div><h3>Leinen-Tischdecke</h3><p>Naturweiß · 140×200</p><b>69,00 €</b></div>
+    <div class="prod rv"><div class="img"><span class="tag">−20 %</span><button class="add">In den Warenkorb</button></div><h3>Servierbrett Eiche</h3><p>Massivholz · 45 cm</p><b>39,00 €</b><s>49,00 €</s></div>
+    <div class="prod rv"><div class="img"><button class="add">In den Warenkorb</button></div><h3>Vase „Ruhe“</h3><p>Matt · handgedreht</p><b>54,00 €</b></div>
+    <div class="prod rv"><div class="img"><button class="add">In den Warenkorb</button></div><h3>Teller-Set</h3><p>4 Stück · Steingut</p><b>89,00 €</b></div>
+    <div class="prod rv"><div class="img"><span class="tag">Bestseller</span><button class="add">In den Warenkorb</button></div><h3>Duftkerze Zeder</h3><p>Sojawachs · 40 h</p><b>29,00 €</b></div>
+    <div class="prod rv"><div class="img"><button class="add">In den Warenkorb</button></div><h3>Leinen-Geschirrtuch</h3><p>2er-Set · Grau</p><b>19,00 €</b></div>
+    <div class="prod rv"><div class="img"><button class="add">In den Warenkorb</button></div><h3>Schale „Feld“</h3><p>Ø 22 cm · Steingut</p><b>34,00 €</b></div>
+  </div>
+</div></section>
+
+<section id="geschichte" style="padding-top:0"><div class="w"><div class="story rv">
+  <div class="img" data-l="Manufaktur"></div>
+  <div class="t"><p style="font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin:0">Unsere Geschichte</p><h2 style="margin-top:12px">Gemacht von Menschen, nicht von Maschinen.</h2><p>Wir arbeiten mit kleinen Werkstätten in Europa zusammen. Jedes Stück ist ein bisschen anders – genau das macht es besonders.</p><a class="btn" href="#">Mehr erfahren</a></div>
+</div></div></section>
+
+<section style="padding-top:20px"><div class="w news rv">
+  <h2>10 % auf deine erste Bestellung</h2>
+  <p>Melde dich für unseren Newsletter an und erhalte Neuheiten zuerst.</p>
+  <form><input type="email" placeholder="Deine E-Mail-Adresse" required><button class="btn">Anmelden</button></form>
+</div></section>
+
+<div class="toast" id="toast" role="status">Zum Warenkorb hinzugefügt</div>
+<footer><div class="w"><span>© hausgut</span><span>AGB · Versand · Widerruf · Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+<script>
+let n=0,tm;document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{n++;document.getElementById('cn').textContent=n;const t=document.getElementById('toast');t.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>t.classList.remove('on'),1600)}));
+</script>
+</body>
+</html>

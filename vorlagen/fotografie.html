@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jana Roth Fotografie – Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2b2b2b;--accent-ink:#fff;--ink:#141414;--muted:#77756f;--paper:#fff;--soft:#f3f2ef;--line:#e5e3de}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:300 16px/1.75 Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1320px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:Italiana,Georgia,serif;font-weight:400;line-height:1.05}
+h2{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:16px}
+.kick{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.btn{display:inline-block;padding:14px 30px;background:var(--accent);color:var(--accent-ink);font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;transition:.25s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{opacity:.85}
+.img{position:relative;overflow:hidden;background:linear-gradient(160deg,#dcdad5,#a9a69f)}
+.img.d{background:linear-gradient(160deg,#5e5c58,#262624)}
+.img.m{background:linear-gradient(160deg,#c3bfb7,#7e7a73)}
+.img::after{content:attr(data-l);position:absolute;left:14px;bottom:12px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:90px}
+.brand{font-family:Italiana;font-size:1.6rem;letter-spacing:.12em;text-transform:uppercase}
+nav{display:flex;gap:34px;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase}
+nav a{opacity:.7}nav a:hover{opacity:1}
+.hero{text-align:center;padding:60px 0 40px}
+.hero h1{font-size:clamp(3.2rem,10vw,9rem);letter-spacing:.02em}
+.hero p{color:var(--muted);max-width:520px;margin:18px auto 0}
+.strip{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:12px;margin-top:50px;align-items:end}
+.strip .img:nth-child(1){aspect-ratio:3/4}
+.strip .img:nth-child(2){aspect-ratio:4/3.4}
+.strip .img:nth-child(3){aspect-ratio:3/4.4}
+section{padding:110px 0}
+.filter{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:10px 0 40px;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase}
+.filter button{background:none;border:0;font:inherit;cursor:pointer;color:var(--muted);padding-bottom:4px;border-bottom:1px solid transparent}
+.filter button[aria-pressed=true]{color:var(--ink);border-color:var(--ink)}
+.masonry{columns:3;column-gap:12px}
+.masonry .img{margin-bottom:12px;break-inside:avoid;transition:.4s;cursor:zoom-in}
+.masonry .img:hover{filter:brightness(.9)}
+.masonry .img.hide{display:none}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about .img{aspect-ratio:4/5}
+.about p{color:var(--muted);margin-bottom:16px}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.pk div{background:#fff;padding:40px 32px}
+.pk h3{font-size:1.9rem}
+.pk b{display:block;font-weight:400;font-size:1.1rem;margin:10px 0 16px}
+.pk p{color:var(--muted);font-size:.92rem}
+.contact{background:var(--soft);text-align:center}
+.contact form{max-width:560px;margin:30px auto 0;display:grid;gap:12px;text-align:left}
+input,textarea,select{font:inherit;padding:14px 0;border:0;border-bottom:1px solid #cfccc5;background:transparent;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:90px}
+footer{padding:36px 0;text-align:center;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){nav{display:none}.masonry{columns:2}.about,.pk{grid-template-columns:1fr}.about{gap:40px}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.strip{grid-template-columns:1fr 1fr}.strip .img:nth-child(3){display:none}.masonry{columns:1}}
+</style>
+</head>
+<body data-vorlage="Vorlage 11 · Fotografie &amp; Kreativ">
+<header><div class="w">
+  <a class="brand" href="#">Jana Roth</a>
+  <nav><a href="#portfolio">Portfolio</a><a href="#ueber">Über mich</a><a href="#pakete">Pakete</a><a href="#kontakt">Kontakt</a></nav>
+</div></header>
+
+<div class="w hero">
+  <div class="kick rv">Fotografin · Musterstadt</div>
+  <h1 class="rv">Momente, die bleiben.</h1>
+  <p class="rv">Portraits, Business und Hochzeiten – natürlich, ehrlich und mit einem Blick fürs Licht.</p>
+  <div class="strip"><div class="img m rv" data-l="Portrait"></div><div class="img d rv" data-l="Hochzeit"></div><div class="img rv" data-l="Business"></div></div>
+</div>
+
+<section id="portfolio"><div class="w">
+  <div style="text-align:center" class="rv"><div class="kick">Portfolio</div><h2>Ausgewählte Arbeiten</h2></div>
+  <div class="filter rv" role="group" aria-label="Portfolio filtern">
+    <button aria-pressed="true" data-f="alle">Alle</button><button aria-pressed="false" data-f="p">Portrait</button><button aria-pressed="false" data-f="b">Business</button><button aria-pressed="false" data-f="h">Hochzeit</button>
+  </div>
+  <div class="masonry">
+    <div class="img d" data-c="h" style="aspect-ratio:3/4" data-l="Hochzeit"></div>
+    <div class="img" data-c="b" style="aspect-ratio:4/3" data-l="Business"></div>
+    <div class="img m" data-c="p" style="aspect-ratio:4/5" data-l="Portrait"></div>
+    <div class="img m" data-c="b" style="aspect-ratio:1" data-l="Business"></div>
+    <div class="img" data-c="p" style="aspect-ratio:3/4" data-l="Portrait"></div>
+    <div class="img d" data-c="h" style="aspect-ratio:4/3" data-l="Hochzeit"></div>
+    <div class="img d" data-c="p" style="aspect-ratio:4/5" data-l="Portrait"></div>
+    <div class="img m" data-c="h" style="aspect-ratio:3/4" data-l="Hochzeit"></div>
+    <div class="img" data-c="b" style="aspect-ratio:4/3" data-l="Business"></div>
+  </div>
+</div></section>
+
+<section id="ueber" style="padding-top:0"><div class="w about">
+  <div class="img m rv" data-l="Portrait Fotografin"></div>
+  <div class="rv">
+    <div class="kick">Über mich</div>
+    <h2>Hallo, ich bin Jana.</h2>
+    <p>Seit über zehn Jahren fotografiere ich Menschen – am liebsten dann, wenn sie vergessen, dass eine Kamera da ist.</p>
+    <p>Mein Stil ist ruhig, natürlich und zeitlos. Keine gestellten Posen, sondern echte Momente.</p>
+    <a class="btn" href="#kontakt">Shooting anfragen</a>
+  </div>
+</div></section>
+
+<section id="pakete" style="padding-top:0"><div class="w">
+  <div style="text-align:center" class="rv"><div class="kick">Pakete</div><h2>Shootings &amp; Preise</h2></div>
+  <div class="pk rv">
+    <div><h3>Portrait</h3><b>ab 249 €</b><p>1 Stunde, eine Location, 20 bearbeitete Bilder in Online-Galerie.</p></div>
+    <div><h3>Business</h3><b>ab 390 €</b><p>Teamfotos, Portraits und Bilder für Website und Social Media.</p></div>
+    <div><h3>Hochzeit</h3><b>ab 1.490 €</b><p>Begleitung von der Trauung bis zur Feier, inklusive Paarshooting.</p></div>
+  </div>
+</div></section>
+
+<section id="kontakt" class="contact"><div class="w rv">
+  <div class="kick">Kontakt</div><h2>Erzähl mir von deiner Idee.</h2>
+  <form>
+    <input placeholder="Name" required><input type="email" placeholder="E-Mail" required>
+    <select><option>Art des Shootings</option><option>Portrait</option><option>Business</option><option>Hochzeit</option></select>
+    <textarea placeholder="Nachricht"></textarea>
+    <button class="btn" style="justify-self:center;margin-top:12px">Anfrage senden</button>
+  </form>
+</div></section>
+<footer>© Jana Roth Fotografie · Impressum · Datenschutz</footer>
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.filter button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter button').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('.masonry .img').forEach(i=>i.classList.toggle('hide',b.dataset.f!=='alle'&&i.dataset.c!==b.dataset.f))});
+</script>
+</body>
+</html>

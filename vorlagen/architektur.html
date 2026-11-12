@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linie Architekten – Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2b2b2b;--accent-ink:#fff;--ink:#111;--muted:#7a7a77;--paper:#f2f2f0;--line:#cfcfcb}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 16px/1.6 "Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1400px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;line-height:.98}
+h2{font-size:clamp(2.2rem,5vw,4.2rem)}
+.lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.btn{display:inline-flex;gap:12px;align-items:center;padding:14px 24px;background:var(--accent);color:var(--accent-ink);font-size:.9rem;font-weight:500;transition:.25s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{gap:18px}
+.img{position:relative;background:linear-gradient(135deg,#d8d8d4 0%,#b4b4af 100%)}
+.img.d{background:linear-gradient(135deg,#6a6a66,#2e2e2c)}
+.img::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.6%,rgba(255,255,255,.12) 50%,transparent 50.4%),linear-gradient(0deg,transparent 64.6%,rgba(255,255,255,.12) 65%,transparent 65.4%)}
+.img::after{content:attr(data-l);position:absolute;left:14px;bottom:12px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+header{border-bottom:1px solid var(--line)}
+header .w{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;height:70px}
+.brand{font-weight:600;letter-spacing:-.02em;font-size:1.15rem}
+nav{display:flex;gap:28px;font-size:.92rem;justify-content:center}
+nav a{color:var(--muted)}nav a:hover{color:var(--ink)}
+header .r{text-align:right;font-size:.88rem}
+.hero{padding:70px 0 0}
+.hero h1{font-size:clamp(3rem,11vw,10.5rem);letter-spacing:-.055em}
+.hero-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;margin:40px 0;border-top:1px solid var(--ink);padding-top:16px}
+.hero-row p{font-size:.95rem;color:var(--muted)}
+.hero .img{aspect-ratio:21/9}
+section{padding:110px 0}
+.grid12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.proj{display:grid;grid-template-columns:repeat(12,1fr);gap:24px 24px;margin-top:50px}
+.p{display:block}
+.p .img{margin-bottom:14px;transition:.4s}
+.p:hover .img{filter:brightness(.9)}
+.p .meta{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;font-size:.92rem}
+.p .meta span{color:var(--muted)}
+.p1{grid-column:1/8}.p1 .img{aspect-ratio:4/3}
+.p2{grid-column:9/13;align-self:end}.p2 .img{aspect-ratio:3/4}
+.p3{grid-column:1/5}.p3 .img{aspect-ratio:3/4}
+.p4{grid-column:6/13}.p4 .img{aspect-ratio:16/10}
+.dark{background:var(--ink);color:#eee}
+.dark .lbl{color:#8f8f8b}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #333;margin-top:50px}
+.svc div{padding:28px 24px 0 0}
+.svc div+div{padding-left:24px;border-left:1px solid #333}
+.svc h3{font-size:1.4rem;margin:14px 0 10px}
+.svc p{color:#9a9a96;font-size:.93rem}
+.num{display:flex;gap:60px;margin-top:70px;flex-wrap:wrap}
+.num b{font-size:clamp(2.6rem,6vw,5rem);font-weight:400;letter-spacing:-.04em;display:block;line-height:1}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact dl{display:grid;grid-template-columns:120px 1fr;gap:14px 20px;margin-top:30px;font-size:.98rem}
+.contact dt{color:var(--muted)}
+form{display:grid;gap:10px}
+input,textarea{font:inherit;padding:14px;background:#fff;border:1px solid var(--line);width:100%}
+input:focus,textarea:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:120px}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:.85rem;color:var(--muted)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:900px){header .w{grid-template-columns:1fr 1fr}nav{display:none}.hero-row{grid-template-columns:1fr 1fr}.proj>*{grid-column:1/-1!important}.svc{grid-template-columns:1fr 1fr}.svc div+div{border-left:0;padding-left:0}.contact{grid-template-columns:1fr}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.hero-row,.svc{grid-template-columns:1fr}.hero .img{aspect-ratio:4/3}.contact dl{grid-template-columns:90px 1fr}}
+</style>
+</head>
+<body data-vorlage="Vorlage 12 · Architektur &amp; Interior">
+<header><div class="w">
+  <a class="brand" href="#">Linie Architekten</a>
+  <nav><a href="#projekte">Projekte</a><a href="#leistungen">Leistungen</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="r" href="#kontakt">Projekt besprechen →</a>
+</div></header>
+
+<div class="w hero">
+  <h1 class="rv">Räume mit<br>Klarheit.</h1>
+  <div class="hero-row rv">
+    <span class="lbl">Architektur · Interior</span>
+    <p>Wir planen Häuser, Umbauten und Innenräume, die einfach funktionieren – und lange gefallen.</p>
+    <p>Von der ersten Skizze bis zur Schlüsselübergabe aus einer Hand.</p>
+    <span class="lbl" style="text-align:right">Musterstadt, seit 2009</span>
+  </div>
+  <div class="img d rv" data-l="Projektfoto"></div>
+</div>
+
+<section id="projekte"><div class="w">
+  <div class="grid12 rv"><span class="lbl" style="grid-column:1/4">Ausgewählte Projekte</span><h2 style="grid-column:4/13">Jedes Projekt beginnt mit Zuhören.</h2></div>
+  <div class="proj">
+    <a class="p p1 rv" href="#"><div class="img" data-l="Haus am Hang"></div><div class="meta"><b>Haus am Hang</b><span>Neubau · 2025</span></div></a>
+    <a class="p p2 rv" href="#"><div class="img d" data-l="Altbau"></div><div class="meta"><b>Altbau Nordstadt</b><span>Umbau · 2024</span></div></a>
+    <a class="p p3 rv" href="#"><div class="img d" data-l="Interior"></div><div class="meta"><b>Kanzlei Weiß</b><span>Interior · 2024</span></div></a>
+    <a class="p p4 rv" href="#"><div class="img" data-l="Wohnanlage"></div><div class="meta"><b>Wohnen am Park</b><span>Neubau · 2023</span></div></a>
+  </div>
+</div></section>
+
+<section id="leistungen" class="dark"><div class="w">
+  <div class="grid12 rv"><span class="lbl" style="grid-column:1/4">Leistungen</span><h2 style="grid-column:4/13">Von der Idee bis zum Einzug.</h2></div>
+  <div class="svc">
+    <div class="rv"><span class="lbl">01</span><h3>Entwurf</h3><p>Ideen, Skizzen und 3D-Visualisierungen.</p></div>
+    <div class="rv"><span class="lbl">02</span><h3>Genehmigung</h3><p>Bauantrag und Abstimmung mit den Behörden.</p></div>
+    <div class="rv"><span class="lbl">03</span><h3>Bauleitung</h3><p>Ausschreibung, Koordination und Qualitätskontrolle.</p></div>
+    <div class="rv"><span class="lbl">04</span><h3>Interior</h3><p>Materialien, Licht und Möbel aus einem Guss.</p></div>
+  </div>
+  <div class="num rv"><div><b>140+</b><span class="lbl">Projekte</span></div><div><b>16</b><span class="lbl">Jahre</span></div><div><b>9</b><span class="lbl">Köpfe im Team</span></div></div>
+</div></section>
+
+<section id="kontakt"><div class="w contact">
+  <div class="rv"><span class="lbl">Kontakt</span><h2 style="margin-top:14px">Lassen Sie uns<br>über Ihr Projekt sprechen.</h2>
+    <dl><dt>Adresse</dt><dd>Hafenstraße 20, 00000 Musterstadt</dd><dt>Telefon</dt><dd>000 000 000</dd><dt>E-Mail</dt><dd>studio@ihre-domain.de</dd></dl></div>
+  <form class="rv"><input placeholder="Name" required><input type="email" placeholder="E-Mail" required><input placeholder="Art des Projekts (Neubau, Umbau, Interior …)"><textarea placeholder="Nachricht"></textarea><button class="btn">Nachricht senden →</button></form>
+</div></section>
+<footer><div class="w"><span>© Linie Architekten</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autohaus Kern – Kfz-Werkstatt Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2f3e55;--accent-ink:#fff;--ink:#16181b;--muted:#62666c;--paper:#f3f4f5;--line:#dadde0;--dark:#1b1e22}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 17px/1.6 Barlow,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1200px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;line-height:1;letter-spacing:.01em}
+h2{font-size:clamp(2.2rem,4.8vw,3.6rem);margin-bottom:16px}
+.kick{font-family:"Barlow Condensed";font-weight:600;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.btn{display:inline-block;padding:15px 28px;border-radius:6px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.95rem;transition:.2s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{filter:brightness(1.15)}
+.btn.o{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.img{position:relative;background:linear-gradient(160deg,#c8ccd0,#8d939a);border-radius:10px}
+.img::after{content:attr(data-l);position:absolute;left:14px;bottom:12px;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+header{background:var(--dark);color:#fff}
+.top{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.brand{font-family:"Barlow Condensed";font-weight:700;font-size:1.7rem;text-transform:uppercase;display:flex;gap:10px;align-items:center}
+.brand i{width:34px;height:34px;border-radius:50%;border:4px solid var(--accent);display:inline-block}
+nav{display:flex;gap:28px;font-weight:500;font-size:.95rem;color:#bfc3c8}
+nav a:hover{color:#fff}
+.call{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2;font-size:.8rem;color:#9ca1a7}
+.call b{color:#fff;font-size:1.15rem}
+.hero{background:linear-gradient(90deg,rgba(20,22,25,.96) 30%,rgba(20,22,25,.55)),linear-gradient(160deg,#5b6168,#24282c);color:#fff;padding:110px 0}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem);margin-bottom:22px}
+.hero p{color:#c3c7cc;font-size:1.12rem;max-width:520px;margin-bottom:32px}
+.quick{background:#fff;color:var(--ink);border-radius:12px;padding:30px;display:grid;gap:12px;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+.quick h3{font-size:1.6rem}
+.quick p{color:var(--muted);font-size:.92rem;margin:0}
+input,select,textarea{font:inherit;padding:13px 14px;border:1px solid var(--line);border-radius:6px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.badges{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;font-size:.92rem;color:#c3c7cc}
+.badges span::before{content:"✓ ";color:var(--accent);font-weight:700;filter:brightness(1.6)}
+section{padding:100px 0}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.svc article{background:#fff;border-radius:12px;padding:30px;border:1px solid var(--line);transition:.25s}
+.svc article:hover{border-color:var(--accent);transform:translateY(-4px)}
+.svc .ic{width:50px;height:50px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;margin-bottom:18px}
+.svc h3{font-size:1.55rem;margin-bottom:8px}
+.svc p{color:var(--muted);font-size:.95rem}
+.svc .pr{display:block;margin-top:14px;font-weight:600}
+.brands{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:"Barlow Condensed";font-weight:700;font-size:1.4rem;text-transform:uppercase;color:#a3a8ae}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split .img{aspect-ratio:5/4}
+.list{list-style:none;margin-top:20px;display:grid;gap:12px}
+.list li{display:flex;gap:12px}
+.list li::before{content:"";flex:none;width:10px;height:10px;margin-top:8px;background:var(--accent);border-radius:2px}
+.hours{background:var(--dark);color:#fff;border-radius:14px;padding:44px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}
+.hours h3{font-size:1.4rem;margin-bottom:10px}
+.hours p{color:#aeb3b9}
+footer{padding:30px 0;color:var(--muted);font-size:.85rem}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:960px){nav{display:none}.hero-grid,.split{grid-template-columns:1fr}.svc{grid-template-columns:1fr 1fr}.hours{grid-template-columns:1fr}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.svc{grid-template-columns:1fr}.call{display:none}.hours{padding:30px 22px}.hero{padding:70px 0}}
+</style>
+</head>
+<body data-vorlage="Vorlage 13 · Kfz-Werkstatt">
+<header><div class="w top">
+  <a class="brand" href="#"><i></i>Kern Kfz</a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#werkstatt">Werkstatt</a><a href="#kontakt">Öffnungszeiten</a></nav>
+  <div class="call">Direkt anrufen<b>000 000 000</b></div>
+</div></header>
+
+<section class="hero"><div class="w hero-grid">
+  <div class="rv">
+    <div class="kick" style="filter:brightness(1.8)">Meisterwerkstatt · Alle Marken</div>
+    <h1>Ihr Auto in besten Händen.</h1>
+    <p>Inspektion, Reparatur, Reifen und HU – schnell, transparent und zu fairen Preisen. Mit Kostenvoranschlag vorab.</p>
+    <a class="btn" href="#termin">Werkstatttermin buchen</a> <a class="btn o" href="#leistungen">Leistungen</a>
+    <div class="badges"><span>Festpreise</span><span>Ersatzwagen</span><span>Herstellergarantie bleibt</span></div>
+  </div>
+  <form class="quick rv" id="termin">
+    <h3>Termin anfragen</h3><p>Rückmeldung innerhalb von 2 Stunden.</p>
+    <input placeholder="Name" required><input type="tel" placeholder="Telefon" required>
+    <input placeholder="Fahrzeug (z. B. VW Golf, 2019)">
+    <select><option>Leistung wählen</option><option>Inspektion</option><option>HU/AU</option><option>Reifenwechsel</option><option>Reparatur</option><option>Klimaservice</option></select>
+    <button class="btn">Anfrage senden</button>
+  </form>
+</div></section>
+
+<section id="leistungen"><div class="w">
+  <div class="rv"><div class="kick">Leistungen</div><h2>Alles rund ums Auto.</h2></div>
+  <div class="svc">
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5Z"/></svg></div><h3>Inspektion</h3><p>Nach Herstellervorgaben – die Garantie bleibt erhalten.</p><span class="pr">ab 149 €</span></article>
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>HU / AU</h3><p>Hauptuntersuchung direkt bei uns im Haus.</p><span class="pr">ab 139 €</span></article>
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Reifenservice</h3><p>Wechsel, Einlagerung und Achsvermessung.</p><span class="pr">ab 39 €</span></article>
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div><h3>Diagnose</h3><p>Fehlerspeicher auslesen und Ursachen finden.</p><span class="pr">ab 49 €</span></article>
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></div><h3>Klimaservice</h3><p>Desinfektion, Befüllung und Dichtigkeitsprüfung.</p><span class="pr">ab 89 €</span></article>
+    <article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14l-1.5-6h-11L5 17ZM7 11l1.5-4h7L17 11"/><circle cx="8" cy="18" r="1.5"/><circle cx="16" cy="18" r="1.5"/></svg></div><h3>Unfallreparatur</h3><p>Karosserie, Lack und Abwicklung mit der Versicherung.</p><span class="pr">nach Gutachten</span></article>
+  </div>
+  <div class="brands rv" style="margin-top:60px" aria-label="Wir reparieren alle Marken"><span>Alle Marken</span><span>Benzin</span><span>Diesel</span><span>Hybrid</span><span>Elektro</span></div>
+</div></section>
+
+<section id="werkstatt" style="padding-top:0"><div class="w split">
+  <div class="img rv" data-l="Werkstattfoto"></div>
+  <div class="rv">
+    <div class="kick">Unsere Werkstatt</div><h2>Ehrlich. Schnell. Zuverlässig.</h2>
+    <p style="color:var(--muted)">Seit über 25 Jahren kümmern wir uns um die Autos unserer Kunden – und sagen offen, was nötig ist und was nicht.</p>
+    <ul class="list"><li>Kostenvoranschlag vor jeder Reparatur</li><li>Ersatzwagen und Hol- &amp; Bringservice</li><li>Moderne Diagnosetechnik für alle Marken</li></ul>
+  </div>
+</div></section>
+
+<section id="kontakt" style="padding-top:0"><div class="w"><div class="hours rv">
+  <div><h3>Öffnungszeiten</h3><p>Mo–Fr 7:30–18:00<br>Sa 8:00–13:00</p></div>
+  <div><h3>Adresse</h3><p>Gewerbering 14<br>00000 Musterstadt</p></div>
+  <div><h3>Kontakt</h3><p>000 000 000<br>service@ihre-domain.de</p></div>
+</div></div></section>
+<footer><div class="w"><span>© Kern Kfz-Meisterbetrieb</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taktwerk – Software Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2d5f63;--accent-ink:#fff;--ink:#0f1112;--muted:#61676a;--paper:#fafafa;--soft:#f0f1f1;--line:#e2e4e5}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font:400 17px/1.6 "Space Grotesk",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-weight:600;letter-spacing:-.03em;line-height:1.05}
+h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-bottom:14px}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:.82rem;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.btn{display:inline-block;padding:14px 24px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:500;font-size:.95rem;transition:.2s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.btn.o{background:#fff;color:var(--ink);border:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:rgba(250,250,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-weight:700;font-size:1.2rem;display:flex;gap:9px;align-items:center}
+.brand i{width:22px;height:22px;border-radius:6px;background:var(--accent);display:inline-block;box-shadow:6px 6px 0 -1px var(--ink)}
+nav{display:flex;gap:28px;font-size:.93rem;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{text-align:center;padding:90px 0 0}
+.hero h1{font-size:clamp(2.6rem,6.6vw,5.4rem);max-width:900px;margin:0 auto 20px}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:580px;margin:0 auto 30px}
+.app{margin:60px auto 0;max-width:1000px;background:#fff;border:1px solid var(--line);border-radius:16px 16px 0 0;box-shadow:0 -10px 60px rgba(0,0,0,.06);padding:16px;display:grid;grid-template-columns:180px 1fr;gap:16px;text-align:left}
+.side{background:var(--soft);border-radius:10px;padding:14px;display:grid;gap:8px;align-content:start}
+.side span{height:10px;border-radius:5px;background:#dcdfe0}
+.side span.on{background:var(--accent);width:70%}
+.main{display:grid;gap:14px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:14px}
+.kpi small{color:var(--muted);font-size:.78rem}
+.kpi b{display:block;font-size:1.5rem}
+.chart{border:1px solid var(--line);border-radius:10px;padding:18px;height:200px;display:flex;align-items:flex-end;gap:10px}
+.chart i{flex:1;background:var(--soft);border-radius:4px 4px 0 0}
+.chart i.a{background:var(--accent)}
+.logos{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;padding:40px 0;border-top:1px solid var(--line);font-weight:600;font-size:1.15rem;color:#b2b6b8}
+section{padding:100px 0}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.feat div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+.feat .ic{width:42px;height:42px;border-radius:10px;background:var(--soft);color:var(--accent);display:grid;place-items:center;margin-bottom:16px}
+.feat h3{font-size:1.2rem;margin-bottom:6px}
+.feat p{color:var(--muted);font-size:.94rem}
+.toggle{display:inline-flex;background:var(--soft);border-radius:10px;padding:4px;margin:20px 0 34px}
+.toggle button{font:inherit;font-size:.9rem;border:0;background:none;padding:8px 18px;border-radius:8px;cursor:pointer;color:var(--muted)}
+.toggle button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;flex-direction:column}
+.plan.hot{border:2px solid var(--accent)}
+.plan h3{font-size:1.2rem}
+.plan .pr{font-size:2.8rem;font-weight:600;letter-spacing:-.03em;margin:12px 0 2px}
+.plan .pr small{font-size:.95rem;color:var(--muted);font-weight:400}
+.plan p{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.plan ul{list-style:none;flex:1;margin-bottom:24px;display:grid;gap:10px;font-size:.94rem}
+.plan li::before{content:"✓  ";color:var(--accent);font-weight:700}
+.plan .btn{text-align:center}
+.cta{background:var(--ink);color:#fff;border-radius:24px;padding:70px 40px;text-align:center}
+.cta p{color:#a7adb0;margin-bottom:28px}
+footer{padding:40px 0;font-size:.88rem;color:var(--muted)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+@media(max-width:900px){nav{display:none}.feat,.plans{grid-template-columns:1fr}.app{grid-template-columns:1fr}.side{display:none}section{padding:80px 0}}
+@media(max-width:560px){.w{padding:0 16px}.kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(3){display:none}.top .btn.o{display:none}.cta{padding:50px 22px}.logos{gap:24px}}
+</style>
+</head>
+<body data-vorlage="Vorlage 14 · IT &amp; Software">
+<header><div class="w top">
+  <a class="brand" href="#"><i></i>taktwerk</a>
+  <nav><a href="#funktionen">Funktionen</a><a href="#preise">Preise</a><a href="#kontakt">Kontakt</a></nav>
+  <div><a class="btn o" href="#">Login</a> <a class="btn" href="#preise">Kostenlos testen</a></div>
+</div></header>
+
+<div class="w hero">
+  <span class="pill rv"><i></i>Neu: automatische Auswertungen</span>
+  <h1 class="rv">Ihr Betrieb. <span>Klar organisiert.</span></h1>
+  <p class="rv">Aufträge, Termine und Rechnungen in einer Software. Gemacht für kleine und mittlere Unternehmen.</p>
+  <div class="rv"><a class="btn" href="#preise">14 Tage kostenlos testen</a> <a class="btn o" href="#funktionen">Demo ansehen</a></div>
+  <div class="app rv" aria-hidden="true">
+    <div class="side"><span class="on"></span><span></span><span style="width:80%"></span><span style="width:60%"></span><span></span></div>
+    <div class="main">
+      <div class="kpis"><div class="kpi"><small>Offene Aufträge</small><b>24</b></div><div class="kpi"><small>Umsatz Monat</small><b>48.290 €</b></div><div class="kpi"><small>Termine heute</small><b>7</b></div></div>
+      <div class="chart"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i class="a" style="height:88%"></i><i style="height:74%"></i><i style="height:80%"></i></div>
+    </div>
+  </div>
+</div>
+<div class="w"><div class="logos">Firma A · Firma B · Firma C · Firma D · Firma E</div></div>
+
+<section id="funktionen" style="background:var(--soft)"><div class="w">
+  <div class="rv" style="text-align:center"><h2>Alles an einem Ort.</h2><p style="color:var(--muted)">Schluss mit Excel-Listen und Zettelwirtschaft.</p></div>
+  <div class="feat">
+    <div class="rv"><div class="ic">◷</div><h3>Terminplanung</h3><p>Kalender fürs ganze Team, mit Erinnerungen per SMS.</p></div>
+    <div class="rv"><div class="ic">▤</div><h3>Angebote &amp; Rechnungen</h3><p>In Sekunden erstellt, GoBD-konform archiviert.</p></div>
+    <div class="rv"><div class="ic">◎</div><h3>Kundenverwaltung</h3><p>Alle Kontakte, Notizen und Dokumente auf einen Blick.</p></div>
+    <div class="rv"><div class="ic">▲</div><h3>Auswertungen</h3><p>Umsatz, Auslastung und offene Posten live im Dashboard.</p></div>
+    <div class="rv"><div class="ic">⇄</div><h3>Schnittstellen</h3><p>Verbindet sich mit DATEV, Lexoffice und Ihrem Kalender.</p></div>
+    <div class="rv"><div class="ic">⛨</div><h3>Datenschutz</h3><p>Server in Deutschland, DSGVO-konform.</p></div>
+  </div>
+</div></section>
+
+<section id="preise"><div class="w" style="text-align:center">
+  <div class="rv"><h2>Faire Preise. Monatlich kündbar.</h2></div>
+  <div class="toggle rv" role="group" aria-label="Abrechnungszeitraum"><button aria-pressed="true" data-m="1">Monatlich</button><button aria-pressed="false" data-m="0.8">Jährlich −20 %</button></div>
+  <div class="plans" style="text-align:left">
+    <div class="plan rv"><h3>Starter</h3><div class="pr"><span data-p="19">19</span> €<small> / Monat</small></div><p>Für Selbstständige</p><ul><li>1 Nutzer</li><li>Termine &amp; Kunden</li><li>50 Rechnungen / Monat</li></ul><a class="btn o" href="#">Testen</a></div>
+    <div class="plan hot rv"><h3>Team</h3><div class="pr"><span data-p="49">49</span> €<small> / Monat</small></div><p>Am beliebtesten</p><ul><li>Bis 10 Nutzer</li><li>Alle Funktionen</li><li>Unbegrenzte Rechnungen</li><li>Schnittstellen</li></ul><a class="btn" href="#">Testen</a></div>
+    <div class="plan rv"><h3>Business</h3><div class="pr"><span data-p="99">99</span> €<small> / Monat</small></div><p>Für wachsende Betriebe</p><ul><li>Unbegrenzte Nutzer</li><li>Eigene Auswertungen</li><li>Persönlicher Support</li></ul><a class="btn o" href="#">Kontakt</a></div>
+  </div>
+</div></section>
+
+<section id="kontakt" style="padding-top:0"><div class="w"><div class="cta rv">
+  <h2>Bereit für weniger Papierkram?</h2><p>14 Tage kostenlos testen. Keine Kreditkarte nötig.</p><a class="btn" href="#">Jetzt starten</a>
+</div></div></section>
+<footer><div class="w"><span>© taktwerk</span><span>Impressum · Datenschutz · AGB</span></div></footer>
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.toggle button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.toggle button').forEach(x=>x.setAttribute('aria-pressed',x===b));document.querySelectorAll('[data-p]').forEach(s=>s.textContent=Math.round(s.dataset.p*b.dataset.m))});
+</script>
+</body>
+</html>

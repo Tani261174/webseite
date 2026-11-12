@@ -47,7 +47,7 @@ export default async function BrandPage({ params }: P) {
             {brand.slug === "neuesichmittani" ? <RoseMark className="h-8 w-8 text-gold-300" /> : null}
             {soon ? <span className="rounded-full border border-gold-300/50 px-3 py-1 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-gold-200">{t.common.comingSoon}</span> : null}
           </div>
-          <h1 className="display intro-2 mt-5 text-6xl sm:text-8xl">{brand.name}</h1>
+          <h1 className="display intro-2 mt-5 break-words text-[clamp(2.3rem,10.5vw,6rem)] leading-none">{brand.name}</h1>
           <p className="intro-3 text-gold-shine display mt-4 text-3xl italic sm:text-4xl">{brand.tagline[locale]}</p>
           <p className="intro-4 mt-8 max-w-2xl text-lg leading-relaxed text-white/70">{brand.description[locale]}</p>
           <div className="intro-4 mt-10 flex flex-col gap-3 sm:flex-row">

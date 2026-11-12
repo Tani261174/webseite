@@ -20,7 +20,7 @@ export function BrandCard({ brand, locale, cta, soonLabel, index }: { brand: Bra
             <span className="rounded-full border border-gold-300/40 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-gold-200">{soonLabel}</span>
           ) : null}
         </div>
-        <h3 className="display mt-4 text-4xl sm:text-[2.6rem]">{brand.name}</h3>
+        <h3 className="display mt-4 break-words text-[clamp(1.9rem,8vw,2.6rem)]">{brand.name}</h3>
         <p className="mt-2 text-gold-200/90">{brand.tagline[locale]}</p>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">{brand.summary[locale]}</p>
         <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white transition group-hover:gap-3 group-hover:text-gold-200">

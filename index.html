@@ -74,7 +74,13 @@ header.scrolled{background:rgba(247,246,243,.9);backdrop-filter:blur(12px);borde
 .filters button{font:inherit;font-size:.86rem;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--muted);transition:.2s}
 .filters button:hover{color:var(--ink);border-color:var(--ink)}
 .filters button[aria-pressed=true]{background:var(--ink);color:var(--white);border-color:var(--ink)}
-.tpl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}
+.tpl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 22px}
+.tools{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.search{display:flex;align-items:center;gap:10px;flex:1;max-width:520px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:0 18px;color:var(--muted)}
+.search:focus-within{border-color:var(--ink)}
+.search input{flex:1;border:0;background:none;font:inherit;font-size:.95rem;padding:13px 0;color:var(--ink);outline:none;min-width:0}
+#tcount{font-size:.88rem;color:var(--muted)}
+.none{padding:40px 0;color:var(--muted)}
 .tpl{display:block;transition:.3s}
 .tpl.hide{display:none}
 .tpl .shot{position:relative;border-radius:var(--r);overflow:hidden;background:var(--stone);aspect-ratio:16/10;border:1px solid var(--line)}
@@ -83,10 +89,10 @@ header.scrolled{background:rgba(247,246,243,.9);backdrop-filter:blur(12px);borde
 .tpl .shot .over{position:absolute;inset:0;display:grid;place-items:center;background:rgba(21,21,21,.35);opacity:0;transition:.3s}
 .tpl:hover .over{opacity:1}
 .tpl .over span{background:var(--white);color:var(--ink);padding:12px 22px;border-radius:999px;font-size:.88rem;font-weight:500}
-.tpl .info{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:20px 4px 0}
+.tpl .info{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:16px 2px 0}
 .tpl .info small{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.tpl .info h3{font-size:1.8rem}
-.tpl .info p{font-size:.92rem;color:var(--muted);margin-top:4px}
+.tpl .info h3{font-size:1.55rem}
+.tpl .info p{font-size:.88rem;color:var(--muted);margin-top:2px}
 .dots{display:flex;gap:5px;margin-top:8px}
 .dots i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
 .hint{margin-top:50px;padding:28px 32px;border-radius:var(--r);background:var(--white);border:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
@@ -175,6 +181,7 @@ footer{background:#0d0d0d;color:#8d8b85;padding:50px 0 40px;font-size:.9rem}
   .svc + .svc{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.14)}
   .steps{grid-template-columns:1fr 1fr}
   .facts .wrap{grid-template-columns:1fr 1fr;gap:28px}
+  .tpl-grid{grid-template-columns:1fr 1fr}
   .nav ul,.nav>.btn{display:none}
   .burger{display:block}
   .nav ul.open{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:var(--paper);padding:26px 24px;gap:20px;border-bottom:1px solid var(--line)}
@@ -222,7 +229,7 @@ footer{background:#0d0d0d;color:#8d8b85;padding:50px 0 40px;font-size:.9rem}
     </div>
     <div class="strip">
       <a href="vorlagen/kanzlei.html" aria-label="Vorlage Kanzlei ansehen"><img src="vorlagen/vorschau/kanzlei.jpg" alt="Vorschau Vorlage Kanzlei"></a>
-      <a href="vorlagen/fitness.html" aria-label="Vorlage Fitness ansehen"><img src="vorlagen/vorschau/fitness.jpg" alt="Vorschau Vorlage Fitness"></a>
+      <a href="vorlagen/zahnarzt.html" aria-label="Vorlage Zahnarzt ansehen"><img src="vorlagen/vorschau/zahnarzt.jpg" alt="Vorschau Vorlage Zahnarzt"></a>
       <a href="vorlagen/shop.html" aria-label="Vorlage Online-Shop ansehen"><img src="vorlagen/vorschau/shop.jpg" alt="Vorschau Vorlage Online-Shop"></a>
     </div>
   </div>
@@ -230,7 +237,7 @@ footer{background:#0d0d0d;color:#8d8b85;padding:50px 0 40px;font-size:.9rem}
 
 <div class="facts">
   <div class="wrap">
-    <div><strong>16</strong><span>Designvorlagen zur Auswahl</span></div>
+    <div><strong>57</strong><span>Designvorlagen zur Auswahl</span></div>
     <div><strong>7+</strong><span>Farbvarianten pro Vorlage</span></div>
     <div><strong>2–8</strong><span>Wochen bis zum Livegang</span></div>
     <div><strong>1</strong><span>feste Ansprechperson</span></div>
@@ -244,101 +251,316 @@ footer{background:#0d0d0d;color:#8d8b85;padding:50px 0 40px;font-size:.9rem}
         <div class="eyebrow">Vorlagen</div>
         <h2>Finden Sie Ihren Stil.<br><i>Wir machen ihn zu Ihrem.</i></h2>
       </div>
-      <p class="lead">Klicken Sie eine Vorlage an und testen Sie unten in der Leiste verschiedene Farben. So sehen Sie sofort, wie Ihre Website wirken könnte.</p>
+      <p class="lead">Für fast jede Branche gibt es eine passende Vorlage. Suchen Sie Ihre Branche, öffnen Sie die Live-Vorschau und testen Sie unten in der Leiste verschiedene Farben.</p>
     </div>
 
+<!-- KATALOG:START (automatisch erzeugt von tools/generate.py) -->
+    <div class="tools rv">
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" id="tsuche" placeholder="Branche suchen, z. B. Zahnarzt, Bäckerei, Elektriker …" aria-label="Vorlagen durchsuchen"></label>
+      <span id="tcount">57 Vorlagen</span>
+    </div>
     <div class="filters rv" role="group" aria-label="Vorlagen filtern">
       <button aria-pressed="true" data-f="alle">Alle</button>
-      <button aria-pressed="false" data-f="dienstleistung">Dienstleistung</button>
+      <button aria-pressed="false" data-f="gesundheit">Gesundheit &amp; Medizin</button>
+      <button aria-pressed="false" data-f="beauty">Beauty &amp; Wellness</button>
+      <button aria-pressed="false" data-f="sport">Sport &amp; Freizeit</button>
+      <button aria-pressed="false" data-f="handwerk">Handwerk &amp; Bau</button>
       <button aria-pressed="false" data-f="gastro">Gastronomie &amp; Hotel</button>
-      <button aria-pressed="false" data-f="handwerk">Handwerk</button>
-      <button aria-pressed="false" data-f="gesundheit">Gesundheit, Beauty &amp; Sport</button>
+      <button aria-pressed="false" data-f="dienstleistung">Dienstleistung &amp; Beratung</button>
       <button aria-pressed="false" data-f="kreativ">Kreativ &amp; Events</button>
-      <button aria-pressed="false" data-f="shop">Online-Shop</button>
+      <button aria-pressed="false" data-f="bildung">Bildung &amp; Soziales</button>
+      <button aria-pressed="false" data-f="auto">Auto &amp; Mobilität</button>
+      <button aria-pressed="false" data-f="shop">Handel &amp; Shop</button>
     </div>
-
     <div class="tpl-grid">
-      <a class="tpl rv" data-cat="dienstleistung" href="vorlagen/kanzlei.html">
+      <a class="tpl rv" data-cat="dienstleistung" data-s="kanzlei &amp; beratung klassik seriös, ruhig und auf das wesentliche reduziert." href="vorlagen/kanzlei.html">
         <div class="shot"><img src="vorlagen/vorschau/kanzlei.jpg" alt="Vorschau der Vorlage Klassik" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 01 · Kanzlei &amp; Beratung</small><h3>Klassik</h3><p>Seriös, ruhig und auf das Wesentliche reduziert.</p></div>
           <div class="dots"><i style="background:#2f3e55"></i><i style="background:#efece6"></i><i style="background:#1c1d20"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gastro" href="vorlagen/restaurant.html">
+      <a class="tpl rv" data-cat="gastro" data-s="restaurant &amp; café genuss stimmungsvoll, mit speisekarte und tischreservierung." href="vorlagen/restaurant.html">
         <div class="shot"><img src="vorlagen/vorschau/restaurant.jpg" alt="Vorschau der Vorlage Genuss" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 02 · Restaurant &amp; Café</small><h3>Genuss</h3><p>Stimmungsvoll, mit Speisekarte und Tischreservierung.</p></div>
           <div class="dots"><i style="background:#b49a78"></i><i style="background:#f6f2ec"></i><i style="background:#1a1816"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="handwerk" href="vorlagen/handwerk.html">
+      <a class="tpl rv" data-cat="handwerk" data-s="schreinerei &amp; handwerk werkstatt kräftig und direkt, mit kennzahlen und referenzen." href="vorlagen/handwerk.html">
         <div class="shot"><img src="vorlagen/vorschau/handwerk.jpg" alt="Vorschau der Vorlage Werkstatt" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 03 · Handwerk &amp; Betrieb</small><h3>Werkstatt</h3><p>Kräftig und direkt, mit Kennzahlen und Referenzen.</p></div>
+        <div class="info"><div><small>Vorlage 03 · Schreinerei &amp; Handwerk</small><h3>Werkstatt</h3><p>Kräftig und direkt, mit Kennzahlen und Referenzen.</p></div>
           <div class="dots"><i style="background:#b0613f"></i><i style="background:#f4f3f0"></i><i style="background:#161616"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gesundheit" href="vorlagen/praxis.html">
+      <a class="tpl rv" data-cat="gesundheit" data-s="physiotherapie &amp; praxis balance hell, freundlich und mit terminanfrage." href="vorlagen/praxis.html">
         <div class="shot"><img src="vorlagen/vorschau/praxis.jpg" alt="Vorschau der Vorlage Balance" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 04 · Praxis &amp; Gesundheit</small><h3>Balance</h3><p>Hell, freundlich und mit Terminanfrage.</p></div>
+        <div class="info"><div><small>Vorlage 04 · Physiotherapie &amp; Praxis</small><h3>Balance</h3><p>Hell, freundlich und mit Terminanfrage.</p></div>
           <div class="dots"><i style="background:#7d8c78"></i><i style="background:#eceeea"></i><i style="background:#1e2321"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="dienstleistung" href="vorlagen/immobilien.html">
+      <a class="tpl rv" data-cat="dienstleistung" data-s="immobilien &amp; makler prestige minimalistisch und edel, mit objektsuche." href="vorlagen/immobilien.html">
         <div class="shot"><img src="vorlagen/vorschau/immobilien.jpg" alt="Vorschau der Vorlage Prestige" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 05 · Immobilien &amp; Premium</small><h3>Prestige</h3><p>Minimalistisch und edel, mit Objektsuche.</p></div>
-          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f3f1"></i><i style="background:#fff"></i></div></div>
+        <div class="info"><div><small>Vorlage 05 · Immobilien &amp; Makler</small><h3>Prestige</h3><p>Minimalistisch und edel, mit Objektsuche.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f3f1"></i><i style="background:#ffffff"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gesundheit" href="vorlagen/studio.html">
+      <a class="tpl rv" data-cat="beauty" data-s="kosmetik &amp; beauty atelier sanft und elegant, mit preisliste und buchung." href="vorlagen/studio.html">
         <div class="shot"><img src="vorlagen/vorschau/studio.jpg" alt="Vorschau der Vorlage Atelier" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 06 · Beauty &amp; Studio</small><h3>Atelier</h3><p>Sanft und elegant, mit Preisliste und Buchung.</p></div>
+        <div class="info"><div><small>Vorlage 06 · Kosmetik &amp; Beauty</small><h3>Atelier</h3><p>Sanft und elegant, mit Preisliste und Buchung.</p></div>
           <div class="dots"><i style="background:#a89584"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gesundheit" href="vorlagen/fitness.html">
+      <a class="tpl rv" data-cat="sport" data-s="fitness &amp; personal training energie dunkel und kraftvoll, mit paketen und probetraining." href="vorlagen/fitness.html">
         <div class="shot"><img src="vorlagen/vorschau/fitness.jpg" alt="Vorschau der Vorlage Energie" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 07 · Fitness &amp; Coaching</small><h3>Energie</h3><p>Dunkel und kraftvoll, mit Paketen und Probetraining.</p></div>
+        <div class="info"><div><small>Vorlage 07 · Fitness &amp; Personal Training</small><h3>Energie</h3><p>Dunkel und kraftvoll, mit Paketen und Probetraining.</p></div>
           <div class="dots"><i style="background:#b49a78"></i><i style="background:#1b1b1b"></i><i style="background:#f2f1ee"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gesundheit" href="vorlagen/friseur.html">
+      <a class="tpl rv" data-cat="beauty" data-s="friseur &amp; salon kante modern und selbstbewusst, mit preisliste und team." href="vorlagen/friseur.html">
         <div class="shot"><img src="vorlagen/vorschau/friseur.jpg" alt="Vorschau der Vorlage Kante" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 08 · Friseur &amp; Salon</small><h3>Kante</h3><p>Modern und selbstbewusst, mit Preisliste und Team.</p></div>
           <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#efede8"></i><i style="background:#faf9f6"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="shop" href="vorlagen/shop.html">
+      <a class="tpl rv" data-cat="shop" data-s="online-shop manufaktur produkte, kategorien und warenkorb – bereit zum verkaufen." href="vorlagen/shop.html">
         <div class="shot"><img src="vorlagen/vorschau/shop.jpg" alt="Vorschau der Vorlage Manufaktur" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 09 · Online-Shop</small><h3>Manufaktur</h3><p>Produkte, Kategorien und Warenkorb – bereit zum Verkaufen.</p></div>
           <div class="dots"><i style="background:#2f3e55"></i><i style="background:#f4f2ee"></i><i style="background:#ffffff"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="gastro" href="vorlagen/hotel.html">
+      <a class="tpl rv" data-cat="gastro" data-s="hotel &amp; ferienwohnung seeblick ruhig und einladend, mit zimmern und verfügbarkeitssuche." href="vorlagen/hotel.html">
         <div class="shot"><img src="vorlagen/vorschau/hotel.jpg" alt="Vorschau der Vorlage Seeblick" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 10 · Hotel &amp; Ferienwohnung</small><h3>Seeblick</h3><p>Ruhig und einladend, mit Zimmern und Verfügbarkeitssuche.</p></div>
           <div class="dots"><i style="background:#2d5f63"></i><i style="background:#eeece7"></i><i style="background:#1d2120"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="kreativ" href="vorlagen/fotografie.html">
+      <a class="tpl rv" data-cat="kreativ" data-s="fotografie linse ruhiges portfolio mit bildergalerie, filter und paketen." href="vorlagen/fotografie.html">
         <div class="shot"><img src="vorlagen/vorschau/fotografie.jpg" alt="Vorschau der Vorlage Linse" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 11 · Fotografie &amp; Kreativ</small><h3>Linse</h3><p>Ruhiges Portfolio mit Bildergalerie, Filter und Paketen.</p></div>
+        <div class="info"><div><small>Vorlage 11 · Fotografie</small><h3>Linse</h3><p>Ruhiges Portfolio mit Bildergalerie, Filter und Paketen.</p></div>
           <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f2ef"></i><i style="background:#ffffff"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="kreativ" href="vorlagen/architektur.html">
+      <a class="tpl rv" data-cat="kreativ" data-s="architektur &amp; interior raster klares raster, große typografie, projekte im fokus." href="vorlagen/architektur.html">
         <div class="shot"><img src="vorlagen/vorschau/architektur.jpg" alt="Vorschau der Vorlage Raster" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 12 · Architektur &amp; Interior</small><h3>Raster</h3><p>Klares Raster, große Typografie, Projekte im Fokus.</p></div>
           <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f2f2f0"></i><i style="background:#111111"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="handwerk" href="vorlagen/kfz.html">
+      <a class="tpl rv" data-cat="auto" data-s="kfz-werkstatt garage terminformular direkt im kopfbereich, leistungen mit preisen." href="vorlagen/kfz.html">
         <div class="shot"><img src="vorlagen/vorschau/kfz.jpg" alt="Vorschau der Vorlage Garage" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
-        <div class="info"><div><small>Vorlage 13 · Kfz-Werkstatt</small><h3>Garage</h3><p>Termin-Formular direkt im Kopfbereich, Leistungen mit Preisen.</p></div>
+        <div class="info"><div><small>Vorlage 13 · Kfz-Werkstatt</small><h3>Garage</h3><p>Terminformular direkt im Kopfbereich, Leistungen mit Preisen.</p></div>
           <div class="dots"><i style="background:#2f3e55"></i><i style="background:#f3f4f5"></i><i style="background:#1b1e22"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="dienstleistung" href="vorlagen/software.html">
+      <a class="tpl rv" data-cat="dienstleistung" data-s="it &amp; software digital modern wie ein startup, mit app-vorschau und preisumschalter." href="vorlagen/software.html">
         <div class="shot"><img src="vorlagen/vorschau/software.jpg" alt="Vorschau der Vorlage Digital" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 14 · IT &amp; Software</small><h3>Digital</h3><p>Modern wie ein Startup, mit App-Vorschau und Preisumschalter.</p></div>
           <div class="dots"><i style="background:#2d5f63"></i><i style="background:#f0f1f1"></i><i style="background:#0f1112"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="kreativ" href="vorlagen/event.html">
+      <a class="tpl rv" data-cat="kreativ" data-s="hochzeit &amp; events festlich romantisch und elegant, mit ablauf und anfrageformular." href="vorlagen/event.html">
         <div class="shot"><img src="vorlagen/vorschau/event.jpg" alt="Vorschau der Vorlage Festlich" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 15 · Hochzeit &amp; Events</small><h3>Festlich</h3><p>Romantisch und elegant, mit Ablauf und Anfrageformular.</p></div>
           <div class="dots"><i style="background:#b49a78"></i><i style="background:#f3eee7"></i><i style="background:#2a2724"></i></div></div>
       </a>
-      <a class="tpl rv" data-cat="dienstleistung" href="vorlagen/reinigung.html">
+      <a class="tpl rv" data-cat="dienstleistung" data-s="reinigung &amp; gebäudeservice klar freundlich und vertrauensvoll, mit angebotsrechner." href="vorlagen/reinigung.html">
         <div class="shot"><img src="vorlagen/vorschau/reinigung.jpg" alt="Vorschau der Vorlage Klar" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
         <div class="info"><div><small>Vorlage 16 · Reinigung &amp; Gebäudeservice</small><h3>Klar</h3><p>Freundlich und vertrauensvoll, mit Angebotsrechner.</p></div>
           <div class="dots"><i style="background:#7d8c78"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
       </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="zahnarztpraxis lächeln freundlich und modern, mit terminanfrage." href="vorlagen/zahnarzt.html">
+        <div class="shot"><img src="vorlagen/vorschau/zahnarzt.jpg" alt="Vorschau der Vorlage Lächeln" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 17 · Zahnarztpraxis</small><h3>Lächeln</h3><p>Freundlich und modern, mit Terminanfrage.</p></div>
+          <div class="dots"><i style="background:#2d5f63"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="hausarztpraxis vertrauen seriös und ruhig, ideal für arztpraxen." href="vorlagen/hausarzt.html">
+        <div class="shot"><img src="vorlagen/vorschau/hausarzt.jpg" alt="Vorschau der Vorlage Vertrauen" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 18 · Hausarztpraxis</small><h3>Vertrauen</h3><p>Seriös und ruhig, ideal für Arztpraxen.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#efece6"></i><i style="background:#1d1e21"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="tierarztpraxis pfote warm und freundlich, für tierarztpraxen." href="vorlagen/tierarzt.html">
+        <div class="shot"><img src="vorlagen/vorschau/tierarzt.jpg" alt="Vorschau der Vorlage Pfote" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 19 · Tierarztpraxis</small><h3>Pfote</h3><p>Warm und freundlich, für Tierarztpraxen.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="psychotherapie &amp; coaching ruhe ruhig und vertrauensvoll, für therapie und coaching." href="vorlagen/psychotherapie.html">
+        <div class="shot"><img src="vorlagen/vorschau/psychotherapie.jpg" alt="Vorschau der Vorlage Ruhe" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 20 · Psychotherapie &amp; Coaching</small><h3>Ruhe</h3><p>Ruhig und vertrauensvoll, für Therapie und Coaching.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="pflegedienst fürsorge herzlich und vertrauensvoll, für pflege und soziales." href="vorlagen/pflegedienst.html">
+        <div class="shot"><img src="vorlagen/vorschau/pflegedienst.jpg" alt="Vorschau der Vorlage Fürsorge" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 21 · Pflegedienst</small><h3>Fürsorge</h3><p>Herzlich und vertrauensvoll, für Pflege und Soziales.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gesundheit" data-s="optiker &amp; hörakustik durchblick klar und minimalistisch, für optik und fachhandel." href="vorlagen/optiker.html">
+        <div class="shot"><img src="vorlagen/vorschau/optiker.jpg" alt="Vorschau der Vorlage Durchblick" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 22 · Optiker &amp; Hörakustik</small><h3>Durchblick</h3><p>Klar und minimalistisch, für Optik und Fachhandel.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="beauty" data-s="massage &amp; wellness auszeit sanft und ruhig, für massage und wellness." href="vorlagen/spa.html">
+        <div class="shot"><img src="vorlagen/vorschau/spa.jpg" alt="Vorschau der Vorlage Auszeit" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 23 · Massage &amp; Wellness</small><h3>Auszeit</h3><p>Sanft und ruhig, für Massage und Wellness.</p></div>
+          <div class="dots"><i style="background:#b49a78"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="beauty" data-s="nagelstudio glanz modern und frisch, für nagel- und kosmetikstudios." href="vorlagen/nagelstudio.html">
+        <div class="shot"><img src="vorlagen/vorschau/nagelstudio.jpg" alt="Vorschau der Vorlage Glanz" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 24 · Nagelstudio</small><h3>Glanz</h3><p>Modern und frisch, für Nagel- und Kosmetikstudios.</p></div>
+          <div class="dots"><i style="background:#b49a78"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="beauty" data-s="tattoo- &amp; piercingstudio ink dunkel und kraftvoll, für tattoo- und piercingstudios." href="vorlagen/tattoo.html">
+        <div class="shot"><img src="vorlagen/vorschau/tattoo.jpg" alt="Vorschau der Vorlage Ink" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 25 · Tattoo- &amp; Piercingstudio</small><h3>Ink</h3><p>Dunkel und kraftvoll, für Tattoo- und Piercingstudios.</p></div>
+          <div class="dots"><i style="background:#7a2430"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="sport" data-s="yoga &amp; pilates atem minimalistisch und ruhig, für yoga und pilates." href="vorlagen/yoga.html">
+        <div class="shot"><img src="vorlagen/vorschau/yoga.jpg" alt="Vorschau der Vorlage Atem" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 26 · Yoga &amp; Pilates</small><h3>Atem</h3><p>Minimalistisch und ruhig, für Yoga und Pilates.</p></div>
+          <div class="dots"><i style="background:#b49a78"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="sport" data-s="sportverein team sportlich und kraftvoll, für vereine." href="vorlagen/sportverein.html">
+        <div class="shot"><img src="vorlagen/vorschau/sportverein.jpg" alt="Vorschau der Vorlage Team" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 27 · Sportverein</small><h3>Team</h3><p>Sportlich und kraftvoll, für Vereine.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="sport" data-s="tanzschule rhythmus lebendig und modern, für tanz- und musikschulen." href="vorlagen/tanzschule.html">
+        <div class="shot"><img src="vorlagen/vorschau/tanzschule.jpg" alt="Vorschau der Vorlage Rhythmus" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 28 · Tanzschule</small><h3>Rhythmus</h3><p>Lebendig und modern, für Tanz- und Musikschulen.</p></div>
+          <div class="dots"><i style="background:#7a2430"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="sport" data-s="hundeschule &amp; tierbetreuung bello freundlich und warm, für hundeschulen und tierbetreuung." href="vorlagen/hundeschule.html">
+        <div class="shot"><img src="vorlagen/vorschau/hundeschule.jpg" alt="Vorschau der Vorlage Bello" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 29 · Hundeschule &amp; Tierbetreuung</small><h3>Bello</h3><p>Freundlich und warm, für Hundeschulen und Tierbetreuung.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="bildung" data-s="musikschule klang klar und modern, für musik- und kunstschulen." href="vorlagen/musikschule.html">
+        <div class="shot"><img src="vorlagen/vorschau/musikschule.jpg" alt="Vorschau der Vorlage Klang" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 30 · Musikschule</small><h3>Klang</h3><p>Klar und modern, für Musik- und Kunstschulen.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="bildung" data-s="nachhilfe &amp; lernstudio lernweg freundlich und klar, für nachhilfe und bildung." href="vorlagen/nachhilfe.html">
+        <div class="shot"><img src="vorlagen/vorschau/nachhilfe.jpg" alt="Vorschau der Vorlage Lernweg" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 31 · Nachhilfe &amp; Lernstudio</small><h3>Lernweg</h3><p>Freundlich und klar, für Nachhilfe und Bildung.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="bildung" data-s="kita &amp; kindertagespflege kinderwelt fröhlich und warm, für kitas und kinderbetreuung." href="vorlagen/kita.html">
+        <div class="shot"><img src="vorlagen/vorschau/kita.jpg" alt="Vorschau der Vorlage Kinderwelt" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 32 · Kita &amp; Kindertagespflege</small><h3>Kinderwelt</h3><p>Fröhlich und warm, für Kitas und Kinderbetreuung.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="bildung" data-s="verein &amp; gemeinnützige organisation gemeinsam offen und einladend, für vereine und initiativen." href="vorlagen/verein.html">
+        <div class="shot"><img src="vorlagen/vorschau/verein.jpg" alt="Vorschau der Vorlage Gemeinsam" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 33 · Verein &amp; Gemeinnützige Organisation</small><h3>Gemeinsam</h3><p>Offen und einladend, für Vereine und Initiativen.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="elektriker strom kraftvoll und klar, für elektro- und technikbetriebe." href="vorlagen/elektriker.html">
+        <div class="shot"><img src="vorlagen/vorschau/elektriker.jpg" alt="Vorschau der Vorlage Strom" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 34 · Elektriker</small><h3>Strom</h3><p>Kraftvoll und klar, für Elektro- und Technikbetriebe.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="sanitär &amp; heizung wärme solide und direkt, für sanitär- und heizungsbetriebe." href="vorlagen/sanitaer.html">
+        <div class="shot"><img src="vorlagen/vorschau/sanitaer.jpg" alt="Vorschau der Vorlage Wärme" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 35 · Sanitär &amp; Heizung</small><h3>Wärme</h3><p>Solide und direkt, für Sanitär- und Heizungsbetriebe.</p></div>
+          <div class="dots"><i style="background:#2d5f63"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="maler &amp; lackierer farbe freundlich und frisch, für maler und raumausstatter." href="vorlagen/maler.html">
+        <div class="shot"><img src="vorlagen/vorschau/maler.jpg" alt="Vorschau der Vorlage Farbe" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 36 · Maler &amp; Lackierer</small><h3>Farbe</h3><p>Freundlich und frisch, für Maler und Raumausstatter.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="dachdecker &amp; zimmerei dach robust und kraftvoll, für dachdecker und zimmereien." href="vorlagen/dachdecker.html">
+        <div class="shot"><img src="vorlagen/vorschau/dachdecker.jpg" alt="Vorschau der Vorlage Dach" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 37 · Dachdecker &amp; Zimmerei</small><h3>Dach</h3><p>Robust und kraftvoll, für Dachdecker und Zimmereien.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="garten- &amp; landschaftsbau grün natürlich und elegant, für garten- und landschaftsbau." href="vorlagen/galabau.html">
+        <div class="shot"><img src="vorlagen/vorschau/galabau.jpg" alt="Vorschau der Vorlage Grün" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 38 · Garten- &amp; Landschaftsbau</small><h3>Grün</h3><p>Natürlich und elegant, für Garten- und Landschaftsbau.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#efece6"></i><i style="background:#1d1e21"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="bauunternehmen bau klar und groß gedacht, für bauunternehmen." href="vorlagen/bauunternehmen.html">
+        <div class="shot"><img src="vorlagen/vorschau/bauunternehmen.jpg" alt="Vorschau der Vorlage Bau" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 39 · Bauunternehmen</small><h3>Bau</h3><p>Klar und groß gedacht, für Bauunternehmen.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="handwerk" data-s="solar &amp; energie sonne modern und klar, für energie- und technikfirmen." href="vorlagen/solar.html">
+        <div class="shot"><img src="vorlagen/vorschau/solar.jpg" alt="Vorschau der Vorlage Sonne" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 40 · Solar &amp; Energie</small><h3>Sonne</h3><p>Modern und klar, für Energie- und Technikfirmen.</p></div>
+          <div class="dots"><i style="background:#2d5f63"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="umzug &amp; transport umzug freundlich und zupackend, für umzug und transport." href="vorlagen/umzug.html">
+        <div class="shot"><img src="vorlagen/vorschau/umzug.jpg" alt="Vorschau der Vorlage Umzug" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 41 · Umzug &amp; Transport</small><h3>Umzug</h3><p>Freundlich und zupackend, für Umzug und Transport.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#f2f4f4"></i><i style="background:#1b2023"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gastro" data-s="bäckerei &amp; konditorei backstube klassisch und warm, für bäckereien und konditoreien." href="vorlagen/baeckerei.html">
+        <div class="shot"><img src="vorlagen/vorschau/baeckerei.jpg" alt="Vorschau der Vorlage Backstube" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 42 · Bäckerei &amp; Konditorei</small><h3>Backstube</h3><p>Klassisch und warm, für Bäckereien und Konditoreien.</p></div>
+          <div class="dots"><i style="background:#b49a78"></i><i style="background:#efece6"></i><i style="background:#1d1e21"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gastro" data-s="catering &amp; foodtruck genusswerk appetitlich und modern, für catering und foodtrucks." href="vorlagen/catering.html">
+        <div class="shot"><img src="vorlagen/vorschau/catering.jpg" alt="Vorschau der Vorlage Genusswerk" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 43 · Catering &amp; Foodtruck</small><h3>Genusswerk</h3><p>Appetitlich und modern, für Catering und Foodtrucks.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gastro" data-s="bar &amp; lounge nachtschicht dunkel und stilvoll, für bars und lounges." href="vorlagen/bar.html">
+        <div class="shot"><img src="vorlagen/vorschau/bar.jpg" alt="Vorschau der Vorlage Nachtschicht" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 44 · Bar &amp; Lounge</small><h3>Nachtschicht</h3><p>Dunkel und stilvoll, für Bars und Lounges.</p></div>
+          <div class="dots"><i style="background:#7a2430"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="gastro" data-s="weingut &amp; hofladen rebe edel und naturverbunden, für weingüter und hofläden." href="vorlagen/weingut.html">
+        <div class="shot"><img src="vorlagen/vorschau/weingut.jpg" alt="Vorschau der Vorlage Rebe" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 45 · Weingut &amp; Hofladen</small><h3>Rebe</h3><p>Edel und naturverbunden, für Weingüter und Hofläden.</p></div>
+          <div class="dots"><i style="background:#7a2430"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="unternehmensberatung strategie klar und souverän, für beratung und agenturen." href="vorlagen/beratung.html">
+        <div class="shot"><img src="vorlagen/vorschau/beratung.jpg" alt="Vorschau der Vorlage Strategie" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 46 · Unternehmensberatung</small><h3>Strategie</h3><p>Klar und souverän, für Beratung und Agenturen.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="versicherung &amp; finanzberatung sicherheit seriös und vertrauensvoll, für finanzen und versicherungen." href="vorlagen/finanzberatung.html">
+        <div class="shot"><img src="vorlagen/vorschau/finanzberatung.jpg" alt="Vorschau der Vorlage Sicherheit" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 47 · Versicherung &amp; Finanzberatung</small><h3>Sicherheit</h3><p>Seriös und vertrauensvoll, für Finanzen und Versicherungen.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#efece6"></i><i style="background:#1d1e21"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="kreativ" data-s="marketing- &amp; werbeagentur idee selbstbewusst und klar, für agenturen und kreative." href="vorlagen/marketing.html">
+        <div class="shot"><img src="vorlagen/vorschau/marketing.jpg" alt="Vorschau der Vorlage Idee" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 48 · Marketing- &amp; Werbeagentur</small><h3>Idee</h3><p>Selbstbewusst und klar, für Agenturen und Kreative.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="personalvermittlung talent modern und vertrauensvoll, für personal und recruiting." href="vorlagen/personal.html">
+        <div class="shot"><img src="vorlagen/vorschau/personal.jpg" alt="Vorschau der Vorlage Talent" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 49 · Personalvermittlung</small><h3>Talent</h3><p>Modern und vertrauensvoll, für Personal und Recruiting.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="hausverwaltung verwaltung klassisch und verlässlich, für verwaltung und immobilien." href="vorlagen/hausverwaltung.html">
+        <div class="shot"><img src="vorlagen/vorschau/hausverwaltung.jpg" alt="Vorschau der Vorlage Verwaltung" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 50 · Hausverwaltung</small><h3>Verwaltung</h3><p>Klassisch und verlässlich, für Verwaltung und Immobilien.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#efece6"></i><i style="background:#1d1e21"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="sicherheitsdienst schutz stark und seriös, für sicherheitsdienste." href="vorlagen/sicherheit.html">
+        <div class="shot"><img src="vorlagen/vorschau/sicherheit.jpg" alt="Vorschau der Vorlage Schutz" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 51 · Sicherheitsdienst</small><h3>Schutz</h3><p>Stark und seriös, für Sicherheitsdienste.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="dienstleistung" data-s="bestattungen abschied ruhig und würdevoll, für bestattungshäuser." href="vorlagen/bestatter.html">
+        <div class="shot"><img src="vorlagen/vorschau/bestatter.jpg" alt="Vorschau der Vorlage Abschied" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 52 · Bestattungen</small><h3>Abschied</h3><p>Ruhig und würdevoll, für Bestattungshäuser.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="auto" data-s="fahrschule führerschein frisch und modern, für fahrschulen." href="vorlagen/fahrschule.html">
+        <div class="shot"><img src="vorlagen/vorschau/fahrschule.jpg" alt="Vorschau der Vorlage Führerschein" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 53 · Fahrschule</small><h3>Führerschein</h3><p>Frisch und modern, für Fahrschulen.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#eceeef"></i><i style="background:#1c2124"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="auto" data-s="autohaus &amp; gebrauchtwagen fahrzeug kraftvoll und klar, für autohäuser und händler." href="vorlagen/autohaus.html">
+        <div class="shot"><img src="vorlagen/vorschau/autohaus.jpg" alt="Vorschau der Vorlage Fahrzeug" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 54 · Autohaus &amp; Gebrauchtwagen</small><h3>Fahrzeug</h3><p>Kraftvoll und klar, für Autohäuser und Händler.</p></div>
+          <div class="dots"><i style="background:#b0613f"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="auto" data-s="taxi, kurier &amp; logistik unterwegs schnell und direkt, für taxi, kurier und logistik." href="vorlagen/transport.html">
+        <div class="shot"><img src="vorlagen/vorschau/transport.jpg" alt="Vorschau der Vorlage Unterwegs" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 55 · Taxi, Kurier &amp; Logistik</small><h3>Unterwegs</h3><p>Schnell und direkt, für Taxi, Kurier und Logistik.</p></div>
+          <div class="dots"><i style="background:#2f3e55"></i><i style="background:#161616"></i><i style="background:#f4f3f0"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="shop" data-s="blumenladen &amp; floristik blüte sanft und blumig, für floristen und gärtnereien." href="vorlagen/blumen.html">
+        <div class="shot"><img src="vorlagen/vorschau/blumen.jpg" alt="Vorschau der Vorlage Blüte" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 56 · Blumenladen &amp; Floristik</small><h3>Blüte</h3><p>Sanft und blumig, für Floristen und Gärtnereien.</p></div>
+          <div class="dots"><i style="background:#7d8c78"></i><i style="background:#f1ebe5"></i><i style="background:#2a2523"></i></div></div>
+      </a>
+      <a class="tpl rv" data-cat="shop" data-s="modeboutique &amp; einzelhandel boutique reduziert und stilvoll, für boutiquen und einzelhandel." href="vorlagen/mode.html">
+        <div class="shot"><img src="vorlagen/vorschau/mode.jpg" alt="Vorschau der Vorlage Boutique" loading="lazy"><div class="over"><span>Live-Vorschau öffnen →</span></div></div>
+        <div class="info"><div><small>Vorlage 57 · Modeboutique &amp; Einzelhandel</small><h3>Boutique</h3><p>Reduziert und stilvoll, für Boutiquen und Einzelhandel.</p></div>
+          <div class="dots"><i style="background:#2b2b2b"></i><i style="background:#f3f3f1"></i><i style="background:#111111"></i></div></div>
+      </a>
     </div>
+    <p class="none" id="tnone" hidden>Keine passende Vorlage gefunden – fragen Sie uns einfach nach einer individuellen Lösung.</p>
+<!-- KATALOG:END -->
 
     <div class="hint rv">
       <p><b>Ihre Branche ist nicht dabei?</b> Jede Vorlage lässt sich auf andere Branchen übertragen. Oder wir entwerfen Ihre Website komplett individuell.</p>
@@ -477,22 +699,65 @@ footer{background:#0d0d0d;color:#8d8b85;padding:50px 0 40px;font-size:.9rem}
       <label>Wunsch-Vorlage
         <select name="vorlage" id="vorlage">
           <option>Noch unsicher – bitte beraten</option>
+<!-- OPTIONEN:START -->
           <option>01 Klassik (Kanzlei &amp; Beratung)</option>
           <option>02 Genuss (Restaurant &amp; Café)</option>
-          <option>03 Werkstatt (Handwerk)</option>
-          <option>04 Balance (Praxis &amp; Gesundheit)</option>
-          <option>05 Prestige (Immobilien &amp; Premium)</option>
-          <option>06 Atelier (Beauty &amp; Studio)</option>
-          <option>07 Energie (Fitness &amp; Coaching)</option>
+          <option>03 Werkstatt (Schreinerei &amp; Handwerk)</option>
+          <option>04 Balance (Physiotherapie &amp; Praxis)</option>
+          <option>05 Prestige (Immobilien &amp; Makler)</option>
+          <option>06 Atelier (Kosmetik &amp; Beauty)</option>
+          <option>07 Energie (Fitness &amp; Personal Training)</option>
           <option>08 Kante (Friseur &amp; Salon)</option>
           <option>09 Manufaktur (Online-Shop)</option>
           <option>10 Seeblick (Hotel &amp; Ferienwohnung)</option>
-          <option>11 Linse (Fotografie &amp; Kreativ)</option>
+          <option>11 Linse (Fotografie)</option>
           <option>12 Raster (Architektur &amp; Interior)</option>
           <option>13 Garage (Kfz-Werkstatt)</option>
           <option>14 Digital (IT &amp; Software)</option>
           <option>15 Festlich (Hochzeit &amp; Events)</option>
           <option>16 Klar (Reinigung &amp; Gebäudeservice)</option>
+          <option>17 Lächeln (Zahnarztpraxis)</option>
+          <option>18 Vertrauen (Hausarztpraxis)</option>
+          <option>19 Pfote (Tierarztpraxis)</option>
+          <option>20 Ruhe (Psychotherapie &amp; Coaching)</option>
+          <option>21 Fürsorge (Pflegedienst)</option>
+          <option>22 Durchblick (Optiker &amp; Hörakustik)</option>
+          <option>23 Auszeit (Massage &amp; Wellness)</option>
+          <option>24 Glanz (Nagelstudio)</option>
+          <option>25 Ink (Tattoo- &amp; Piercingstudio)</option>
+          <option>26 Atem (Yoga &amp; Pilates)</option>
+          <option>27 Team (Sportverein)</option>
+          <option>28 Rhythmus (Tanzschule)</option>
+          <option>29 Bello (Hundeschule &amp; Tierbetreuung)</option>
+          <option>30 Klang (Musikschule)</option>
+          <option>31 Lernweg (Nachhilfe &amp; Lernstudio)</option>
+          <option>32 Kinderwelt (Kita &amp; Kindertagespflege)</option>
+          <option>33 Gemeinsam (Verein &amp; Gemeinnützige Organisation)</option>
+          <option>34 Strom (Elektriker)</option>
+          <option>35 Wärme (Sanitär &amp; Heizung)</option>
+          <option>36 Farbe (Maler &amp; Lackierer)</option>
+          <option>37 Dach (Dachdecker &amp; Zimmerei)</option>
+          <option>38 Grün (Garten- &amp; Landschaftsbau)</option>
+          <option>39 Bau (Bauunternehmen)</option>
+          <option>40 Sonne (Solar &amp; Energie)</option>
+          <option>41 Umzug (Umzug &amp; Transport)</option>
+          <option>42 Backstube (Bäckerei &amp; Konditorei)</option>
+          <option>43 Genusswerk (Catering &amp; Foodtruck)</option>
+          <option>44 Nachtschicht (Bar &amp; Lounge)</option>
+          <option>45 Rebe (Weingut &amp; Hofladen)</option>
+          <option>46 Strategie (Unternehmensberatung)</option>
+          <option>47 Sicherheit (Versicherung &amp; Finanzberatung)</option>
+          <option>48 Idee (Marketing- &amp; Werbeagentur)</option>
+          <option>49 Talent (Personalvermittlung)</option>
+          <option>50 Verwaltung (Hausverwaltung)</option>
+          <option>51 Schutz (Sicherheitsdienst)</option>
+          <option>52 Abschied (Bestattungen)</option>
+          <option>53 Führerschein (Fahrschule)</option>
+          <option>54 Fahrzeug (Autohaus &amp; Gebrauchtwagen)</option>
+          <option>55 Unterwegs (Taxi, Kurier &amp; Logistik)</option>
+          <option>56 Blüte (Blumenladen &amp; Floristik)</option>
+          <option>57 Boutique (Modeboutique &amp; Einzelhandel)</option>
+<!-- OPTIONEN:END -->
           <option>Komplett individuell</option>
         </select>
       </label>
@@ -520,11 +785,17 @@ addEventListener('scroll',onScroll,{passive:true});onScroll();
 function toggleMenu(b){const m=document.getElementById('menu');const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)}
 document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('open')));
 
+let fCat='alle';
+function applyFilter(){
+  const q=(document.getElementById('tsuche').value||'').trim().toLowerCase();let n=0;
+  document.querySelectorAll('.tpl').forEach(t=>{const ok=(fCat==='alle'||t.dataset.cat===fCat)&&(!q||t.dataset.s.includes(q));t.classList.toggle('hide',!ok);if(ok){n++;t.classList.add('in')}});
+  document.getElementById('tcount').textContent=n+(n===1?' Vorlage':' Vorlagen');
+  document.getElementById('tnone').hidden=n>0;
+}
 document.querySelectorAll('.filters button').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('.filters button').forEach(b=>b.setAttribute('aria-pressed',b===btn));
-  const f=btn.dataset.f;
-  document.querySelectorAll('.tpl').forEach(t=>t.classList.toggle('hide',f!=='alle'&&t.dataset.cat!==f));
+  document.querySelectorAll('.filters button').forEach(b=>b.setAttribute('aria-pressed',b===btn));fCat=btn.dataset.f;applyFilter();
 }));
+document.getElementById('tsuche').addEventListener('input',applyFilter);
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});

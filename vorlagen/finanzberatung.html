@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brandt Finanzpartner – Versicherung &amp; Finanzberatung Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2f3e55;--accent-ink:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+.img{position:relative}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55}
+[class*=grid]>*,.split>*{min-width:0}
+h1,h2,h3{overflow-wrap:break-word}
+@media(max-width:560px){.w{padding:0 16px}h1,h2{hyphens:auto;-webkit-hyphens:auto}}
+
+:root{--ink:#1d1e21;--muted:#64666b;--paper:#fbfaf8;--stone:#efece6;--line:#dedad2}
+body{font:400 17px/1.7 Inter,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-family:Lora,Georgia,serif;font-weight:500;line-height:1.18}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);margin-bottom:16px}
+h1 em,h2 em{color:var(--accent);font-style:italic}
+.kick{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+.btn{display:inline-block;padding:15px 28px;background:var(--accent);color:var(--accent-ink);font-weight:600;font-size:.93rem;border:0;cursor:pointer;transition:.25s}
+.btn:hover{filter:brightness(1.15)}
+.btn.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.img{background:radial-gradient(120% 90% at 30% 20%,#ebe7e0 0%,#cfc8bc 60%,#b6ad9f 100%);color:#000}
+header{border-bottom:1px solid var(--line)}
+.top{display:flex;justify-content:space-between;align-items:center;height:84px;gap:20px}
+.brand{font-family:Lora,serif;font-size:1.3rem;font-weight:600}
+.brand small{display:block;font-family:Inter;font-weight:500;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+nav{display:flex;gap:30px;font-size:.92rem;color:var(--muted)}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:600px}
+.hero .t{padding:90px 56px 90px max(24px,calc((100vw - 1180px)/2 + 24px));display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-size:clamp(2.3rem,4.6vw,3.6rem);margin-bottom:22px}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:500px;margin-bottom:34px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.areas{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:46px}
+.area{padding:36px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:.3s}
+.area:hover{background:#fff}
+.area span{font-family:Lora;color:var(--accent);font-style:italic}
+.area h3{font-size:1.28rem;margin:12px 0 8px}
+.area p{color:var(--muted);font-size:.95rem}
+.band{background:var(--stone)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.split .img{aspect-ratio:4/5}
+.pts{list-style:none;margin:22px 0}
+.pts li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.pts li::before{content:"—";color:var(--accent)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+.nums b{font-family:Lora;font-size:2.1rem;font-weight:500;color:var(--accent);display:block;line-height:1.1}
+.nums span{font-size:.85rem;color:var(--muted)}
+.plist{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:40px}
+.prow{display:flex;justify-content:space-between;gap:20px;padding:16px 0;border-bottom:1px solid var(--line)}
+.prow b{font-family:Lora;font-weight:500;white-space:nowrap}
+.contact{background:var(--ink);color:#f3f1ed}
+.contact .kick{color:#cbc6bc}
+.contact p{color:#b8b4ac}
+form{display:grid;gap:12px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select,textarea{padding:14px 16px;background:transparent;border:1px solid #4b4c51;color:#fff;width:100%}
+select option{color:#111}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#fff}
+textarea{min-height:110px}
+footer{background:#141518;color:#8d8b86;font-size:.85rem;padding:28px 0}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){nav{display:none}.hero,.split{grid-template-columns:1fr}.hero .t{padding:64px 24px}.hero .img{min-height:300px}.areas,.plist{grid-template-columns:1fr}.split{gap:40px}section{padding:80px 0}}
+@media(max-width:560px){.hero .t{padding:56px 16px}.r2,.nums{grid-template-columns:1fr}.top .btn{display:none}}
+
+</style>
+</head>
+<body data-vorlage="Vorlage 47 · Versicherung &amp; Finanzberatung">
+
+<header><div class="w top">
+  <a class="brand" href="#">Brandt Finanzpartner<small>Versicherungsmakler</small></a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#ueber">Über uns</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#kontakt">Beratung vereinbaren</a>
+</div></header>
+<section class="hero" style="padding:0">
+  <div class="t">
+    <div class="kick">Unabhängige Beratung</div>
+    <h1>Gut abgesichert, <em>klar beraten.</em></h1>
+    <p>Versicherungen, Vorsorge und Finanzierung – verständlich erklärt und unabhängig verglichen.</p>
+    <div class="cta"><a class="btn" href="#kontakt">Beratung vereinbaren</a><a class="btn o" href="#leistungen">Leistungen</a></div>
+  </div>
+  <div class="img" data-l="Beratungsgespräch"></div>
+</section>
+<section id="leistungen"><div class="w">
+  <div class="rv"><div class="kick">Leistungen</div><h2>Unsere <em>Schwerpunkte.</em></h2></div>
+  <div class="areas"><div class="area rv"><span>I.</span><h3>Versicherungen</h3><p>Haftpflicht, Hausrat, Berufsunfähigkeit und mehr.</p></div><div class="area rv"><span>II.</span><h3>Altersvorsorge</h3><p>Strategien, die zu Ihrem Leben passen.</p></div><div class="area rv"><span>III.</span><h3>Baufinanzierung</h3><p>Vergleich vieler Banken für Ihr Eigenheim.</p></div><div class="area rv"><span>IV.</span><h3>Gewerbekunden</h3><p>Absicherung für Betriebe und Selbstständige.</p></div><div class="area rv"><span>V.</span><h3>Versicherungscheck</h3><p>Bestehende Verträge prüfen und optimieren.</p></div><div class="area rv"><span>VI.</span><h3>Schadenservice</h3><p>Wir helfen, wenn etwas passiert.</p></div></div>
+</div></section>
+<section id="ueber" class="band"><div class="w split">
+  <div class="img rv" data-l="Büro"></div>
+  <div class="rv"><div class="kick">Über uns</div><h2>Unabhängig und <em>ehrlich.</em></h2><p style="color:var(--muted)">Als Makler vergleichen wir zahlreiche Anbieter. Wir empfehlen nur, was wirklich zu Ihnen passt – und sagen auch, wenn Sie etwas nicht brauchen.</p><ul class="pts"><li>Unabhängiger Makler</li><li>Persönlicher Ansprechpartner</li><li>Hilfe im Schadenfall</li></ul><div class="nums"><div><b>2.500</b><span>Kundinnen und Kunden</span></div><div><b>20</b><span>Jahre</span></div><div><b>100+</b><span>Anbieter im Vergleich</span></div></div></div>
+</div></section>
+
+<section id="kontakt" class="contact"><div class="w split">
+  <div class="rv"><div class="kick">Kontakt</div><h2>Termin <em>vereinbaren.</em></h2><p>Gern auch per Video oder bei Ihnen zu Hause.</p><p style="margin-top:20px">Hauptstraße 30, 00000 Musterstadt<br>Mo–Fr 9–18 Uhr</p></div>
+  <form class="rv"><div class="r2"><input placeholder="Name" required><input type="email" placeholder="E-Mail" required></div>
+    <select><option>Thema</option><option>Versicherungen</option><option>Altersvorsorge</option><option>Baufinanzierung</option><option>Gewerbe</option></select><textarea placeholder="Ihre Nachricht"></textarea><button class="btn">Anfrage senden</button></form>
+</div></section>
+<footer><div class="w"><span>© Brandt Finanzpartner</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

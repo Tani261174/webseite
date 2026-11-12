@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malerei Bunt – Maler &amp; Lackierer Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#b0613f;--accent-ink:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+.img{position:relative}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55}
+[class*=grid]>*,.split>*{min-width:0}
+h1,h2,h3{overflow-wrap:break-word}
+@media(max-width:560px){.w{padding:0 16px}h1,h2{hyphens:auto;-webkit-hyphens:auto}}
+
+:root{--ink:#1b2023;--muted:#5f676c;--paper:#fff;--soft:#f2f4f4;--line:#e1e5e6}
+body{font:400 17px/1.65 "Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;line-height:1.1}
+h2{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:14px}
+h1 em,h2 em{color:var(--accent);font-style:normal}
+.kick{font-weight:700;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.btn{display:inline-block;padding:15px 28px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.97rem;border:0;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.1)}
+.btn.o{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.img{background:radial-gradient(90% 80% at 35% 30%,#f5f7f7 0%,#d6dcdd 60%,#b9c2c4 100%);color:#000}
+header .w{display:flex;align-items:center;justify-content:space-between;height:80px}
+.brand{font-weight:800;font-size:1.25rem;display:flex;gap:10px;align-items:center}
+.brand i{width:34px;height:34px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink);font-style:normal;font-size:.95rem}
+nav{display:flex;gap:28px;font-weight:600;font-size:.94rem;color:var(--muted)}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:36px 0 90px}
+.hero h1{font-size:clamp(2.4rem,5.2vw,3.9rem);margin-bottom:18px}
+.hero p{color:var(--muted);font-size:1.12rem;margin-bottom:28px;max-width:500px}
+.blob{aspect-ratio:1;border-radius:58% 42% 46% 54% / 48% 56% 44% 52%}
+.trust{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.trust span{background:var(--soft);border-radius:999px;padding:8px 16px;font-weight:600;font-size:.86rem}
+.trust span::before{content:"✓ ";color:var(--accent);font-weight:800}
+.soft{background:var(--soft)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.svc article{background:#fff;border-radius:24px;padding:30px;transition:.25s}
+.svc article:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(0,0,0,.06)}
+.svc .ic{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;margin-bottom:18px}
+.svc h3{font-size:1.22rem;margin-bottom:6px}
+.svc p{color:var(--muted);font-size:.95rem}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why .img{aspect-ratio:5/4;border-radius:28px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.nums div{background:var(--soft);border-radius:18px;padding:18px}
+.nums b{font-size:1.8rem;font-weight:800;display:block;line-height:1.1}
+.nums span{color:var(--muted);font-size:.86rem}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.pc{background:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.pc b{font-size:1.5rem;font-weight:800;color:var(--accent);filter:brightness(.9)}
+.calc{background:var(--ink);color:#fff;border-radius:30px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.calc p{color:#a9b1b5}
+.calc .kick{color:#a9b1b5}
+.calc .btn{box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+form{display:grid;gap:12px}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select,textarea{padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#fff;width:100%}
+select option{color:#111}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+footer{padding:36px 0;color:var(--muted);font-size:.88rem}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){nav{display:none}.hero,.why,.calc{grid-template-columns:1fr}.svc,.pgrid{grid-template-columns:1fr 1fr}.calc{padding:40px 26px}section{padding:80px 0}}
+@media(max-width:560px){.svc,.pgrid,.r2,.nums{grid-template-columns:1fr}header .btn{display:none}.calc{padding:32px 20px}}
+
+</style>
+</head>
+<body data-vorlage="Vorlage 36 · Maler &amp; Lackierer">
+
+<header><div class="w">
+  <a class="brand" href="#"><i>M</i>Malerei Bunt</a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#ueber">Über uns</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#kontakt">Angebot anfordern</a>
+</div></header>
+<div class="w hero">
+  <div class="rv"><div class="kick">Malerbetrieb in Musterstadt</div><h1>Frische Farbe, <em>frisches Gefühl.</em></h1><p>Innen, außen, Fassade und Tapete – sauber gearbeitet und pünktlich fertig.</p>
+    <a class="btn" href="#kontakt">Angebot anfordern</a> <a class="btn o" href="#leistungen">Leistungen</a>
+    <div class="trust"><span>Meisterbetrieb</span><span>Kostenlose Besichtigung</span><span>Festpreis</span></div></div>
+  <div class="img blob rv" data-l="Maler bei der Arbeit"></div>
+</div>
+<section id="leistungen" class="soft"><div class="w">
+  <div class="rv"><div class="kick">Leistungen</div><h2>Unsere <em>Leistungen.</em></h2></div>
+  <div class="svc"><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><h3>Innenanstrich</h3><p>Wände und Decken in Ihrer Wunschfarbe.</p></article><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Fassade</h3><p>Schutz und Schönheit für Ihr Haus.</p></article><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/></svg></div><h3>Tapezieren</h3><p>Von klassisch bis Designtapete.</p></article><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9Z"/></svg></div><h3>Lackierarbeiten</h3><p>Türen, Fenster und Treppen wie neu.</p></article><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>Bodenbeläge</h3><p>Vinyl, Laminat und Teppich.</p></article><article class="rv"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7L12 2Z"/></svg></div><h3>Farbberatung</h3><p>Wir helfen bei der Auswahl.</p></article></div>
+</div></section>
+
+<section id="ueber"><div class="w why">
+  <div class="img rv" data-l="Fassade"></div>
+  <div class="rv"><div class="kick">Über uns</div><h2>Sauber, pünktlich, <em>zuverlässig.</em></h2><p style="color:var(--muted)">Wir decken alles ab, arbeiten ordentlich und räumen am Ende auf – damit Sie sich nur noch freuen müssen.</p><div class="nums"><div><b>25</b><span>Jahre</span></div><div><b>12</b><span>Maler im Team</span></div><div><b>2.000+</b><span>Projekte</span></div></div></div>
+</div></section>
+<section id="kontakt" style="padding-top:0"><div class="w"><div class="calc rv">
+  <div><div class="kick">Kontakt</div><h2>Kostenloses <em>Angebot.</em></h2><p>Wir kommen vorbei und erstellen ein Festpreis-Angebot.</p><p style="margin-top:16px">Farbenweg 4, 00000 Musterstadt<br>Mo–Fr 7–16:30 Uhr</p></div>
+  <form><select><option>Leistung wählen</option><option>Innenanstrich</option><option>Fassade</option><option>Tapezieren</option><option>Bodenbeläge</option></select><div class="r2"><input placeholder="Name" required><input type="tel" placeholder="Telefon" required></div><input type="email" placeholder="E-Mail"><button class="btn">Anfrage senden</button></form>
+</div></div></section>
+<footer><div class="w"><span>© Malerei Bunt</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

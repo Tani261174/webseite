@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Schwarzlinie – Tattoo- &amp; Piercingstudio Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#7a2430;--accent-ink:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+.img{position:relative}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55}
+[class*=grid]>*,.split>*{min-width:0}
+h1,h2,h3{overflow-wrap:break-word}
+@media(max-width:560px){.w{padding:0 16px}h1,h2{hyphens:auto;-webkit-hyphens:auto}}
+
+:root{--ink:#161616;--muted:#5f5f5c;--paper:#f4f3f0;--line:#d9d7d1}
+body{font:400 17px/1.65 Archivo,system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+h1,h2,h3{font-weight:800;line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+h2{font-size:clamp(2.1rem,4.8vw,3.6rem);margin-bottom:18px}
+h1 em,h2 em{color:var(--accent);font-style:normal}
+.hero h1 em{color:color-mix(in srgb,var(--accent) 45%,#fff)}
+.kick{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:6px 12px;margin-bottom:20px}
+.btn{display:inline-block;padding:17px 30px;background:var(--accent);color:var(--accent-ink);font-weight:700;text-transform:uppercase;font-size:.86rem;letter-spacing:.06em;border:0;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.dk .btn:not(.o){box-shadow:0 0 0 1px rgba(255,255,255,.3)}
+.img{background:repeating-linear-gradient(115deg,rgba(0,0,0,.06) 0 2px,transparent 2px 14px),linear-gradient(135deg,#a59d92,#6b645b);color:#fff}
+.bar{background:var(--ink);color:#bcbab4;font-size:.82rem}
+.bar .w{display:flex;justify-content:space-between;padding-top:9px;padding-bottom:9px;gap:16px;flex-wrap:wrap}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{font-weight:800;font-size:1.3rem;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.brand i{width:28px;height:28px;background:var(--accent);display:inline-block}
+nav{display:flex;gap:28px;font-weight:500;font-size:.92rem}nav a:hover{color:var(--accent)}
+.hero{background:linear-gradient(90deg,rgba(14,14,14,.94) 0%,rgba(14,14,14,.65) 60%,rgba(14,14,14,.3)),repeating-linear-gradient(115deg,#5b564e 0 2px,transparent 2px 16px),linear-gradient(135deg,#7a7268,#35322d);color:#fff;padding:130px 0 120px}
+.hero h1{font-size:clamp(2.2rem,7vw,5.6rem);max-width:860px;margin-bottom:26px}
+.hero p{max-width:540px;font-size:1.12rem;color:#d4d2cc;margin-bottom:34px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;margin-top:-56px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.08)}
+.stats div{padding:28px 30px;border-right:1px solid var(--line)}
+.stats div:last-child{border:0}
+.stats b{display:block;font-size:2.5rem;font-weight:800;color:var(--accent);line-height:1}
+.stats span{font-size:.88rem;color:var(--muted)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);margin-top:40px;border:2px solid var(--line)}
+.svc article{background:#fff;padding:38px 30px;transition:.25s}
+.svc article:hover{background:var(--ink);color:#fff}
+.svc article:hover p{color:#bdbab3}
+.svc b{font-size:.85rem;color:var(--accent);font-weight:800}
+.svc h3{font-size:1.32rem;margin:16px 0 10px}
+.svc p{color:var(--muted);font-size:.95rem;transition:.25s}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split .img{aspect-ratio:1}
+.pts{list-style:none;margin-top:22px;display:grid;gap:12px}
+.pts li{display:flex;gap:12px;font-weight:500}
+.pts li::before{content:"";flex:none;width:12px;height:12px;margin-top:7px;background:var(--accent)}
+.ptab{margin-top:36px;background:#fff;border:2px solid var(--line)}
+.ptab div{display:flex;justify-content:space-between;gap:20px;padding:18px 24px;border-bottom:1px solid var(--line)}
+.ptab div:last-child{border:0}
+.ptab b{font-weight:800;white-space:nowrap}
+.band{background:var(--accent);color:var(--accent-ink);padding:74px 0}
+.band .w{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.band h2{margin:0;font-size:clamp(1.8rem,4vw,2.8rem)}
+.band .btn{background:var(--ink);color:#fff}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+.contact ul{list-style:none;margin-top:22px}
+.contact li{padding:15px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}
+form{display:grid;gap:12px}
+input,textarea,select{padding:16px;border:2px solid var(--line);background:#fff;width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:110px}
+footer{background:var(--ink);color:#8f8d88;font-size:.85rem;padding:30px 0}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){nav{display:none}.svc,.split,.contact{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.stats div{border-right:0;border-bottom:1px solid var(--line)}section{padding:80px 0}.hero{padding:90px 0 110px}}
+@media(max-width:560px){.top .btn{display:none}.ptab div{flex-direction:column;gap:2px}}
+
+</style>
+</head>
+<body data-vorlage="Vorlage 25 · Tattoo- &amp; Piercingstudio">
+
+<div class="bar"><div class="w"><span>Tattoo &amp; Piercing seit 2010</span><span>Di–Sa 11–19 Uhr</span></div></div>
+<header><div class="w top">
+  <a class="brand" href="#"><i></i>Schwarzlinie</a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#ueber">Über uns</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="btn" href="#kontakt">Termin anfragen</a>
+</div></header>
+<section class="hero dk"><div class="w">
+  <div class="kick">Tattoostudio · Custom Designs</div>
+  <h1>Kunst, die <em>unter die Haut</em> geht.</h1>
+  <p>Individuelle Tattoos nach deiner Idee – sauber gestochen, ehrlich beraten und in entspannter Atmosphäre.</p>
+  <a class="btn" href="#kontakt">Termin anfragen →</a> <a class="btn o" href="#leistungen">Leistungen</a>
+</div></section>
+<div class="w"><div class="stats rv"><div><b>15</b><span>Jahre Studio</span></div><div><b>4</b><span>Artists</span></div><div><b>100 %</b><span>Einwegmaterial</span></div></div></div>
+<section id="leistungen"><div class="w">
+  <div class="rv"><div class="kick">Leistungen</div><h2>Was wir <em>machen.</em></h2></div>
+  <div class="svc"><article class="rv"><b>01</b><h3>Custom Tattoos</h3><p>Dein Motiv, von uns gezeichnet und umgesetzt.</p></article><article class="rv"><b>02</b><h3>Fine Line</h3><p>Feine Linien und kleine, filigrane Motive.</p></article><article class="rv"><b>03</b><h3>Cover-ups</h3><p>Alte Tattoos überdecken oder auffrischen.</p></article><article class="rv"><b>04</b><h3>Piercing</h3><p>Steril und mit hochwertigem Titanschmuck.</p></article><article class="rv"><b>05</b><h3>Beratung</h3><p>Kostenlos und ohne Druck.</p></article><article class="rv"><b>06</b><h3>Gutscheine</h3><p>Für alle, die verschenken wollen.</p></article></div>
+</div></section>
+<section id="ueber" style="background:#fff"><div class="w split">
+  <div class="img rv" data-l="Artist bei der Arbeit"></div>
+  <div class="rv"><div class="kick">Über uns</div><h2>Erfahrung, der du <em>vertrauen</em> kannst.</h2><p style="color:var(--muted)">Unsere Artists arbeiten seit vielen Jahren mit verschiedenen Stilen. Hygiene hat für uns oberste Priorität.</p><ul class="pts"><li>Steril nach Hygieneverordnung</li><li>Vegane Farben</li><li>Persönliche Beratung</li></ul></div>
+</div></section>
+
+<div class="band"><div class="w"><h2>Bereit für dein <em>Motiv?</em></h2><a class="btn" href="#kontakt">Termin anfragen →</a></div></div>
+<section id="kontakt"><div class="w contact">
+  <div class="rv"><div class="kick">Kontakt</div><h2>So erreichen Sie uns.</h2><p style="color:var(--muted)">Beschreib uns kurz deine Idee, Größe und Körperstelle.</p>
+    <ul><li><span>Adresse</span><b>Hafenstraße 9, 00000 Musterstadt</b></li><li><span>Telefon</span><b>000 000 000</b></li><li><span>Zeiten</span><b>Di–Sa 11–19 Uhr</b></li></ul></div>
+  <form class="rv"><input placeholder="Name" required><input type="tel" placeholder="Telefon"><select><option>Was planst du?</option><option>Tattoo</option><option>Cover-up</option><option>Piercing</option><option>Beratung</option></select><textarea placeholder="Ihre Nachricht"></textarea><button class="btn">Anfrage senden →</button></form>
+</div></section>
+<footer><div class="w"><span>© Schwarzlinie</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

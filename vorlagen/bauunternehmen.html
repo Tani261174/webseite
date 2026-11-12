@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hagen Bau – Bauunternehmen Vorlage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2b2b2b;--accent-ink:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+.w{max-width:1180px;margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+.img{position:relative}
+.img::after{content:attr(data-l);position:absolute;left:16px;bottom:14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.55}
+[class*=grid]>*,.split>*{min-width:0}
+h1,h2,h3{overflow-wrap:break-word}
+@media(max-width:560px){.w{padding:0 16px}h1,h2{hyphens:auto;-webkit-hyphens:auto}}
+
+:root{--ink:#111;--muted:#77777a;--paper:#f3f3f1;--line:#d2d2ce}
+body{font:400 16px/1.6 "Inter Tight",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+.w{max-width:1320px}
+h1,h2,h3{font-weight:500;letter-spacing:-.04em;line-height:.98}
+h2{font-size:clamp(2.1rem,4.8vw,4rem)}
+h1 em,h2 em{color:var(--accent);font-style:normal}
+.lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.btn{display:inline-flex;gap:12px;align-items:center;padding:14px 24px;background:var(--accent);color:var(--accent-ink);font-size:.92rem;font-weight:500;border:0;cursor:pointer;transition:.25s}
+.btn:hover{gap:18px}
+.img{background:linear-gradient(135deg,#d8d8d4 0%,#b2b2ad 100%);color:#fff}
+.img.d{background:linear-gradient(135deg,#6a6a66,#2d2d2b)}
+header{border-bottom:1px solid var(--line)}
+header .w{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;height:68px}
+.brand{font-weight:600;letter-spacing:-.02em;font-size:1.12rem}
+nav{display:flex;gap:26px;font-size:.92rem;justify-content:center}
+nav a{color:var(--muted)}nav a:hover{color:var(--ink)}
+header .r{text-align:right;font-size:.9rem}
+.hero{padding:64px 0 0}
+.hero h1{font-size:clamp(2.8rem,9.4vw,8.6rem);letter-spacing:-.055em}
+.row4{display:grid;grid-template-columns:1fr 1.3fr 1.3fr 1fr;gap:24px;margin:38px 0;border-top:1px solid var(--ink);padding-top:16px;align-items:start}
+.row4 p{color:var(--muted);font-size:.96rem}
+.hero .img{aspect-ratio:21/8}
+.g12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.list{margin-top:46px;border-top:1px solid var(--ink)}
+.li{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:.25s}
+.li:hover{padding-left:12px}
+.li h3{font-size:clamp(1.4rem,2.4vw,2rem)}
+.li p{color:var(--muted)}
+.dark{background:var(--ink);color:#eee}
+.dark .lbl{color:#8f8f8b}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.nums b{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:400;letter-spacing:-.05em;display:block;line-height:1;margin-bottom:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:70px}
+.split p{color:#a5a5a1}
+.pts{list-style:none;border-top:1px solid #333}
+.pts li{padding:14px 0;border-bottom:1px solid #333}
+.prow{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+dl{display:grid;grid-template-columns:110px 1fr;gap:12px 20px;margin-top:28px}
+dt{color:var(--muted)}
+form{display:grid;gap:10px}
+input,textarea,select{padding:14px;background:#fff;border:1px solid var(--line);width:100%}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ink)}
+textarea{min-height:120px}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:.85rem;color:var(--muted)}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:900px){header .w{grid-template-columns:1fr 1fr}nav{display:none}.row4{grid-template-columns:1fr 1fr}.li{grid-template-columns:50px 1fr}.li p{grid-column:2}.nums,.split,.contact{grid-template-columns:1fr}section{padding:80px 0}.g12>*{grid-column:1/-1!important}}
+@media(max-width:560px){.row4{grid-template-columns:1fr}.hero .img{aspect-ratio:4/3}dl{grid-template-columns:80px 1fr}header .r{display:none}header .w{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body data-vorlage="Vorlage 39 · Bauunternehmen">
+
+<header><div class="w">
+  <a class="brand" href="#">Hagen Bau</a>
+  <nav><a href="#leistungen">Leistungen</a><a href="#ueber">Über uns</a><a href="#kontakt">Kontakt</a></nav>
+  <a class="r" href="#kontakt">Projekt anfragen →</a>
+</div></header>
+<div class="w hero">
+  <h1 class="rv">Wir bauen <em>Zukunft.</em></h1>
+  <div class="row4 rv"><span class="lbl">Bauunternehmen seit 1972</span><p>Vom Einfamilienhaus bis zum Gewerbebau – termingerecht, transparent und solide.</p><p>Massivbau, Sanierung und schlüsselfertiges Bauen.</p><div style="text-align:right"><a class="btn" href="#kontakt">Projekt anfragen →</a></div></div>
+  <div class="img d rv" data-l="Baustelle"></div>
+</div>
+<section id="leistungen"><div class="w">
+  <div class="g12 rv"><span class="lbl" style="grid-column:1/4">Leistungen</span><h2 style="grid-column:4/13">Was wir <em>bauen.</em></h2></div>
+  <div class="list"><div class="li rv"><span class="lbl">01</span><h3>Schlüsselfertiges Bauen</h3><p>Alles aus einer Hand, zum Festpreis.</p></div><div class="li rv"><span class="lbl">02</span><h3>Rohbau</h3><p>Massiv, präzise und termingerecht.</p></div><div class="li rv"><span class="lbl">03</span><h3>Sanierung</h3><p>Altbauten energetisch fit machen.</p></div><div class="li rv"><span class="lbl">04</span><h3>Gewerbebau</h3><p>Hallen, Büros und Praxen.</p></div><div class="li rv"><span class="lbl">05</span><h3>Tiefbau</h3><p>Erdarbeiten, Kanal und Fundamente.</p></div></div>
+</div></section>
+<section id="ueber" class="dark"><div class="w">
+  <div class="g12 rv"><span class="lbl" style="grid-column:1/4">Über uns</span><h2 style="grid-column:4/13">Ein Partner von <em>Anfang bis Ende.</em></h2></div>
+  <div class="nums rv"><div><b>50+</b><span class="lbl">Jahre</span></div><div><b>120</b><span class="lbl">Mitarbeitende</span></div><div><b>900+</b><span class="lbl">Bauprojekte</span></div></div>
+  <div class="split rv"><p>Mit eigenen Fachkräften und festen Partnern behalten wir Kosten und Termine im Griff – und Sie den Überblick.</p><ul class="pts"><li>Fester Bauleiter</li><li>Festpreisgarantie</li><li>Eigene Kolonnen</li></ul></div>
+</div></section>
+
+<section id="kontakt"><div class="w contact">
+  <div class="rv"><span class="lbl">Kontakt</span><h2 style="margin-top:14px">Sprechen wir über <em>Ihr Projekt.</em></h2><p style="color:var(--muted);margin-top:16px">Wir melden uns innerhalb von zwei Werktagen.</p>
+    <dl><dt>Adresse</dt><dd>Baustraße 20, 00000 Musterstadt</dd><dt>Zeiten</dt><dd>Mo–Fr 7–17 Uhr</dd><dt>Telefon</dt><dd>000 000 000</dd></dl></div>
+  <form class="rv"><input placeholder="Name" required><input type="email" placeholder="E-Mail" required><select><option>Projektart</option><option>Einfamilienhaus</option><option>Sanierung</option><option>Gewerbebau</option><option>Tiefbau</option></select><textarea placeholder="Nachricht"></textarea><button class="btn">Nachricht senden →</button></form>
+</div></section>
+<footer><div class="w"><span>© Hagen Bau</span><span>Impressum · Datenschutz</span></div></footer>
+<script src="shared.js"></script>
+</body>
+</html>

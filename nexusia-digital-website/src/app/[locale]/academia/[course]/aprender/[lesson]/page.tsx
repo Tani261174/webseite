@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, type Locale } from "@/lib/i18n/config";
 import { href, pageMetadata } from "@/lib/site";
 import { academyUi, fmt, type AcademyUi } from "@/academy/ui";
-import { listCourses, getCourse, findLesson, flatLessons, previewTarget, INTRO_SLUG } from "@/academy/repository";
+import { listCourses, getCourse, findLesson, flatLessons, previewTarget, lessonBody, INTRO_SLUG } from "@/academy/repository";
 import type { Course } from "@/academy/types";
 import { Container } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
@@ -48,6 +48,8 @@ export default async function LessonPage({ params }: P) {
   const all = flatLessons(course);
   const next = found ? found.next : all[0];
   const prev = found ? found.prev : undefined;
+  const lb = found ? lessonBody(found.lesson, locale) : undefined;
+  const body = lb?.body;
 
   return (
     <div className="bg-paper">
@@ -113,24 +115,24 @@ export default async function LessonPage({ params }: P) {
               <header>
                 <p className="eyebrow text-gold-600">{found.module.title[locale]}{found.lesson.minutes ? ` · ${fmt(ui.learn.minutes, { n: found.lesson.minutes })}` : ""}</p>
                 <h1 className="display mt-3 text-4xl leading-tight sm:text-5xl">{found.lesson.title[locale]}</h1>
-                {found.lesson.body && found.lesson.body.lang !== locale ? <p className="mt-4 rounded-xl bg-gold-50 px-4 py-2 text-sm text-gold-700">{ui.learn.langNote}</p> : null}
+                {lb && !lb.translated ? <p className="mt-4 rounded-xl bg-gold-50 px-4 py-2 text-sm text-gold-700">{ui.learn.langNote}</p> : null}
               </header>
               <VideoPlayer video={found.lesson.video} title={found.lesson.title[locale]} soonLabel={ui.learn.videoSoon} />
-              {found.lesson.body ? (
-                <div lang={found.lesson.body.lang} className="space-y-10">
-                  <p className="text-lg leading-relaxed text-graphite">{found.lesson.body.intro}</p>
+              {body ? (
+                <div lang={body.lang} className="space-y-10">
+                  <p className="text-lg leading-relaxed text-graphite">{body.intro}</p>
                   <section className="rounded-3xl border border-mist p-6 sm:p-8">
                     <h2 className="eyebrow text-gold-600">{ui.learn.objectives}</h2>
-                    <ul className="mt-4 space-y-2">{found.lesson.body.objectives.map((o) => <li key={o} className="flex gap-3"><Icon name="check" className="mt-1 h-4 w-4 shrink-0 text-gold-600" />{o}</li>)}</ul>
+                    <ul className="mt-4 space-y-2">{body.objectives.map((o) => <li key={o} className="flex gap-3"><Icon name="check" className="mt-1 h-4 w-4 shrink-0 text-gold-600" />{o}</li>)}</ul>
                   </section>
-                  <LessonBlocks blocks={found.lesson.body.blocks} labels={{ example: ui.learn.example, exercise: ui.learn.exercise }} />
+                  <LessonBlocks blocks={body.blocks} labels={{ example: ui.learn.example, exercise: ui.learn.exercise }} />
                   {found.lesson.downloads?.length ? (
                     <section>
                       <h2 className="display text-3xl">{ui.learn.downloads}</h2>
                       <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                         {found.lesson.downloads.filter((d) => d.public).map((d) => (
-                          <li key={d.href}>
-                            <a href={d.href} download className="flex items-center gap-4 rounded-2xl border border-mist p-4 transition hover:border-gold-300">
+                          <li key={d.href[locale]}>
+                            <a href={d.href[locale]} download className="flex items-center gap-4 rounded-2xl border border-mist p-4 transition hover:border-gold-300">
                               <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink text-gold-200"><Icon name="download" className="h-5 w-5" /></span>
                               <span><span className="block text-sm font-semibold">{d.label[locale]}</span><span className="text-xs text-graphite">{d.format}</span></span>
                             </a>
@@ -139,12 +141,12 @@ export default async function LessonPage({ params }: P) {
                       </ul>
                     </section>
                   ) : null}
-                  {found.lesson.body.quiz?.length ? (
-                    <Quiz course={course.slug} lesson={found.lesson.slug} questions={found.lesson.body.quiz} labels={ui.learn} />
+                  {body.quiz?.length ? (
+                    <Quiz course={course.slug} lesson={found.lesson.slug} questions={body.quiz} labels={ui.learn} />
                   ) : null}
                   <section className="rounded-3xl bg-pearl p-6 sm:p-8">
                     <h2 className="display text-3xl">{ui.learn.takeaways}</h2>
-                    <ul className="mt-4 space-y-2">{found.lesson.body.takeaways.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />{x}</li>)}</ul>
+                    <ul className="mt-4 space-y-2">{body.takeaways.map((x) => <li key={x} className="flex gap-3"><span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />{x}</li>)}</ul>
                   </section>
                 </div>
               ) : null}

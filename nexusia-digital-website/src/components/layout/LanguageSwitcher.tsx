@@ -30,7 +30,7 @@ export function LanguageSwitcher({ locale, label, variant = "dropdown" }: { loca
     return (
       <nav aria-label={label} className="flex gap-2">
         {locales.map((l) => (
-          <Link key={l} href={swapLocale(pathname, l)} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}
+          <Link key={l} prefetch={false} href={swapLocale(pathname, l)} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}
             className={`rounded-full px-4 py-2 text-xs font-semibold tracking-[0.2em] transition ${l === locale ? "bg-gold text-ink" : "border border-white/20 text-white/80 hover:border-gold-300 hover:text-gold-200"}`}>
             {localeNames[l].short}
           </Link>
@@ -51,7 +51,7 @@ export function LanguageSwitcher({ locale, label, variant = "dropdown" }: { loca
         <ul role="listbox" aria-label={label}>
           {locales.map((l) => (
             <li key={l} role="option" aria-selected={l === locale}>
-              <Link href={swapLocale(pathname, l)} hrefLang={l} lang={l} onClick={() => setOpen(false)} tabIndex={open ? 0 : -1}
+              <Link prefetch={false} href={swapLocale(pathname, l)} hrefLang={l} lang={l} onClick={() => setOpen(false)} tabIndex={open ? 0 : -1}
                 className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition ${l === locale ? "text-gold-200" : "text-white/80 hover:bg-white/5 hover:text-white"}`}>
                 <span>{localeNames[l].native}</span>
                 <span className="text-[0.65rem] tracking-[0.2em] text-white/40">{localeNames[l].short}</span>

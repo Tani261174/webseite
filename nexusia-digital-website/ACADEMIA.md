@@ -1,6 +1,6 @@
 # Academia NexusIA Digital
 
-**Aprende. Emprende. Crece.** – internationale Akademie für E-Commerce, digitales Marketing, KI und Online-Business.
+**Aprende. Emprende. Crece. · Lerne. Gründe. Wachse. · Learn. Build. Grow.** – internationale Akademie für E-Commerce, digitales Marketing, KI und Online-Business.
 Nicht auf ein Land ausgerichtet (geprüft: keine Venezuela- oder sonstigen Länderbezüge; nur neutrale Hinweise „Bedingungen variieren je nach Land“).
 
 ## Inhaltsprüfung (Stand dieser Version)
@@ -31,7 +31,7 @@ Internationale Kursplattform innerhalb der NexusIA-Website. Erreichbar unter **`
 | Startseite der Akademie, 12 Kurskarten, „Ver curso“-Buttons | ✅ fertig |
 | 12 Kursdetailseiten (Lernziele, Module, Lektionen, Voraussetzungen, Preis, FAQ, Buttons) | ✅ fertig |
 | Lernoberfläche mit Lehrplan-Seitenleiste, Videoplayer (YouTube/Vimeo/Datei), Downloads | ✅ fertig |
-| Amazon-Musterlektion (Spanisch): Erklärung, Praxisbeispiel, Übung, Quiz, Arbeitsblatt-PDF | ✅ fertig |
+| Amazon-Musterlektion in ES, DE und EN: Erklärung, Praxisbeispiel, Übung, Quiz, Arbeitsblatt-PDF je Sprache | ✅ fertig |
 | Kursvorstellung als kostenlose Vorschau für jeden Kurs | ✅ fertig |
 | Quiz mit Auswertung, „Als erledigt markieren“, Fortschritt in „Mi aprendizaje“ | ✅ fertig (nur im Browser gespeichert) |
 | NexusTutor AI (Glossar + Lektionsempfehlungen, 3 Sprachen) | ✅ fertig, kostenlos |
@@ -50,7 +50,7 @@ Internationale Kursplattform innerhalb der NexusIA-Website. Erreichbar unter **`
 3. **Dateispeicher (Cloudflare R2)** – Kursbilder, Videos, E-Books (PDF/EPUB); private Dateien nur über signierte Links (`src/lib/server/signed-url.ts`).
 4. **Zahlungen** – PayPal und Stripe zuerst im **Sandbox-/Testmodus**; Freischaltung nur per Webhook nach bestätigter Zahlung (Tabelle `enrollments`).
 5. **Rechtstexte** für den Kursverkauf (AGB, Widerruf bei digitalen Inhalten, Datenschutz) prüfen lassen.
-6. **Inhalte** – weitere Lektionen schreiben, Videos aufnehmen, Übersetzungen DE/EN der Lektionen.
+6. **Inhalte** – weitere Lektionen schreiben (jeweils in ES, DE und EN), Videos aufnehmen.
 
 ## Wo was liegt
 
@@ -58,7 +58,7 @@ Internationale Kursplattform innerhalb der NexusIA-Website. Erreichbar unter **`
 src/academy/
   types.ts                 Datenmodell (Kurs, Modul, Lektion, Quiz, Downloads)
   courses/amazon.ts        Amazon Business Masterclass (15 Module)
-  courses/amazon-sample-lesson.ts  vollständige Musterlektion (ES)
+  courses/amazon-sample-lesson*.ts  vollständige Musterlektion (ES, DE, EN)
   courses/catalog.ts       die weiteren 11 Kurse (Strukturen, Próximamente)
   repository.ts            EINZIGER Datenzugriff – hier später D1 anbinden
   pricing.ts               Preise & Gutscheine (nur serverseitig)

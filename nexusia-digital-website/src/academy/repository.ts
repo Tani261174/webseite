@@ -7,7 +7,8 @@
  */
 import { amazonCourse } from "./courses/amazon";
 import { otherCourses } from "./courses/catalog";
-import type { Course, Lesson, Module } from "./types";
+import type { Course, Lesson, LessonBody, Module } from "./types";
+import type { Locale } from "@/lib/i18n/config";
 
 const staticCourses: Course[] = [amazonCourse, ...otherCourses];
 
@@ -53,6 +54,14 @@ export function courseStats(course: Course) {
 export function previewTarget(course: Course) {
   const sample = course.sampleLesson && findLesson(course, course.sampleLesson);
   return sample && sample.lesson.status === "ready" ? course.sampleLesson! : INTRO_SLUG;
+}
+
+/** Lektionsinhalt in der gewünschten Sprache; sonst eine vorhandene Fassung (translated=false → Hinweis anzeigen). */
+export function lessonBody(lesson: Lesson, locale: Locale): { body: LessonBody; translated: boolean } | undefined {
+  const own = lesson.body?.[locale];
+  if (own) return { body: own, translated: true };
+  const any = lesson.body && (lesson.body.es || lesson.body.de || lesson.body.en);
+  return any ? { body: any, translated: false } : undefined;
 }
 
 /** Virtuelle Lektion „Kursvorstellung“ – wird aus den Kursdaten erzeugt und ist immer öffentlich. */

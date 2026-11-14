@@ -11,8 +11,6 @@ import { CourseVisual } from "@/components/academy/CourseCover";
 
 type P = { params: Promise<{ locale: string }> };
 
-const SLOGAN = ["Aprende.", "Emprende.", "Crece."] as const;
-
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { locale } = await resolveLocale(params);
   const ui = academyUi(locale);
@@ -43,9 +41,8 @@ export default async function AcademyHome({ params }: P) {
         <Container className="relative grid items-center gap-10 py-12 sm:gap-14 sm:py-28 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="eyebrow intro-1 flex items-center gap-3 text-gold-300"><span className="gold-hairline inline-block w-8" aria-hidden="true" />{ui.home.eyebrow}</p>
-            {/* Markenslogan – bewusst in allen Sprachen auf Spanisch */}
-            <h1 lang="es" className="display intro-2 mt-5 text-[3rem] leading-[1] sm:mt-6 sm:text-7xl lg:text-[5.6rem]">
-              {SLOGAN[0]} {SLOGAN[1]}<br /><span className="text-gold-shine italic">{SLOGAN[2]}</span>
+            <h1 className="display intro-2 mt-5 text-[3rem] leading-[1] sm:mt-6 sm:text-7xl lg:text-[5.6rem]">
+              {ui.home.slogan[0]} {ui.home.slogan[1]}<br /><span className="text-gold-shine italic">{ui.home.slogan[2]}</span>
             </h1>
             <p className="intro-3 mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:mt-7 sm:text-lg">{ui.home.subtitle}</p>
             <div className="intro-4 mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">

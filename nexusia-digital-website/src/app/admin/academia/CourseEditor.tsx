@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { AdminUi } from "@/academy/admin-ui";
 
 /**
  * Kurs-Editor: Formular mit Live-Vorschau der Kurskarte.
@@ -11,7 +12,7 @@ type L = { es: string; de: string; en: string };
 const emptyL: L = { es: "", de: "", en: "" };
 const slugify = (s: string) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80);
 
-export function CourseEditor() {
+export function CourseEditor({ t }: { t: AdminUi["editor"] }) {
   const [title, setTitle] = useState<L>(emptyL);
   const [short, setShort] = useState<L>(emptyL);
   const [description, setDescription] = useState<L>(emptyL);
@@ -37,28 +38,28 @@ export function CourseEditor() {
       });
       const data = (await res.json().catch(() => ({}))) as { error?: string; issues?: string[] };
       if (res.status === 503 && data.error === "database_not_configured")
-        setMsg({ tone: "warn", text: "Eingaben sind gültig. Speichern ist erst möglich, wenn die Datenbank (Cloudflare D1) verbunden ist – danach erscheint ein veröffentlichter Kurs automatisch im Katalog." });
-      else if (res.status === 409) setMsg({ tone: "err", text: "Diese Kurs-Adresse (Slug) ist schon vergeben." });
-      else if (res.status === 400) setMsg({ tone: "err", text: `Bitte prüfe diese Felder: ${(data.issues || []).join(", ") || "Eingaben"}` });
-      else if (res.ok) setMsg({ tone: "ok", text: "Gespeichert." });
-      else setMsg({ tone: "err", text: "Unerwarteter Fehler." });
+        setMsg({ tone: "warn", text: t.msgDb });
+      else if (res.status === 409) setMsg({ tone: "err", text: t.msgSlug });
+      else if (res.status === 400) setMsg({ tone: "err", text: `${t.msgInvalid} ${(data.issues || []).join(", ") || t.msgInputs}` });
+      else if (res.ok) setMsg({ tone: "ok", text: t.msgOk });
+      else setMsg({ tone: "err", text: t.msgErr });
     } catch {
-      setMsg({ tone: "err", text: "Keine Verbindung zum Server." });
+      setMsg({ tone: "err", text: t.msgOffline });
     } finally {
       setBusy(false);
     }
   }
 
   const label = "mb-1 block text-xs font-semibold uppercase tracking-wider text-graphite";
-  const L3 = ({ name, value, set, area: big, max }: { name: string; value: L; set: (v: L) => void; area?: boolean; max: number }) => (
+  const L3 = ({ id, name, value, set, area: big, max }: { id: string; name: string; value: L; set: (v: L) => void; area?: boolean; max: number }) => (
     <div className="grid gap-3 sm:grid-cols-3">
       {(["es", "de", "en"] as const).map((l) => (
         <div key={l}>
-          <label className={label} htmlFor={`${name}-${l}`}>{name} · {l.toUpperCase()}{l === "es" ? " *" : ""}</label>
+          <label className={label} htmlFor={`${id}-${l}`}>{name} · {l.toUpperCase()}{l === "es" ? " *" : ""}</label>
           {big ? (
-            <textarea id={`${name}-${l}`} className="field min-h-28" maxLength={max} value={value[l]} onChange={(e) => set({ ...value, [l]: e.target.value })} />
+            <textarea id={`${id}-${l}`} className="field min-h-28" maxLength={max} value={value[l]} onChange={(e) => set({ ...value, [l]: e.target.value })} />
           ) : (
-            <input id={`${name}-${l}`} className="field" maxLength={max} value={value[l]} onChange={(e) => set({ ...value, [l]: e.target.value })} />
+            <input id={`${id}-${l}`} className="field" maxLength={max} value={value[l]} onChange={(e) => set({ ...value, [l]: e.target.value })} />
           )}
         </div>
       ))}
@@ -68,35 +69,35 @@ export function CourseEditor() {
   return (
     <div className="grid gap-8 lg:grid-cols-3">
       <form onSubmit={save} className="space-y-5 rounded-2xl border border-mist bg-white p-6 lg:col-span-2">
-        {L3({ name: "Titel", value: title, set: setTitle, max: 160 })}
-        {L3({ name: "Kurzbeschreibung", value: short, set: setShort, max: 240 })}
-        {L3({ name: "Beschreibung", value: description, set: setDescription, area: true, max: 4000 })}
+        {L3({ id: "title", name: t.title, value: title, set: setTitle, max: 160 })}
+        {L3({ id: "short", name: t.short, value: short, set: setShort, max: 240 })}
+        {L3({ id: "description", name: t.description, value: description, set: setDescription, area: true, max: 4000 })}
         <div className="grid gap-4 sm:grid-cols-2">
-          <div><label className={label} htmlFor="slug">Adresse (Slug)</label><input id="slug" className="field" placeholder={slugify(title.es) || "mein-kurs"} value={slug} onChange={(e) => setSlug(slugify(e.target.value))} /></div>
-          <div><label className={label} htmlFor="price">Preis in € (leer = Próximamente)</label><input id="price" className="field" inputMode="decimal" value={price} onChange={(e) => setPrice(e.target.value.replace(/[^0-9.,]/g, ""))} /></div>
-          <div><label className={label} htmlFor="area">Bereich</label>
+          <div><label className={label} htmlFor="slug">{t.slug}</label><input id="slug" className="field" placeholder={slugify(title.es) || "curso"} value={slug} onChange={(e) => setSlug(slugify(e.target.value))} /></div>
+          <div><label className={label} htmlFor="price">{t.price}</label><input id="price" className="field" inputMode="decimal" value={price} onChange={(e) => setPrice(e.target.value.replace(/[^0-9.,]/g, ""))} /></div>
+          <div><label className={label} htmlFor="area">{t.area}</label>
             <select id="area" className="field" value={area} onChange={(e) => setArea(e.target.value)}>
-              <option value="ecommerce">E-Commerce</option><option value="affiliate">Affiliate</option><option value="social">Social & Content</option><option value="digital">Digitale Produkte</option><option value="ai">KI & Design</option>
+              {Object.entries(t.areas).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
             </select>
           </div>
-          <div><label className={label} htmlFor="level">Niveau</label>
+          <div><label className={label} htmlFor="level">{t.level}</label>
             <select id="level" className="field" value={level} onChange={(e) => setLevel(e.target.value)}>
-              <option value="beginner">Einsteiger</option><option value="intermediate">Fortgeschritten</option><option value="all">Alle Niveaus</option>
+              {Object.entries(t.levels).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
             </select>
           </div>
-          <div><label className={label} htmlFor="status">Status</label>
+          <div><label className={label} htmlFor="status">{t.status}</label>
             <select id="status" className="field" value={status} onChange={(e) => setStatus(e.target.value)}>
-              <option value="draft">Entwurf (nicht öffentlich)</option><option value="soon">Veröffentlicht – Próximamente</option><option value="open">Veröffentlicht – im Verkauf</option>
+              {Object.entries(t.statuses).map(([v, l]) => <option key={v} value={v}>{l}</option>)}
             </select>
           </div>
-          <div><label className={label} htmlFor="image">Kursbild (URL, optional)</label><input id="image" className="field" type="url" placeholder="https://…" value={image} onChange={(e) => setImage(e.target.value)} /></div>
+          <div><label className={label} htmlFor="image">{t.image}</label><input id="image" className="field" type="url" placeholder="https://…" value={image} onChange={(e) => setImage(e.target.value)} /></div>
         </div>
         {msg ? <p role="status" className={`rounded-xl px-4 py-3 text-sm ${msg.tone === "ok" ? "bg-emerald-50 text-emerald-800" : msg.tone === "warn" ? "bg-gold-50 text-gold-700" : "bg-red-50 text-red-800"}`}>{msg.text}</p> : null}
-        <button type="submit" disabled={busy} className="btn btn-dark">{busy ? "Prüfe …" : "Kurs speichern"}</button>
+        <button type="submit" disabled={busy} className="btn btn-dark">{busy ? t.checking : t.save}</button>
       </form>
 
       <div>
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-graphite">Vorschau der Kurskarte</p>
+        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-graphite">{t.preview}</p>
         <div className="overflow-hidden rounded-2xl border border-mist bg-white">
           <div className="bg-noir relative grid aspect-[16/10] place-items-center overflow-hidden">
             {image ? (
@@ -105,16 +106,16 @@ export function CourseEditor() {
             ) : <span className="display text-gold text-5xl">NX</span>}
           </div>
           <div className="p-5">
-            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-gold-600">{area}</p>
-            <p className="display mt-2 text-2xl leading-tight">{title.es || "Título del curso"}</p>
-            <p className="mt-2 text-sm text-graphite">{short.es || "Descripción corta del curso."}</p>
+            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-gold-600">{t.areas[area as keyof typeof t.areas]}</p>
+            <p className="display mt-2 text-2xl leading-tight">{title.es || t.phTitle}</p>
+            <p className="mt-2 text-sm text-graphite">{short.es || t.phShort}</p>
             <div className="mt-4 flex items-center justify-between border-t border-mist pt-4">
-              <span className="font-semibold">{price ? `${price} €` : "Próximamente"}</span>
-              <span className="btn btn-dark min-h-9 px-4 text-[0.65rem]">Ver curso</span>
+              <span className="font-semibold">{price ? `${price} €` : t.soon}</span>
+              <span className="btn btn-dark min-h-9 px-4 text-[0.65rem]">{t.view}</span>
             </div>
           </div>
         </div>
-        <p className="mt-3 text-xs text-graphite">Die Karte erscheint im Katalog, sobald der Kurs gespeichert und veröffentlicht ist.</p>
+        <p className="mt-3 text-xs text-graphite">{t.previewNote}</p>
       </div>
     </div>
   );

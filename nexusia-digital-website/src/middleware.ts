@@ -20,7 +20,9 @@ export function middleware(req: NextRequest) {
   const first = pathname.split("/")[1];
   if (isLocale(first)) {
     const res = NextResponse.next();
-    if (req.cookies.get("NEXT_LOCALE")?.value !== first) {
+    // Hintergrund-Vorladen (Prefetch) darf die gewählte Sprache NICHT ändern – nur echte Seitenaufrufe.
+    const prefetch = req.headers.has("next-router-prefetch") || req.headers.get("purpose") === "prefetch" || req.headers.get("sec-purpose")?.includes("prefetch");
+    if (!prefetch && req.cookies.get("NEXT_LOCALE")?.value !== first) {
       res.cookies.set("NEXT_LOCALE", first, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
     }
     return res;
@@ -64,6 +66,8 @@ function guardAdmin(req: NextRequest) {
     if (safeEqual(u, user) && safeEqual(rest.join(":"), pass)) {
       const res = NextResponse.next();
       res.headers.set("Cache-Control", "no-store");
+      const lang = req.nextUrl.searchParams.get("lang");
+      if (isLocale(lang)) res.cookies.set("NEXT_LOCALE", lang, { path: "/", maxAge: 60 * 60 * 24 * 365, sameSite: "lax" });
       return res;
     }
   }

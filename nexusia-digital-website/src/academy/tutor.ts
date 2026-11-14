@@ -8,7 +8,7 @@ import "server-only";
  */
 import type { Locale } from "@/lib/i18n/config";
 import { glossary, type GlossaryEntry } from "./glossary";
-import { listCourses, flatLessons } from "./repository";
+import { listCourses, flatLessons, lessonBody } from "./repository";
 import type { Course, LessonBody } from "./types";
 
 export interface TutorSource { course: string; courseTitle: string; lesson: string; title: string; ready: boolean; free: boolean }
@@ -71,8 +71,11 @@ function matchLessons(q: string, courses: Course[], locale: Locale, hint?: strin
   return scored.sort((a, b) => b.score - a.score).slice(0, 3).map((x) => x.s);
 }
 
-function sampleExercise(courses: Course[]): LessonBody | undefined {
-  for (const c of courses) for (const { lesson } of flatLessons(c)) if (lesson.body?.blocks.some((b) => b.type === "exercise")) return lesson.body;
+function sampleExercise(courses: Course[], locale: Locale): LessonBody | undefined {
+  for (const c of courses) for (const { lesson } of flatLessons(c)) {
+    const b = lessonBody(lesson, locale)?.body;
+    if (b?.blocks.some((x) => x.type === "exercise")) return b;
+  }
 }
 
 export async function askTutor(question: string, locale: Locale, courseHint?: string): Promise<TutorAnswer> {
@@ -81,7 +84,7 @@ export async function askTutor(question: string, locale: Locale, courseHint?: st
   const terms = matchGlossary(question);
   const sources = matchLessons(question, courses, locale, courseHint);
   const wantsExercise = /ejercicio|ubung|übung|exercise|tarea|aufgabe/i.test(question);
-  const body = wantsExercise ? sampleExercise(courses) : undefined;
+  const body = wantsExercise ? sampleExercise(courses, locale) : undefined;
 
   // Lektionen aus Glossarverweisen ergänzen
   for (const g of terms) {

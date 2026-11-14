@@ -5,7 +5,7 @@ import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { href, pageMetadata, siteUrl } from "@/lib/site";
 import { academyUi, fmt } from "@/academy/ui";
-import { listCourses, getCourse, courseStats, findLesson, previewTarget, INTRO_SLUG } from "@/academy/repository";
+import { listCourses, getCourse, courseStats, findLesson, previewTarget, lessonBody, INTRO_SLUG } from "@/academy/repository";
 import { Container } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { CourseVisual } from "@/components/academy/CourseCover";
@@ -38,6 +38,7 @@ export default async function CoursePage({ params }: P) {
   const base = href(locale, `/academia/${course.slug}`);
   const preview = `${base}/aprender/${previewTarget(course)}`;
   const sample = course.sampleLesson ? findLesson(course, course.sampleLesson) : undefined;
+  const sb = sample ? lessonBody(sample.lesson, locale) : undefined;
   const faqs = [...course.faq.map((f) => ({ q: f.q[locale], a: f.a[locale] })), ...ui.faqGeneral];
   const t = getDictionary(locale);
 
@@ -46,7 +47,7 @@ export default async function CoursePage({ params }: P) {
     "@type": "Course",
     name: course.title[locale],
     description: course.description[locale],
-    inLanguage: "es",
+    inLanguage: locale,
     url: `${siteUrl}${base}`,
     provider: { "@type": "Organization", name: "Academia NexusIA Digital", url: siteUrl },
     hasCourseInstance: { "@type": "CourseInstance", courseMode: "online" },
@@ -149,15 +150,15 @@ export default async function CoursePage({ params }: P) {
               </div>
             </div>
 
-            {sample?.lesson.body ? (
+            {sample && sb ? (
               <div className="bg-noir grain relative overflow-hidden rounded-[2rem] p-8 text-white sm:p-12">
                 <p className="eyebrow text-gold-300">{ui.course.sample}</p>
                 <h2 className="display mt-4 text-3xl sm:text-4xl">{sample.lesson.title[locale]}</h2>
-                <p className="mt-5 leading-relaxed text-white/70">{sample.lesson.body.intro}</p>
+                <p className="mt-5 leading-relaxed text-white/70">{sb.body.intro}</p>
                 <ul className="mt-6 space-y-2 text-sm text-white/75">
-                  {sample.lesson.body.objectives.map((o) => <li key={o} className="flex gap-2"><Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />{o}</li>)}
+                  {sb.body.objectives.map((o) => <li key={o} className="flex gap-2"><Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />{o}</li>)}
                 </ul>
-                {locale !== sample.lesson.body.lang ? <p className="mt-6 text-xs text-white/45">{ui.learn.langNote}</p> : null}
+                {!sb.translated ? <p className="mt-6 text-xs text-white/45">{ui.learn.langNote}</p> : null}
                 <Link href={`${base}/aprender/${sample.lesson.slug}`} className="btn btn-gold mt-8">{ui.course.sampleCta} <Icon name="arrow" className="h-4 w-4" /></Link>
               </div>
             ) : null}

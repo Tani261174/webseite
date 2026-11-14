@@ -27,7 +27,8 @@ export type VideoSource =
 
 export interface Download {
   label: L10n;
-  href: string;
+  /** Datei je Sprache */
+  href: L10n;
   format: "PDF" | "EPUB" | "XLSX" | "DOCX";
   /** Öffentliche Datei (Vorschau) oder geschützt (nur über signierten Link). */
   public: boolean;
@@ -67,7 +68,8 @@ export interface Lesson {
   access: LessonAccess;
   status: LessonStatus;
   video?: VideoSource;
-  body?: LessonBody;
+  /** Lektionsinhalt je Sprache (fehlt eine Sprache, wird eine vorhandene mit Hinweis gezeigt) */
+  body?: Partial<L10n<LessonBody>>;
   downloads?: Download[];
 }
 
@@ -94,8 +96,8 @@ export interface BrandInfo {
     src?: string;
     /** Offizielle Markenrichtlinie / Ansprechpartner für die Freigabe */
     terms: string;
-    /** Kurzbefund der Prüfung (Deutsch, nur Admin) */
-    note: string;
+    /** Kurzbefund der Prüfung (nur Admin) */
+    note: L10n;
   };
 }
 

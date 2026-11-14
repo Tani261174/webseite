@@ -1,9 +1,11 @@
 import { t, tl, soon, type Course } from "../types";
 import { amazonSampleLesson } from "./amazon-sample-lesson";
+import { amazonSampleLessonDe } from "./amazon-sample-lesson.de";
+import { amazonSampleLessonEn } from "./amazon-sample-lesson.en";
 
 export const amazonCourse: Course = {
   slug: "amazon-business",
-  brand: { name: "Amazon", logo: { status: "pending", terms: "https://affiliate-program.amazon.com/help/operating/amazonmarks/", note: "Amazon-Logo und Smile-Logo sind für Publisher nicht erlaubt; Nutzung nur nach schriftlicher Freigabe über Amazon." } },
+  brand: { name: "Amazon", logo: { status: "pending", terms: "https://affiliate-program.amazon.com/help/operating/amazonmarks/", note: t("El logo de Amazon y el logo Smile no están permitidos para publishers; solo con autorización escrita de Amazon.", "Amazon-Logo und Smile-Logo sind für Publisher nicht erlaubt; Nutzung nur nach schriftlicher Freigabe über Amazon.", "The Amazon logo and Smile logo are not permitted for publishers; use only with Amazon's written approval.") } },
   order: 1,
   cover: "amazon",
   area: "ecommerce",
@@ -78,9 +80,9 @@ export const amazonCourse: Course = {
           minutes: 25,
           access: "preview",
           status: "ready",
-          body: amazonSampleLesson,
+          body: { es: amazonSampleLesson, de: amazonSampleLessonDe, en: amazonSampleLessonEn },
           downloads: [
-            { label: t("Hoja de trabajo: tu mapa de decisión", "Arbeitsblatt: deine Entscheidungskarte", "Worksheet: your decision map"), href: "/academia/amazon-hoja-de-trabajo-modelos.pdf", format: "PDF", public: true },
+            { label: t("Hoja de trabajo: tu mapa de decisión", "Arbeitsblatt: deine Entscheidungskarte", "Worksheet: your decision map"), href: t("/academia/amazon-hoja-de-trabajo-modelos.pdf", "/academia/amazon-arbeitsblatt-modelle.pdf", "/academia/amazon-worksheet-models.pdf"), format: "PDF", public: true },
           ],
         },
         soon("marketplaces-internacionales", "Marketplaces de Amazon en distintos países", "Amazon-Marktplätze in verschiedenen Ländern", "Amazon marketplaces in different countries"),

@@ -8,7 +8,7 @@ import { academyUi, fmt } from "@/academy/ui";
 import { listCourses, getCourse, courseStats, findLesson, previewTarget, INTRO_SLUG } from "@/academy/repository";
 import { Container } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
-import { CourseCover } from "@/components/academy/CourseCover";
+import { CourseVisual } from "@/components/academy/CourseCover";
 import { PriceLabel } from "@/components/academy/CourseCard";
 
 type P = { params: Promise<{ locale: string; course: string }> };
@@ -56,14 +56,14 @@ export default async function CoursePage({ params }: P) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="bg-noir grain relative overflow-hidden text-white">
-        <Container className="relative grid gap-12 py-14 sm:py-20 lg:grid-cols-12">
+        <Container className="relative grid gap-10 py-10 sm:gap-12 sm:py-20 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Link href={href(locale, "/academia")} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/55 hover:text-gold-200">
               <Icon name="arrow" className="h-3.5 w-3.5 rotate-180" /> {ui.course.backToCatalog}
             </Link>
-            <p className="eyebrow intro-1 mt-8 text-gold-300">{ui.areas[course.area]} · {ui.levels[course.level]}</p>
-            <h1 className="display intro-2 mt-4 text-[2.6rem] leading-[1.02] sm:text-6xl">{course.title[locale]}</h1>
-            <p className="intro-3 mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{course.description[locale]}</p>
+            <p className="eyebrow intro-1 mt-6 text-gold-300 sm:mt-8">{ui.areas[course.area]} · {ui.levels[course.level]}</p>
+            <h1 className="display intro-2 mt-4 text-[2.2rem] leading-[1.05] sm:text-6xl">{course.title[locale]}</h1>
+            <p className="intro-3 mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:mt-6 sm:text-lg">{course.description[locale]}</p>
             <ul className="intro-4 mt-8 flex flex-wrap gap-2 text-xs text-white/75">
               <li className="rounded-full border border-white/15 px-4 py-2">{fmt(ui.card.modules, { n: s.modules })}</li>
               <li className="rounded-full border border-white/15 px-4 py-2">{fmt(ui.card.lessons, { n: s.lessons })}</li>
@@ -72,7 +72,7 @@ export default async function CoursePage({ params }: P) {
           </div>
           <aside className="intro-3 lg:col-span-5">
             <div className="overflow-hidden rounded-[1.75rem] bg-white text-ink shadow-[var(--shadow-gold)]">
-              <CourseCover motif={course.cover} id={`detail-${course.slug}`} number={course.order} image={course.image} alt={course.title[locale]} className="aspect-[16/10] w-full" />
+              <CourseVisual course={course} label={ui.card.independent} id={`detail-${course.slug}`} number={course.order} className="aspect-[16/10] w-full" />
               <div className="space-y-5 p-6 sm:p-8">
                 <div>
                   <p className="eyebrow text-[0.6rem] text-gold-600">{ui.course.price}</p>
@@ -95,9 +95,9 @@ export default async function CoursePage({ params }: P) {
         </Container>
       </section>
 
-      <section className="py-16 sm:py-24">
-        <Container className="grid gap-14 lg:grid-cols-12">
-          <div className="space-y-16 lg:col-span-8">
+      <section className="py-12 sm:py-24">
+        <Container className="grid gap-12 lg:grid-cols-12 lg:gap-14">
+          <div className="space-y-12 sm:space-y-16 lg:col-span-8">
             <div>
               <h2 className="display text-4xl">{ui.course.goals}</h2>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">

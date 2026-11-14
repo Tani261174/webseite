@@ -27,13 +27,13 @@ export default async function Dashboard({ params }: P) {
   return (
     <>
       <PageHero eyebrow={ui.name} title={ui.dashboard.title} text={ui.dashboard.text} />
-      <section className="bg-pearl py-14 sm:py-20">
+      <section className="bg-pearl py-10 sm:py-20">
         <Container className="space-y-8">
           <Notice><strong>{ui.dashboard.demoTitle}.</strong> {ui.dashboard.demoText}</Notice>
           <div className="grid gap-8 lg:grid-cols-3">
             <div className="space-y-4 lg:col-span-2">
               <h2 className="display text-3xl">{ui.dashboard.progress}</h2>
-              <MyProgress locale={locale} courses={courses} labels={{ ...ui.dashboard, startPreview: ui.learn.startPreview }} />
+              <MyProgress locale={locale} courses={courses} labels={{ ...ui.dashboard, startPreview: ui.learn.startPreview, quiz: ui.learn.quiz }} />
             </div>
             <div className="space-y-4">
               <div className={card}><h2 className="font-semibold">{ui.dashboard.courses}</h2><p className="mt-2 text-sm text-graphite">{ui.dashboard.noCourses}</p></div>

@@ -6,7 +6,7 @@ import { formatPrice } from "@/academy/pricing";
 import { fmt, type AcademyUi } from "@/academy/ui";
 import { href } from "@/lib/site";
 import { Icon } from "@/components/ui/Icon";
-import { CourseCover } from "./CourseCover";
+import { CourseVisual } from "./CourseCover";
 
 export function PriceLabel({ course, locale, ui, size = "md" }: { course: Course; locale: Locale; ui: AcademyUi; size?: "md" | "lg" }) {
   if (!course.priceCents) return <span className={`font-semibold text-gold-700 ${size === "lg" ? "text-xl" : "text-sm"}`}>{ui.card.soon}</span>;
@@ -24,12 +24,12 @@ export function CourseCard({ course, locale, ui }: { course: Course; locale: Loc
   return (
     <article className="card-lux reveal group flex flex-col overflow-hidden">
       <Link href={url} tabIndex={-1} aria-hidden="true" className="relative block aspect-[16/10] overflow-hidden bg-ink">
-        <CourseCover motif={course.cover} id={`card-${course.slug}`} number={course.order} image={course.image} className="h-full w-full transition duration-[1.2s] ease-[var(--ease-lux)] group-hover:scale-[1.04]" />
+        <CourseVisual course={course} label={ui.card.independent} id={`card-${course.slug}`} number={course.order} className="h-full w-full transition duration-[1.2s] ease-[var(--ease-lux)] group-hover:scale-[1.04]" />
         <span className="absolute right-3 top-3 rounded-full bg-black/65 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-200 backdrop-blur">
           {s.previews > 0 ? ui.card.previewTag : ui.card.soon}
         </span>
       </Link>
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <p className="eyebrow text-[0.6rem] text-gold-600">{ui.areas[course.area]}</p>
         <h3 className="display mt-2 text-[1.65rem] leading-tight">
           <Link href={url} className="transition hover:text-gold-600">{course.title[locale]}</Link>

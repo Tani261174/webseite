@@ -165,3 +165,59 @@ export function CourseCover({ motif, id, number, className = "", image, alt = ""
     </svg>
   );
 }
+
+/**
+ * Kursbild für Karten und Detailseiten.
+ * 1. Plattformkurs mit FREIGEGEBENEM Logo → Originallogo unverändert (object-contain) auf weißer Fläche mit Goldrahmen.
+ * 2. Plattformkurs ohne Freigabe → neutrale Textkarte: Plattformname als reiner Text, kein Logo, keine Markenfarben.
+ * 3. Eigener Kurs (z. B. Marketing Digital) → eigenes NexusIA-Kursmotiv.
+ */
+export function CourseVisual({ course, id, number, className = "", label }: {
+  course: { cover: CoverMotif; image?: string; brand?: { name: string; logo: { status: "pending" | "approved"; src?: string } }; title: Record<string, string> };
+  id: string;
+  number?: number;
+  className?: string;
+  /** „Curso independiente“ in der jeweiligen Sprache */
+  label: string;
+}) {
+  const b = course.brand;
+  if (b?.logo.status === "approved" && b.logo.src) {
+    return (
+      <div className={`relative grid place-items-center bg-white ${className}`}>
+        <div className="gold-frame absolute inset-3 rounded-xl" aria-hidden="true" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={b.logo.src} alt={b.name} className="relative max-h-[38%] max-w-[62%] object-contain" loading="lazy" />
+        <span className="absolute bottom-4 left-0 right-0 text-center text-[0.55rem] font-semibold uppercase tracking-[0.24em] text-graphite">{label}</span>
+      </div>
+    );
+  }
+  if (!b) return <CourseCover motif={course.cover} id={id} number={number} className={className} image={course.image} />;
+  const size = b.name.length <= 6 ? 54 : b.name.length <= 9 ? 46 : 40;
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label={`${b.name} · ${label}`} preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id={`tg-${id}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#7a5a1f" />
+          <stop offset="0.3" stopColor="#d4af5a" />
+          <stop offset="0.5" stopColor="#f8e7ad" />
+          <stop offset="0.75" stopColor="#c9a043" />
+          <stop offset="1" stopColor="#8f6b28" />
+        </linearGradient>
+        <radialGradient id={`tr-${id}`} cx="0.5" cy="0.45" r="0.7">
+          <stop offset="0" stopColor="#1d1912" />
+          <stop offset="1" stopColor="#060606" />
+        </radialGradient>
+      </defs>
+      <rect width="400" height="250" fill={`url(#tr-${id})`} />
+      <rect x="14" y="14" width="372" height="222" rx="14" fill="none" stroke={`url(#tg-${id})`} strokeWidth="1.2" />
+      <rect x="21" y="21" width="358" height="208" rx="10" fill="none" stroke={`url(#tg-${id})`} strokeWidth="0.5" opacity="0.6" />
+      {number ? (
+        <text x="38" y="58" fill={`url(#tg-${id})`} fontFamily="Cormorant Garamond, Georgia, serif" fontSize="30" fontWeight="500">{String(number).padStart(2, "0")}</text>
+      ) : null}
+      <text x="200" y="134" textAnchor="middle" fill="#ffffff" fontFamily="Manrope Variable, system-ui, sans-serif" fontSize={size} fontWeight="600" letterSpacing="0.5">{b.name}</text>
+      <rect x="170" y="152" width="60" height="1.2" fill={`url(#tg-${id})`} />
+      <text x="200" y="176" textAnchor="middle" fill="#d4af5a" fontFamily="Manrope Variable, system-ui, sans-serif" fontSize="10" fontWeight="600" letterSpacing="3">{label.toUpperCase()}</text>
+      <text x="200" y="214" textAnchor="middle" fill="#ffffff" fillOpacity="0.45" fontFamily="Manrope Variable, system-ui, sans-serif" fontSize="8.5" letterSpacing="3">ACADEMIA NEXUSIA DIGITAL</text>
+    </svg>
+  );
+}

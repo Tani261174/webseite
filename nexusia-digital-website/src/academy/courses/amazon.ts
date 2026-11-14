@@ -3,6 +3,7 @@ import { amazonSampleLesson } from "./amazon-sample-lesson";
 
 export const amazonCourse: Course = {
   slug: "amazon-business",
+  brand: { name: "Amazon", logo: { status: "pending", terms: "https://affiliate-program.amazon.com/help/operating/amazonmarks/", note: "Amazon-Logo und Smile-Logo sind für Publisher nicht erlaubt; Nutzung nur nach schriftlicher Freigabe über Amazon." } },
   order: 1,
   cover: "amazon",
   area: "ecommerce",

@@ -8,7 +8,7 @@ export type ProgressCourse = { slug: string; title: string; lessons: { slug: str
 export function MyProgress({ locale, courses, labels }: {
   locale: string;
   courses: ProgressCourse[];
-  labels: { noProgress: string; completed: string; reset: string; continue: string; startPreview: string };
+  labels: { quiz: string; noProgress: string; completed: string; reset: string; continue: string; startPreview: string };
 }) {
   const { data, reset } = useProgress();
   const rows = courses
@@ -46,7 +46,7 @@ export function MyProgress({ locale, courses, labels }: {
             <p className="mt-2 text-sm text-graphite">{labels.completed.replace("{n}", String(done))} · {pct} %</p>
             {quizzes.length ? (
               <ul className="mt-3 space-y-1 text-sm">
-                {quizzes.map((q) => <li key={q.title}>Quiz · {q.title}: <strong>{q.quiz}/{q.quizTotal}</strong></li>)}
+                {quizzes.map((q) => <li key={q.title}>{labels.quiz} · {q.title}: <strong>{q.quiz}/{q.quizTotal}</strong></li>)}
               </ul>
             ) : null}
           </div>

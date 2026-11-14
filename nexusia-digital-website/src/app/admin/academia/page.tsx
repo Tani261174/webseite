@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listCourses, courseStats } from "@/academy/repository";
+import { listCourses, courseStats, flatLessons } from "@/academy/repository";
 import { coupons, formatPrice } from "@/academy/pricing";
 import { CourseEditor } from "./CourseEditor";
 
@@ -35,13 +35,18 @@ export default async function AdminAcademy() {
       <section>
         <h2 className="display text-3xl">Kurse ({courses.length})</h2>
         <div className="mt-5 overflow-x-auto rounded-2xl border border-mist bg-white">
-          <table className="w-full min-w-[720px] text-left text-sm">
+          <table className="w-full min-w-[980px] text-left text-sm">
             <thead className="border-b border-mist bg-pearl text-xs uppercase tracking-wider text-graphite">
-              <tr><th className="px-4 py-3">#</th><th className="px-4 py-3">Kurs</th><th className="px-4 py-3">Status</th><th className="px-4 py-3">Module</th><th className="px-4 py-3">Lektionen (fertig)</th><th className="px-4 py-3">Preis</th><th className="px-4 py-3" /></tr>
+              <tr><th className="px-4 py-3">#</th><th className="px-4 py-3">Kurs</th><th className="px-4 py-3">Status</th><th className="px-4 py-3">Module</th><th className="px-4 py-3">Lektionen (fertig)</th><th className="px-4 py-3">Videos</th><th className="px-4 py-3">Dateien</th><th className="px-4 py-3">Übung / Quiz</th><th className="px-4 py-3">Logo</th><th className="px-4 py-3">Preis</th><th className="px-4 py-3" /></tr>
             </thead>
             <tbody>
               {courses.map((c) => {
                 const s = courseStats(c);
+                const ls = flatLessons(c).map((x) => x.lesson);
+                const videos = ls.filter((l) => l.video).length;
+                const files = ls.reduce((n, l) => n + (l.downloads?.length || 0), 0);
+                const ex = ls.filter((l) => l.body?.blocks.some((b) => b.type === "exercise")).length;
+                const qz = ls.filter((l) => l.body?.quiz?.length).length;
                 return (
                   <tr key={c.slug} className="border-b border-mist last:border-0">
                     <td className="px-4 py-3 text-graphite">{c.order}</td>
@@ -49,6 +54,10 @@ export default async function AdminAcademy() {
                     <td className="px-4 py-3">{statusLabel[c.status]}</td>
                     <td className="px-4 py-3">{s.modules}</td>
                     <td className="px-4 py-3">{s.lessons} ({s.ready})</td>
+                    <td className="px-4 py-3">{videos}</td>
+                    <td className="px-4 py-3">{files}</td>
+                    <td className="px-4 py-3">{ex} / {qz}</td>
+                    <td className="px-4 py-3">{c.brand ? <a href={c.brand.logo.terms} target="_blank" rel="noopener" title={c.brand.logo.note} className={c.brand.logo.status === "approved" ? "text-emerald-700" : "text-gold-700"}>{c.brand.logo.status === "approved" ? "freigegeben" : "ausstehend"}</a> : "eigenes Motiv"}</td>
                     <td className="px-4 py-3">{c.priceCents ? `${formatPrice(c.priceCents, "de")}${c.priceIsExample ? " (Beispiel)" : ""}` : "—"}</td>
                     <td className="px-4 py-3"><a href={`/es/academia/${c.slug}`} target="_blank" rel="noopener" className="text-gold-700 underline underline-offset-4">Ansehen</a></td>
                   </tr>
@@ -57,6 +66,20 @@ export default async function AdminAcademy() {
             </tbody>
           </table>
         </div>
+      </section>
+
+      <section>
+        <h2 className="display text-3xl">Plattform-Logos</h2>
+        <p className="mt-2 max-w-3xl text-sm text-graphite">Originallogos werden erst angezeigt, wenn eine schriftliche Freigabe vorliegt. Bis dahin zeigt jede Karte eine neutrale Textkarte mit dem Plattformnamen als reinem Text.</p>
+        <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+          {courses.filter((c) => c.brand).map((c) => (
+            <li key={c.slug} className="rounded-xl border border-mist bg-white p-4 text-sm">
+              <div className="flex items-center justify-between gap-3"><strong>{c.brand!.name}</strong><span className="rounded-full bg-gold-50 px-2 py-0.5 text-[0.65rem] uppercase tracking-wider text-gold-700">{c.brand!.logo.status === "approved" ? "freigegeben" : "Freigabe ausstehend"}</span></div>
+              <p className="mt-2 text-graphite">{c.brand!.logo.note}</p>
+              <a href={c.brand!.logo.terms} target="_blank" rel="noopener" className="mt-2 inline-block text-xs text-gold-700 underline underline-offset-4">Richtlinie / Kontakt</a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section>

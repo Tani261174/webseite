@@ -40,6 +40,7 @@ const modules = (list: M[]): Module[] =>
 
 export const otherCourses: Course[] = [
   {
+    brand: { name: "Temu", logo: { status: "pending", terms: "https://www.temu.com/", note: "Kein öffentliches Brand-Kit mit Nutzungserlaubnis für Dritte gefunden – Freigabe nötig." } },
     slug: "temu", order: 2, cover: "temu", area: "affiliate", level: "beginner", status: "soon",
     title: t("Temu – Afiliados e Influencer Marketing", "Temu – Affiliate- und Influencer-Marketing", "Temu – Affiliate & Influencer Marketing"),
     short: t("Recomienda productos de Temu con contenido honesto y medible.", "Temu-Produkte mit ehrlichem, messbarem Content empfehlen.", "Recommend Temu products with honest, measurable content."),
@@ -86,6 +87,7 @@ export const otherCourses: Course[] = [
     faq: [independent("Temu"), availability("Temu")],
   },
   {
+    brand: { name: "SHEIN", logo: { status: "pending", terms: "https://www.shein.com/", note: "Kein öffentliches Brand-Kit mit Nutzungserlaubnis für Dritte gefunden – Freigabe nötig." } },
     slug: "shein", order: 3, cover: "shein", area: "affiliate", level: "beginner", status: "soon",
     title: t("SHEIN – Afiliados y Marketing de Moda", "SHEIN – Affiliate- und Fashion-Marketing", "SHEIN – Affiliate & Fashion Marketing"),
     short: t("Contenido de moda que inspira y recomendaciones transparentes.", "Mode-Content, der inspiriert, und transparente Empfehlungen.", "Fashion content that inspires and transparent recommendations."),
@@ -132,6 +134,7 @@ export const otherCourses: Course[] = [
     faq: [independent("SHEIN"), availability("SHEIN")],
   },
   {
+    brand: { name: "TikTok Shop", logo: { status: "pending", terms: "https://developers.tiktok.com/doc/getting-started-design-guidelines", note: "TikTok: Logos nur mit vorheriger schriftlicher Erlaubnis." } },
     slug: "tiktok-shop", order: 4, cover: "tiktok", area: "social", level: "beginner", status: "soon",
     title: t("TikTok Shop – Social Commerce", "TikTok Shop – Social Commerce", "TikTok Shop – Social Commerce"),
     short: t("Vende y recomienda productos dentro de TikTok.", "Produkte direkt in TikTok verkaufen und empfehlen.", "Sell and recommend products inside TikTok."),
@@ -178,6 +181,7 @@ export const otherCourses: Course[] = [
     faq: [independent("TikTok"), availability("TikTok Shop")],
   },
   {
+    brand: { name: "Shopify", logo: { status: "pending", terms: "https://www.shopify.com/legal/trademarks", note: "Shopify: Nutzung der Brand-Assets grundsätzlich nur mit schriftlicher Genehmigung." } },
     slug: "shopify", order: 5, cover: "shopify", area: "ecommerce", level: "beginner", status: "soon",
     title: t("Shopify – Crea tu propia tienda online", "Shopify – Den eigenen Onlineshop erstellen", "Shopify – Build Your Own Online Store"),
     short: t("De la idea a una tienda profesional y lista para vender.", "Von der Idee zum professionellen, verkaufsbereiten Shop.", "From idea to a professional store ready to sell."),
@@ -224,6 +228,7 @@ export const otherCourses: Course[] = [
     faq: [independent("Shopify")],
   },
   {
+    brand: { name: "Etsy", logo: { status: "pending", terms: "https://www.etsy.com/legal/trademarks-examples/", note: "Etsy: Logo-Nutzung nach Trademark Policy, für kommerzielle Drittangebote nicht freigegeben." } },
     slug: "etsy", order: 6, cover: "etsy", area: "digital", level: "beginner", status: "soon",
     title: t("Etsy – Productos digitales y Handmade", "Etsy – Digitale Produkte und Handmade", "Etsy – Digital Products & Handmade"),
     short: t("Vende plantillas, imprimibles o productos hechos a mano.", "Vorlagen, Printables oder Handgemachtes verkaufen.", "Sell templates, printables or handmade products."),
@@ -270,6 +275,7 @@ export const otherCourses: Course[] = [
     faq: [independent("Etsy")],
   },
   {
+    brand: { name: "eBay", logo: { status: "pending", terms: "https://brandpermission.ebay.com/guidelines", note: "eBay: Name und Logo nur mit schriftlicher Lizenz (Antrag über das IP Permission Center)." } },
     slug: "ebay", order: 7, cover: "ebay", area: "ecommerce", level: "beginner", status: "soon",
     title: t("eBay – Comercio online y reventa", "eBay – Onlinehandel und Wiederverkauf", "eBay – Online Selling & Reselling"),
     short: t("Vende y revende con método, números claros y buena reputación.", "Mit Methode, klaren Zahlen und gutem Ruf verkaufen.", "Sell and resell with method, clear numbers and a good reputation."),
@@ -316,6 +322,7 @@ export const otherCourses: Course[] = [
     faq: [independent("eBay")],
   },
   {
+    brand: { name: "AliExpress", logo: { status: "pending", terms: "https://www.aliexpress.com/", note: "Kein öffentliches Brand-Kit mit Nutzungserlaubnis für Dritte gefunden – Freigabe nötig." } },
     slug: "aliexpress", order: 8, cover: "aliexpress", area: "ecommerce", level: "intermediate", status: "soon",
     title: t("AliExpress – Afiliados y Dropshipping", "AliExpress – Affiliate und Dropshipping", "AliExpress – Affiliate & Dropshipping"),
     short: t("Afiliación y dropshipping con una visión realista de riesgos y plazos.", "Affiliate und Dropshipping mit realistischem Blick auf Risiken und Lieferzeiten.", "Affiliate marketing and dropshipping with a realistic view of risks and delivery times."),
@@ -366,6 +373,7 @@ export const otherCourses: Course[] = [
     faq: [independent("AliExpress")],
   },
   {
+    brand: { name: "Hotmart", logo: { status: "pending", terms: "https://hotmart.com/en/legal/terms-of-use", note: "Keine öffentlichen Logo-Richtlinien gefunden – Nutzung unklar, Freigabe nötig." } },
     slug: "hotmart", order: 9, cover: "hotmart", area: "digital", level: "beginner", status: "soon",
     title: t("Hotmart – Productos digitales y cursos online", "Hotmart – Digitale Produkte und Onlinekurse", "Hotmart – Digital Products & Online Courses"),
     short: t("Crea, publica y vende tu producto digital o tu curso.", "Dein digitales Produkt oder deinen Kurs erstellen und verkaufen.", "Create, publish and sell your digital product or course."),
@@ -412,6 +420,7 @@ export const otherCourses: Course[] = [
     faq: [independent("Hotmart")],
   },
   {
+    brand: { name: "Canva", logo: { status: "pending", terms: "https://www.canva.dev/docs/apps/rest-apis/brand-guidelines/", note: "Canva: Logo nur für freigegebene Zwecke; kommerzielle Nutzung braucht Genehmigung." } },
     slug: "canva-ia", order: 10, cover: "canva", area: "ai", level: "all", status: "soon",
     title: t("Canva & IA – Diseños y productos digitales", "Canva & KI – Designs und digitale Produkte", "Canva & AI – Designs and Digital Products"),
     short: t("Diseña con Canva y herramientas de IA, con calidad y derechos claros.", "Mit Canva und KI gestalten – hochwertig und rechtlich sauber.", "Design with Canva and AI tools – high quality, with clear rights."),
@@ -458,6 +467,7 @@ export const otherCourses: Course[] = [
     faq: [independent("Canva")],
   },
   {
+    brand: { name: "YouTube", logo: { status: "pending", terms: "https://brand.youtube", note: "YouTube: jede Nutzung der Marke muss über das Brand-Formular genehmigt werden." } },
     slug: "youtube", order: 11, cover: "youtube", area: "social", level: "beginner", status: "soon",
     title: t("YouTube – Contenido y monetización", "YouTube – Content und Monetarisierung", "YouTube – Content & Monetisation"),
     short: t("Construye un canal con propósito y fuentes de ingreso diversas.", "Einen Kanal mit Konzept und mehreren Einnahmequellen aufbauen.", "Build a purposeful channel with diverse income streams."),

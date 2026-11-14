@@ -19,7 +19,7 @@ export default async function TutorPage({ params }: P) {
   return (
     <>
       <PageHero eyebrow={ui.name} title={ui.tutor.title} text={ui.tutor.text} />
-      <section className="py-14 sm:py-20">
+      <section className="py-10 sm:py-20">
         <Container className="max-w-3xl">
           <TutorChat locale={locale} ui={ui.tutor} />
         </Container>

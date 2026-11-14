@@ -76,8 +76,8 @@ export function TutorChat({ locale, ui, course, compact = false }: { locale: Loc
       ) : null}
       <form className="flex gap-2 border-t border-white/10 p-3" onSubmit={(e) => { e.preventDefault(); ask(q); }}>
         <label htmlFor={`tutor-q-${compact ? "c" : "f"}`} className="sr-only">{ui.label}</label>
-        <input id={`tutor-q-${compact ? "c" : "f"}`} value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} placeholder={ui.placeholder} className="min-h-11 flex-1 rounded-full border border-white/15 bg-white/[0.04] px-4 text-sm text-white placeholder:text-white/35 focus:border-gold-300 focus:outline-none" />
-        <button type="submit" disabled={busy || q.trim().length < 2} className="btn btn-gold min-h-11 px-5 text-[0.7rem]">{ui.send}</button>
+        <input id={`tutor-q-${compact ? "c" : "f"}`} value={q} onChange={(e) => setQ(e.target.value)} maxLength={500} placeholder={ui.placeholder} className="min-h-11 min-w-0 flex-1 rounded-full border border-white/15 bg-white/[0.04] px-4 text-sm text-white placeholder:text-white/35 focus:border-gold-300 focus:outline-none" />
+        <button type="submit" disabled={busy || q.trim().length < 2} className="btn btn-gold min-h-11 shrink-0 px-4 text-[0.7rem] sm:px-5">{ui.send}</button>
       </form>
     </div>
   );

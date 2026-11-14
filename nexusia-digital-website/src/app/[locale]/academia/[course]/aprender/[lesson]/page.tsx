@@ -60,7 +60,7 @@ export default async function LessonPage({ params }: P) {
         </Container>
       </div>
 
-      <Container className="grid gap-10 py-10 lg:grid-cols-12 lg:py-14">
+      <Container className="grid gap-6 py-6 sm:gap-10 sm:py-10 lg:grid-cols-12 lg:py-14">
         {/* Lehrplan */}
         <aside className="lg:col-span-4 xl:col-span-3">
           {/* Handy: eingeklappt */}
@@ -159,7 +159,7 @@ export default async function LessonPage({ params }: P) {
             </div>
           )}
 
-          <nav className="mt-12 grid gap-3 border-t border-mist pt-8 sm:grid-cols-2" aria-label="Lecciones">
+          <nav className="mt-12 grid gap-3 border-t border-mist pt-8 sm:grid-cols-2" aria-label={ui.learn.lessonNav}>
             {prev || found ? (
               <Link href={`${base}/aprender/${prev ? prev.lesson.slug : INTRO_SLUG}`} className="rounded-2xl border border-mist p-4 text-sm transition hover:border-gold-300">
                 <span className="text-xs text-graphite">← {ui.learn.prev}</span>

@@ -21,7 +21,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <As className={`display mt-5 text-[2.6rem] sm:text-6xl ${dark ? "text-white" : "text-ink"}`}>{title}</As>
+      <As className={`display mt-4 text-[2.3rem] sm:mt-5 sm:text-6xl ${dark ? "text-white" : "text-ink"}`}>{title}</As>
       {text ? <p className={`mt-6 text-base leading-relaxed sm:text-lg ${dark ? "text-white/65" : "text-graphite"}`}>{text}</p> : null}
     </div>
   );
@@ -32,15 +32,15 @@ export function PageHero({ eyebrow, title, text, children }: { eyebrow?: string;
     <section className="bg-noir grain relative overflow-hidden">
       <div className="pointer-events-none absolute -right-40 -top-40 h-[30rem] w-[30rem] rounded-full border border-gold-400/15" aria-hidden="true" />
       <div className="pointer-events-none absolute -right-20 -top-20 h-[22rem] w-[22rem] rounded-full border border-gold-400/10" aria-hidden="true" />
-      <Container className="relative py-20 sm:py-28">
+      <Container className="relative py-12 sm:py-28">
         {eyebrow ? (
           <p className="eyebrow intro-1 flex items-center gap-3 text-gold-300">
             <span className="gold-hairline inline-block w-8" aria-hidden="true" />
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="display intro-2 mt-5 max-w-4xl text-5xl text-white sm:text-7xl">{title}</h1>
-        {text ? <p className="intro-3 mt-6 max-w-2xl text-lg leading-relaxed text-white/65">{text}</p> : null}
+        <h1 className="display intro-2 mt-4 max-w-4xl text-[2.6rem] leading-[1.05] text-white sm:mt-5 sm:text-7xl">{title}</h1>
+        {text ? <p className="intro-3 mt-5 max-w-2xl text-base leading-relaxed text-white/65 sm:mt-6 sm:text-lg">{text}</p> : null}
         {children ? <div className="intro-4 mt-8">{children}</div> : null}
       </Container>
     </section>

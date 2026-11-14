@@ -7,9 +7,11 @@ import { listCourses, previewTarget } from "@/academy/repository";
 import { Container, SectionHeading } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { CourseCard } from "@/components/academy/CourseCard";
-import { CourseCover } from "@/components/academy/CourseCover";
+import { CourseVisual } from "@/components/academy/CourseCover";
 
 type P = { params: Promise<{ locale: string }> };
+
+const SLOGAN = ["Aprende.", "Emprende.", "Crece."] as const;
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
   const { locale } = await resolveLocale(params);
@@ -38,22 +40,23 @@ export default async function AcademyHome({ params }: P) {
       <section className="bg-noir grain relative overflow-hidden text-white">
         <div className="pointer-events-none absolute -right-48 -top-48 h-[36rem] w-[36rem] rounded-full border border-gold-400/15" aria-hidden="true" />
         <div className="pointer-events-none absolute -right-24 -top-24 h-[26rem] w-[26rem] rounded-full border border-gold-400/10" aria-hidden="true" />
-        <Container className="relative grid items-center gap-14 py-20 sm:py-28 lg:grid-cols-12">
+        <Container className="relative grid items-center gap-10 py-12 sm:gap-14 sm:py-28 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="eyebrow intro-1 flex items-center gap-3 text-gold-300"><span className="gold-hairline inline-block w-8" aria-hidden="true" />{ui.home.eyebrow}</p>
-            <h1 className="display intro-2 mt-6 text-[3.1rem] leading-[0.98] sm:text-7xl lg:text-[5.4rem]">
-              {ui.home.titleA}<br /><span className="text-gold-shine italic">{ui.home.titleB}</span>
+            {/* Markenslogan – bewusst in allen Sprachen auf Spanisch */}
+            <h1 lang="es" className="display intro-2 mt-5 text-[3rem] leading-[1] sm:mt-6 sm:text-7xl lg:text-[5.6rem]">
+              {SLOGAN[0]} {SLOGAN[1]}<br /><span className="text-gold-shine italic">{SLOGAN[2]}</span>
             </h1>
-            <p className="intro-3 mt-7 max-w-xl text-lg leading-relaxed text-white/65">{ui.home.subtitle}</p>
-            <div className="intro-4 mt-9 flex flex-wrap gap-3">
+            <p className="intro-3 mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:mt-7 sm:text-lg">{ui.home.subtitle}</p>
+            <div className="intro-4 mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
               <Link href="#cursos" className="btn btn-gold">{ui.home.primary} <Icon name="arrow" className="h-4 w-4" /></Link>
               {featured ? <Link href={`${base}/${featured.slug}/aprender/${previewTarget(featured)}`} className="btn btn-ghost-light"><Icon name="play" className="h-4 w-4" /> {ui.home.secondary}</Link> : null}
             </div>
-            <dl className="intro-4 mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-white/10 pt-8">
+            <dl className="intro-4 mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-white/10 pt-6 sm:mt-14 sm:gap-6 sm:pt-8">
               {ui.home.facts.map((f) => (
                 <div key={f.label}>
                   <dt className="sr-only">{f.label}</dt>
-                  <dd className="display text-gold text-4xl sm:text-5xl">{f.value}</dd>
+                  <dd className="display text-gold text-3xl sm:text-5xl">{f.value}</dd>
                   <dd className="mt-1 text-xs leading-snug text-white/50">{f.label}</dd>
                 </div>
               ))}
@@ -62,7 +65,7 @@ export default async function AcademyHome({ params }: P) {
           {featured ? (
             <div className="intro-3 lg:col-span-5">
               <Link href={`${base}/${featured.slug}`} className="gold-frame group block overflow-hidden rounded-[1.75rem] shadow-[var(--shadow-gold)]">
-                <CourseCover motif={featured.cover} id="hero" number={featured.order} image={featured.image} className="aspect-[16/11] w-full transition duration-[1.4s] ease-[var(--ease-lux)] group-hover:scale-[1.03]" />
+                <CourseVisual course={featured} label={ui.card.independent} id="hero" number={featured.order} className="aspect-[16/11] w-full transition duration-[1.4s] ease-[var(--ease-lux)] group-hover:scale-[1.03]" />
                 <div className="bg-ink-soft px-6 py-5">
                   <p className="eyebrow text-[0.6rem] text-gold-300">{ui.card.previewTag}</p>
                   <p className="display mt-2 text-2xl leading-tight text-white">{featured.title[locale]}</p>
@@ -74,22 +77,22 @@ export default async function AcademyHome({ params }: P) {
       </section>
 
       {/* KATALOG */}
-      <section id="cursos" className="scroll-mt-28 py-20 sm:py-28">
+      <section id="cursos" className="scroll-mt-28 py-14 sm:py-28">
         <Container>
           <SectionHeading eyebrow={ui.home.catalogEyebrow} title={ui.home.catalogTitle} text={ui.home.catalogText} />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {courses.map((c) => <CourseCard key={c.slug} course={c} locale={locale} ui={ui} />)}
           </div>
         </Container>
       </section>
 
       {/* SO FUNKTIONIERT'S */}
-      <section className="bg-pearl py-20 sm:py-28">
+      <section className="bg-pearl py-14 sm:py-28">
         <Container>
           <SectionHeading eyebrow={ui.home.howEyebrow} title={ui.home.howTitle} align="center" />
-          <ol className="mt-14 grid gap-6 md:grid-cols-3">
+          <ol className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 md:grid-cols-3">
             {ui.home.how.map((s, i) => (
-              <li key={s.title} className="reveal rounded-3xl border border-mist bg-white p-8">
+              <li key={s.title} className="reveal rounded-3xl border border-mist bg-white p-6 sm:p-8">
                 <span className="display text-gold text-5xl">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-graphite">{s.text}</p>
@@ -100,8 +103,8 @@ export default async function AcademyHome({ params }: P) {
       </section>
 
       {/* TUTOR + EHRLICHKEIT */}
-      <section className="py-20 sm:py-28">
-        <Container className="grid gap-8 lg:grid-cols-2">
+      <section className="py-14 sm:py-28">
+        <Container className="grid gap-5 sm:gap-8 lg:grid-cols-2">
           <div className="bg-noir grain reveal relative overflow-hidden rounded-[2rem] p-8 text-white sm:p-12">
             <p className="eyebrow text-gold-300">{ui.home.tutorEyebrow}</p>
             <h2 className="display mt-4 text-4xl sm:text-5xl">{ui.home.tutorTitle}</h2>
@@ -121,7 +124,7 @@ export default async function AcademyHome({ params }: P) {
       </section>
 
       {/* FAQ */}
-      <section className="bg-pearl py-20">
+      <section className="bg-pearl py-14 sm:py-20">
         <Container className="max-w-3xl">
           <SectionHeading eyebrow="FAQ" title={ui.course.faq} align="center" />
           <div className="mt-10 divide-y divide-mist rounded-3xl border border-mist bg-white">

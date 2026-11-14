@@ -8,12 +8,10 @@ const es = {
   name: "Academia NexusIA Digital",
   nav: { catalog: "Cursos", learning: "Mi aprendizaje", tutor: "NexusTutor AI", access: "Acceso", label: "Navegación de la academia" },
   home: {
-    metaTitle: "Academia NexusIA Digital – Cursos de negocio online, e-commerce e IA",
-    metaDescription: "Aprende a construir tu negocio online con cursos de Amazon, TikTok Shop, Shopify, Etsy, marketing digital, IA y productos digitales. En español, alemán e inglés.",
+    metaTitle: "Academia NexusIA Digital – Aprende. Emprende. Crece.",
+    metaDescription: "Tu academia internacional para aprender comercio electrónico, marketing digital, inteligencia artificial y negocios online. Cursos en español, alemán e inglés.",
     eyebrow: "Academia internacional de negocio digital",
-    titleA: "Aprende a construir",
-    titleB: "tu negocio online.",
-    subtitle: "Cursos claros y prácticos sobre e-commerce, afiliados, redes sociales, inteligencia artificial y productos digitales. Para personas de cualquier país, a tu ritmo y sin promesas vacías.",
+    subtitle: "Tu academia internacional para aprender comercio electrónico, marketing digital, inteligencia artificial y negocios online.",
     primary: "Ver cursos",
     secondary: "Probar la lección gratuita",
     facts: [
@@ -43,7 +41,7 @@ const es = {
       "Internacional: explicamos qué cambia según el país y dónde comprobarlo.",
     ],
   },
-  card: { view: "Ver curso", lessons: "{n} lecciones", modules: "{n} módulos", soon: "Próximamente", exampleTag: "precio de ejemplo", previewTag: "Vista previa gratis" },
+  card: { independent: "Curso independiente", view: "Ver curso", lessons: "{n} lecciones", modules: "{n} módulos", soon: "Próximamente", exampleTag: "precio de ejemplo", previewTag: "Vista previa gratis" },
   levels: { beginner: "Principiante", intermediate: "Intermedio", all: "Todos los niveles" },
   areas: { ecommerce: "E-commerce", affiliate: "Afiliados", social: "Redes y contenido", digital: "Productos digitales", ai: "IA y diseño" },
   course: {
@@ -107,6 +105,7 @@ const es = {
     minutes: "{n} min",
     startPreview: "Empezar la vista previa",
     modulesTitle: "Módulos",
+    lessonNav: "Navegación entre lecciones",
   },
   checkout: {
     metaTitle: "Comprar curso",
@@ -184,12 +183,10 @@ const de: AcademyUi = {
   name: "Academia NexusIA Digital",
   nav: { catalog: "Kurse", learning: "Mein Lernbereich", tutor: "NexusTutor AI", access: "Anmelden", label: "Akademie-Navigation" },
   home: {
-    metaTitle: "Academia NexusIA Digital – Kurse für Online-Business, E-Commerce und KI",
-    metaDescription: "Lerne, dein Online-Business aufzubauen – mit Kursen zu Amazon, TikTok Shop, Shopify, Etsy, digitalem Marketing, KI und digitalen Produkten. Auf Spanisch, Deutsch und Englisch.",
+    metaTitle: "Academia NexusIA Digital – Aprende. Emprende. Crece.",
+    metaDescription: "Deine internationale Akademie für E-Commerce, digitales Marketing, künstliche Intelligenz und Online-Business. Kurse auf Spanisch, Deutsch und Englisch.",
     eyebrow: "Internationale Akademie für digitales Business",
-    titleA: "Lerne, dein",
-    titleB: "Online-Business aufzubauen.",
-    subtitle: "Klare, praxisnahe Kurse zu E-Commerce, Affiliate-Marketing, Social Media, künstlicher Intelligenz und digitalen Produkten. Für Menschen aus jedem Land, im eigenen Tempo und ohne leere Versprechen.",
+    subtitle: "Deine internationale Akademie für E-Commerce, digitales Marketing, künstliche Intelligenz und Online-Business.",
     primary: "Kurse ansehen",
     secondary: "Gratis-Lektion testen",
     facts: [
@@ -219,7 +216,7 @@ const de: AcademyUi = {
       "International: Wir erklären, was sich je nach Land ändert und wo du es nachschlägst.",
     ],
   },
-  card: { view: "Kurs ansehen", lessons: "{n} Lektionen", modules: "{n} Module", soon: "Demnächst", exampleTag: "Beispielpreis", previewTag: "Gratis-Vorschau" },
+  card: { independent: "Unabhängiger Kurs", view: "Kurs ansehen", lessons: "{n} Lektionen", modules: "{n} Module", soon: "Demnächst", exampleTag: "Beispielpreis", previewTag: "Gratis-Vorschau" },
   levels: { beginner: "Einsteiger", intermediate: "Fortgeschritten", all: "Alle Niveaus" },
   areas: { ecommerce: "E-Commerce", affiliate: "Affiliate", social: "Social & Content", digital: "Digitale Produkte", ai: "KI & Design" },
   course: {
@@ -283,6 +280,7 @@ const de: AcademyUi = {
     minutes: "{n} Min.",
     startPreview: "Vorschau starten",
     modulesTitle: "Module",
+    lessonNav: "Navigation zwischen Lektionen",
   },
   checkout: {
     metaTitle: "Kurs kaufen",
@@ -358,12 +356,10 @@ const en: AcademyUi = {
   name: "Academia NexusIA Digital",
   nav: { catalog: "Courses", learning: "My learning", tutor: "NexusTutor AI", access: "Sign in", label: "Academy navigation" },
   home: {
-    metaTitle: "Academia NexusIA Digital – Courses on online business, e-commerce and AI",
-    metaDescription: "Learn to build your online business with courses on Amazon, TikTok Shop, Shopify, Etsy, digital marketing, AI and digital products. In Spanish, German and English.",
+    metaTitle: "Academia NexusIA Digital – Aprende. Emprende. Crece.",
+    metaDescription: "Your international academy for e-commerce, digital marketing, artificial intelligence and online business. Courses in Spanish, German and English.",
     eyebrow: "International academy for digital business",
-    titleA: "Learn to build",
-    titleB: "your online business.",
-    subtitle: "Clear, practical courses on e-commerce, affiliate marketing, social media, artificial intelligence and digital products. For people in any country, at your own pace and without empty promises.",
+    subtitle: "Your international academy for e-commerce, digital marketing, artificial intelligence and online business.",
     primary: "View courses",
     secondary: "Try the free lesson",
     facts: [
@@ -393,7 +389,7 @@ const en: AcademyUi = {
       "International: we explain what changes by country and where to check it.",
     ],
   },
-  card: { view: "View course", lessons: "{n} lessons", modules: "{n} modules", soon: "Coming soon", exampleTag: "example price", previewTag: "Free preview" },
+  card: { independent: "Independent course", view: "View course", lessons: "{n} lessons", modules: "{n} modules", soon: "Coming soon", exampleTag: "example price", previewTag: "Free preview" },
   levels: { beginner: "Beginner", intermediate: "Intermediate", all: "All levels" },
   areas: { ecommerce: "E-commerce", affiliate: "Affiliate", social: "Social & content", digital: "Digital products", ai: "AI & design" },
   course: {
@@ -457,6 +453,7 @@ const en: AcademyUi = {
     minutes: "{n} min",
     startPreview: "Start the preview",
     modulesTitle: "Modules",
+    lessonNav: "Lesson navigation",
   },
   checkout: {
     metaTitle: "Buy course",

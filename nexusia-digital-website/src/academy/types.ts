@@ -82,8 +82,27 @@ export interface Faq {
   a: L10n;
 }
 
+/**
+ * Plattform-Marke eines Kurses. Logos werden NUR angezeigt, wenn die Nutzung schriftlich freigegeben ist
+ * (status "approved" + Datei unter /public/brands). Bis dahin: neutrale Textkarte mit dem Namen als reinem Text.
+ */
+export interface BrandInfo {
+  name: string;
+  logo: {
+    status: "pending" | "approved";
+    /** Pfad zur freigegebenen Originaldatei, z. B. /brands/shopify.svg */
+    src?: string;
+    /** Offizielle Markenrichtlinie / Ansprechpartner für die Freigabe */
+    terms: string;
+    /** Kurzbefund der Prüfung (Deutsch, nur Admin) */
+    note: string;
+  };
+}
+
 export interface Course {
   slug: string;
+  /** Plattform, um die es im Kurs geht (fehlt bei eigenen Themen wie Marketing Digital) */
+  brand?: BrandInfo;
   order: number;
   cover: CoverMotif;
   area: CourseArea;

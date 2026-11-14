@@ -8,7 +8,7 @@ import { getCourse, listCourses } from "@/academy/repository";
 import { quote } from "@/academy/pricing";
 import { Container } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
-import { CourseCover } from "@/components/academy/CourseCover";
+import { CourseVisual } from "@/components/academy/CourseCover";
 import { CheckoutBox } from "@/components/academy/CheckoutBox";
 
 type P = { params: Promise<{ locale: string; course: string }> };
@@ -36,15 +36,15 @@ export default async function CheckoutPage({ params }: P) {
   const { locale, course, ui } = await load(params);
   const q = quote(course);
   return (
-    <section className="bg-pearl py-14 sm:py-20">
+    <section className="bg-pearl py-10 sm:py-20">
       <Container className="grid max-w-5xl gap-8 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <Link href={href(locale, `/academia/${course.slug}`)} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-graphite hover:text-ink">
             <Icon name="arrow" className="h-3.5 w-3.5 rotate-180" /> {course.title[locale]}
           </Link>
-          <h1 className="display mt-6 text-5xl">{ui.checkout.title}</h1>
+          <h1 className="display mt-5 text-4xl sm:text-5xl">{ui.checkout.title}</h1>
           <div className="mt-8 flex gap-5 rounded-3xl border border-mist bg-white p-5">
-            <CourseCover motif={course.cover} id={`co-${course.slug}`} image={course.image} className="aspect-[16/10] w-32 shrink-0 rounded-xl sm:w-44" />
+            <CourseVisual course={course} label={ui.card.independent} id={`co-${course.slug}`} className="aspect-[16/10] w-32 shrink-0 rounded-xl sm:w-44" />
             <div>
               <p className="eyebrow text-[0.6rem] text-gold-600">{ui.checkout.course}</p>
               <p className="display mt-1 text-2xl leading-tight">{course.title[locale]}</p>

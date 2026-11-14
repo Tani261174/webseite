@@ -19,9 +19,9 @@ export default async function AccessPage({ params }: P) {
   const ui = academyUi(locale);
   const label = "mb-1.5 block text-xs font-semibold uppercase tracking-[0.12em] text-graphite";
   return (
-    <section className="bg-pearl py-14 sm:py-20">
+    <section className="bg-pearl py-10 sm:py-20">
       <Container className="max-w-4xl">
-        <h1 className="display text-5xl">{ui.access.title}</h1>
+        <h1 className="display text-4xl sm:text-5xl">{ui.access.title}</h1>
         <div className="mt-6"><Notice><strong>{ui.access.notActiveTitle}.</strong> {ui.access.notActiveText}</Notice></div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <form className="rounded-3xl border border-mist bg-white p-7" aria-describedby="access-note">

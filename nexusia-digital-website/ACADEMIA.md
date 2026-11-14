@@ -1,5 +1,26 @@
 # Academia NexusIA Digital
 
+**Aprende. Emprende. Crece.** – internationale Akademie für E-Commerce, digitales Marketing, KI und Online-Business.
+Nicht auf ein Land ausgerichtet (geprüft: keine Venezuela- oder sonstigen Länderbezüge; nur neutrale Hinweise „Bedingungen variieren je nach Land“).
+
+## Inhaltsprüfung (Stand dieser Version)
+
+| # | Kurs | Module | Lektionen geplant | ausgearbeitet | Platzhalter („Próximamente“) | Videos | Dateien | Übung / Quiz | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Amazon Business Masterclass | 15 | 45 | 1 | 44 | 0 | 1 PDF-Arbeitsblatt (kein E-Book) | 1 / 1 | Próximamente, Gratis-Vorschau |
+| 2–12 | Temu, SHEIN, TikTok Shop, Shopify, Etsy, eBay, AliExpress, Hotmart, Canva & IA, YouTube, Marketing Digital | je 5 | je 15 | 0 | je 15 | 0 | 0 | 0 / 0 | Próximamente |
+
+Zusätzlich hat jeder Kurs eine automatisch erzeugte, öffentliche „Kursvorstellung“ (aus Lernzielen, Zielgruppe, Voraussetzungen und Modulen).
+Live-Ansicht dieser Prüfung: `/admin/academia`.
+
+## Plattform-Logos
+
+Bei allen elf Plattformen erfordert die Logo-Nutzung eine schriftliche Freigabe oder ist ungeklärt → Status **„ausstehend“**.
+Die Karten zeigen bis dahin eine neutrale Textkarte (Plattformname als reiner Text + „Curso independiente“), keine Logos, keine Markenfarben.
+Nach Freigabe: Originaldatei nach `public/brands/` legen und im Kurs `brand.logo` auf `status: "approved", src: "/brands/…"` setzen –
+das Logo wird dann unverändert (nicht verzerrt, nicht umgefärbt) auf weißer Fläche mit Goldrahmen angezeigt.
+Marketing Digital nutzt ein eigenes NexusIA-Motiv.
+
 Internationale Kursplattform innerhalb der NexusIA-Website. Erreichbar unter **`/academia`**
 (ohne Sprachwahl startet sie auf **Spanisch** → `/es/academia`; DE und EN über den Sprachumschalter).
 

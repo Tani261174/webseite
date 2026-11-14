@@ -18,9 +18,9 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 }
 
 const areas = {
-  de: ["Website-Erstellung", "KI-Tools & kreative Automatisierung", "Digitales Business", "Kreatives Design", "Resin-Art", "Weitere Kurse folgen"],
-  es: ["Creación de webs", "Herramientas IA y automatización creativa", "Negocio digital", "Diseño creativo", "Arte en resina", "Más cursos próximamente"],
-  en: ["Website creation", "AI tools & creative automation", "Digital business", "Creative design", "Resin art", "More courses to come"],
+  de: ["Website-Erstellung", "KI-Tools & kreative Automatisierung", "Digitales Business", "Amazon KDP & Self-Publishing", "Kreatives Design", "Resin-Art", "Weitere Kurse folgen"],
+  es: ["Creación de webs", "Herramientas IA y automatización creativa", "Negocio digital", "Amazon KDP y autopublicación", "Diseño creativo", "Arte en resina", "Más cursos próximamente"],
+  en: ["Website creation", "AI tools & creative automation", "Digital business", "Amazon KDP & self-publishing", "Creative design", "Resin art", "More courses to come"],
 };
 
 export default async function CoursesPage({ params }: P) {

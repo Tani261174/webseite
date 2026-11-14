@@ -295,7 +295,7 @@ const de = {
   },
   coursesPage: {
     title: "Onlinekurse",
-    description: "Onlinekurse zu Websites, KI-Tools, digitalem Business, Design und Resin-Art.",
+    description: "Onlinekurse zu Websites, KI-Tools, digitalem Business, Amazon KDP, Design und Resin-Art.",
     eyebrow: "Akademie",
     intro:
       "Praxisnahe Kurse für Menschen, die etwas aufbauen wollen. Die Kurse befinden sich in Vorbereitung – hier siehst du, was geplant ist.",

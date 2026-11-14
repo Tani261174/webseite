@@ -292,7 +292,7 @@ const es: Dictionary = {
   },
   coursesPage: {
     title: "Cursos online",
-    description: "Cursos online sobre webs, herramientas de IA, negocio digital, diseño y arte en resina.",
+    description: "Cursos online sobre webs, herramientas de IA, negocio digital, Amazon KDP, diseño y arte en resina.",
     eyebrow: "Academia",
     intro:
       "Cursos prácticos para personas que quieren construir algo. Los cursos están en preparación: aquí puedes ver lo que está previsto.",

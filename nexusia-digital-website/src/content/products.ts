@@ -211,6 +211,23 @@ export const products: Product[] = [
     formats: ["Video", "PDF"], tags: ["business", "kurs", "course"],
   },
   {
+    slug: "academia-amazon-kdp-course",
+    brand: "nexuscreator-ai", category: "courses", status: "coming-soon", demo: true, featured: true, art: "book", level: "beginner",
+    title: t("Academia Amazon – Self-Publishing mit KDP", "Academia Amazon – autopublicación con KDP", "Academia Amazon – Self-Publishing with KDP"),
+    short: t("Dein eigenes Buch auf Amazon veröffentlichen.", "Publica tu propio libro en Amazon.", "Publish your own book on Amazon."),
+    description: t(
+      "Schritt für Schritt vom Manuskript zum veröffentlichten E-Book oder Taschenbuch: Nischenidee, Inhalt, Formatierung, Cover, Buchbeschreibung, Keywords, Preisgestaltung und Veröffentlichung über Amazon KDP. Ehrlich erklärt – ohne Versprechen auf schnelles Geld. Unabhängiger Kurs, kein offizielles Angebot von Amazon.",
+      "Paso a paso del manuscrito al e-book o libro de bolsillo publicado: idea de nicho, contenido, maquetación, portada, descripción, palabras clave, precio y publicación con Amazon KDP. Explicado con honestidad, sin promesas de dinero rápido. Curso independiente, no es una oferta oficial de Amazon.",
+      "Step by step from manuscript to published e-book or paperback: niche idea, content, formatting, cover, book description, keywords, pricing and publishing via Amazon KDP. Explained honestly – no promises of quick money. Independent course, not an official Amazon offer.",
+    ),
+    includes: tl(
+      ["Videolektionen", "KDP-Checkliste", "Cover- & Formatvorlagen", "KI-Prompts für Recherche"],
+      ["Lecciones en vídeo", "Checklist de KDP", "Plantillas de portada y formato", "Prompts de IA para investigar"],
+      ["Video lessons", "KDP checklist", "Cover & format templates", "AI prompts for research"],
+    ),
+    formats: ["Video", "PDF"], tags: ["amazon", "kdp", "self-publishing", "ebook", "kurs", "course"],
+  },
+  {
     slug: "creative-design-course",
     brand: "nexusstock", category: "courses", status: "coming-soon", demo: true, art: "lines", level: "beginner",
     title: t("Kreatives Design – Einstieg", "Diseño creativo – iniciación", "Creative Design – Introduction"),

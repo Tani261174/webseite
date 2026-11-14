@@ -292,7 +292,7 @@ const en: Dictionary = {
   },
   coursesPage: {
     title: "Online courses",
-    description: "Online courses on websites, AI tools, digital business, design and resin art.",
+    description: "Online courses on websites, AI tools, digital business, Amazon KDP, design and resin art.",
     eyebrow: "Academy",
     intro:
       "Hands-on courses for people who want to build something. The courses are in preparation – here you can see what is planned.",

@@ -12,7 +12,7 @@ import { CartCount } from "@/components/shop/CartCount";
 export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
   const nav = [
     { href: href(locale, "/shop"), label: t.nav.shop },
-    { href: href(locale, "/courses"), label: t.nav.courses },
+    { href: href(locale, "/academia"), label: t.nav.academy },
     { href: href(locale, "/brands/nexuscreator-ai"), label: t.nav.ai },
     { href: href(locale, "/faq"), label: t.nav.faq },
     { href: href(locale, "/contact"), label: t.nav.contact },
@@ -21,6 +21,7 @@ export function Header({ locale, t }: { locale: Locale; t: Dictionary }) {
     { href: href(locale), label: t.nav.home },
     { href: href(locale, "/brands"), label: t.nav.brands },
     ...nav,
+    { href: href(locale, "/courses"), label: t.nav.courses },
     { href: href(locale, "/account"), label: t.nav.account },
   ];
   const link = "relative py-2 text-[0.8rem] font-medium tracking-[0.08em] text-white/80 transition hover:text-white after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-gold-300 after:transition after:duration-500 hover:after:scale-x-100";

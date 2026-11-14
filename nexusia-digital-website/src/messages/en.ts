@@ -21,6 +21,7 @@ const en: Dictionary = {
     brands: "Brands",
     shop: "Shop",
     courses: "Courses",
+    academy: "Academy",
     ai: "AI Solutions",
     contact: "Contact",
     faq: "FAQ",

@@ -24,6 +24,7 @@ const de = {
     brands: "Marken",
     shop: "Shop",
     courses: "Kurse",
+    academy: "Akademie",
     ai: "KI-Lösungen",
     contact: "Kontakt",
     faq: "FAQ",

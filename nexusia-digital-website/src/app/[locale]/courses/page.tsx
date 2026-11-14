@@ -34,6 +34,7 @@ export default async function CoursesPage({ params }: P) {
             <li key={a} className="rounded-full border border-white/15 px-4 py-2 text-xs tracking-wider text-white/75">{a}</li>
           ))}
         </ul>
+        <Link href={href(locale, "/academia")} className="btn btn-gold mt-8">Academia NexusIA Digital <Icon name="arrow" className="h-4 w-4" /></Link>
       </PageHero>
       <section className="py-20 sm:py-28">
         <Container className="space-y-8">

@@ -27,6 +27,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary }) {
               <h3 className="eyebrow text-gold-300">{t.footer.explore}</h3>
               <ul className="mt-5 space-y-3">
                 <li><Link className={col} href={href(locale, "/shop")}>{t.nav.shop}</Link></li>
+                <li><Link className={col} href={href(locale, "/academia")}>{t.nav.academy}</Link></li>
                 <li><Link className={col} href={href(locale, "/courses")}>{t.nav.courses}</Link></li>
                 <li><Link className={col} href={href(locale, "/brands/nexuscreator-ai")}>{t.nav.ai}</Link></li>
                 <li><Link className={col} href={href(locale, "/faq")}>{t.nav.faq}</Link></li>

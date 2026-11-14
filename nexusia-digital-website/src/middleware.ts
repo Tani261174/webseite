@@ -27,7 +27,11 @@ export function middleware(req: NextRequest) {
   }
 
   const url = req.nextUrl.clone();
-  url.pathname = `/${detectLocale(req)}${pathname === "/" ? "" : pathname}`;
+  // Die Akademie startet standardmäßig auf Spanisch (außer die Sprache wurde bereits gewählt).
+  const academy = pathname === "/academia" || pathname.startsWith("/academia/");
+  const cookie = req.cookies.get("NEXT_LOCALE")?.value;
+  const locale = academy ? (isLocale(cookie) ? cookie : "es") : detectLocale(req);
+  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);
 }
 
@@ -79,6 +83,6 @@ function safeEqual(a: string, b: string) {
 
 export const config = {
   // Statische Dateien, Next-Interna und SEO-Dateien ausnehmen
-  matcher: ["/((?!_next|favicon.ico|icon.svg|og.png|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|webp|avif|ico|woff2?|txt|xml)$).*)"],
+  matcher: ["/((?!_next|favicon.ico|icon.svg|og.png|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|webp|avif|ico|woff2?|txt|xml|pdf|epub)$).*)"],
 };
 

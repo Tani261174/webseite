@@ -1,3 +1,4 @@
+import Link from "next/link";
 /**
  * Admin-Dashboard – Architektur-Gerüst.
  * Erreichbar nur, wenn ADMIN_USER/ADMIN_PASSWORD gesetzt sind (siehe middleware.ts).
@@ -22,6 +23,9 @@ export default function AdminPage() {
       <p className="mt-4 max-w-2xl text-graphite">
         Gerüst für das künftige Dashboard. Noch keine Funktion ist aktiv – es werden keine Daten gelesen oder geschrieben.
       </p>
+      <Link href="/admin/academia" className="mt-10 flex items-center justify-between rounded-2xl bg-ink p-6 text-white transition hover:shadow-[var(--shadow-gold)]">
+        <span><span className="eyebrow block text-gold-300">Academia NexusIA Digital</span><span className="display mt-1 block text-3xl">Akademie verwalten →</span></span>
+      </Link>
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {modules.map(([title, text]) => (
           <div key={title} className="rounded-2xl border border-mist bg-white p-6">

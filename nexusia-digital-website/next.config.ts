@@ -15,6 +15,8 @@ const csp = [
   "img-src 'self' data: blob:",
   "font-src 'self'",
   `connect-src 'self'${isDev ? " ws:" : ""}`,
+  "frame-src https://www.youtube-nocookie.com https://player.vimeo.com", // Lektionsvideos
+  "media-src 'self' blob:",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

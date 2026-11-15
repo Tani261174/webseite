@@ -186,12 +186,12 @@ export function CourseVisual({ course, id, number, className = "", label }: {
       <div className={`relative grid place-items-center bg-white ${className}`}>
         <div className="gold-frame absolute inset-3 rounded-xl" aria-hidden="true" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={b.logo.src} alt={b.name} className="relative max-h-[38%] max-w-[62%] object-contain" loading="lazy" />
+        <img src={b.logo.src} alt={b.name} className="relative h-[40%] w-[64%] object-contain" loading="lazy" decoding="async" />
         <span className="absolute bottom-4 left-0 right-0 text-center text-[0.55rem] font-semibold uppercase tracking-[0.24em] text-graphite">{label}</span>
       </div>
     );
   }
-  if (!b) return <CourseCover motif={course.cover} id={id} number={number} className={className} image={course.image} />;
+  if (!b) return <CourseCover motif={course.cover} id={id} number={number} className={className} image={course.image} alt="Academia NexusIA Digital" />;
   const size = b.name.length <= 6 ? 54 : b.name.length <= 9 ? 46 : 40;
   return (
     <svg viewBox="0 0 400 250" className={className} role="img" aria-label={`${b.name} · ${label}`} preserveAspectRatio="xMidYMid slice">

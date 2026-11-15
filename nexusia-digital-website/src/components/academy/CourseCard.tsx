@@ -42,7 +42,7 @@ export function CourseCard({ course, locale, ui }: { course: Course; locale: Loc
         </ul>
         <div className="mt-auto flex items-end justify-between gap-4 border-t border-mist pt-5">
           <PriceLabel course={course} locale={locale} ui={ui} />
-          <Link href={url} className="btn btn-dark min-h-10 px-5 text-[0.7rem]">
+          <Link href={url} className="btn btn-dark min-h-10 shrink-0 whitespace-nowrap px-4 text-[0.68rem] sm:px-5 sm:text-[0.7rem]">
             {ui.card.view} <Icon name="arrow" className="h-4 w-4" />
           </Link>
         </div>

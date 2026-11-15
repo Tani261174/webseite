@@ -25,7 +25,7 @@ export function CourseCard({ course, locale, ui }: { course: Course; locale: Loc
     <article className="card-lux reveal group flex flex-col overflow-hidden">
       <Link href={url} tabIndex={-1} aria-hidden="true" className="relative block aspect-[16/10] overflow-hidden bg-ink">
         <CourseVisual course={course} label={ui.card.independent} id={`card-${course.slug}`} number={course.order} className="h-full w-full transition duration-[1.2s] ease-[var(--ease-lux)] group-hover:scale-[1.04]" />
-        <span className="absolute right-3 top-3 rounded-full bg-black/65 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-200 backdrop-blur">
+        <span className="absolute right-[7%] top-[11%] rounded-full bg-black/70 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-200 backdrop-blur">
           {s.previews > 0 ? ui.card.previewTag : ui.card.soon}
         </span>
       </Link>
@@ -40,7 +40,7 @@ export function CourseCard({ course, locale, ui }: { course: Course; locale: Loc
           <li className="rounded-full bg-pearl px-3 py-1">{fmt(ui.card.lessons, { n: s.lessons })}</li>
           <li className="rounded-full bg-pearl px-3 py-1">{fmt(ui.card.modules, { n: s.modules })}</li>
         </ul>
-        <div className="mt-auto flex items-end justify-between gap-4 border-t border-mist pt-5">
+        <div className="mt-auto flex items-center justify-between gap-4 border-t border-mist pt-5">
           <PriceLabel course={course} locale={locale} ui={ui} />
           <Link href={url} className="btn btn-dark min-h-10 shrink-0 whitespace-nowrap px-4 text-[0.68rem] sm:px-5 sm:text-[0.7rem]">
             {ui.card.view} <Icon name="arrow" className="h-4 w-4" />

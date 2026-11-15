@@ -9,6 +9,36 @@ import { defaultLocale, isLocale } from "@/lib/i18n/config";
  *    als Übergangslösung – für den Livebetrieb Cloudflare Access oder echte Sessions nutzen.
  */
 export function middleware(req: NextRequest) {
+  // Geschützte Vorschau: Ist PREVIEW_PASSWORD gesetzt, ist die GESAMTE Website nur mit Passwort erreichbar
+  // und für Suchmaschinen gesperrt. Ohne PREVIEW_PASSWORD verhält sich die Seite unverändert.
+  const preview = process.env.PREVIEW_PASSWORD;
+  if (preview && preview.length >= 10) {
+    const p = req.nextUrl.pathname;
+    if (!p.startsWith("/admin") && !p.startsWith("/api/admin") && !checkBasic(req, process.env.PREVIEW_USER || "vorschau", preview)) {
+      return new NextResponse("Vorschau – Passwort erforderlich / Contraseña requerida / Password required", {
+        status: 401,
+        headers: { "WWW-Authenticate": 'Basic realm="Academia NexusIA Digital - Vorschau", charset="UTF-8"', "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" },
+      });
+    }
+    const res = route(req);
+    res.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return res;
+  }
+  return route(req);
+}
+
+function checkBasic(req: NextRequest, user: string, pass: string) {
+  const [scheme, encoded] = (req.headers.get("authorization") || "").split(" ");
+  if (scheme !== "Basic" || !encoded) return false;
+  try {
+    const [u, ...rest] = atob(encoded).split(":");
+    return safeEqual(u, user) && safeEqual(rest.join(":"), pass);
+  } catch {
+    return false;
+  }
+}
+
+function route(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname.startsWith("/admin") || pathname.startsWith("/api/admin")) {

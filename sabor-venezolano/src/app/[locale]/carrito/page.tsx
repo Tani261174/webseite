@@ -15,7 +15,7 @@ export default async function CartPage({ params }: { params: Promise<{ locale: s
   const { t } = await resolveLocale(params);
   const settings = getSettings();
   return (
-    <div className="bg-soft px-4 pb-24 pt-12 sm:px-6">
+    <div className="bg-white px-4 pb-24 pt-12 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="Sabor Venezolano" title={t.cart.title} />
         <div className="mt-10">

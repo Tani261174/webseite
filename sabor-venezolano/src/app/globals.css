@@ -1,37 +1,31 @@
 @import "tailwindcss";
 
 /* ================================================================
-   SABOR VENEZOLANO – Designsystem „Boutique“
-   Nur drei Markenfarben + neutrales Dunkelgrau für Text:
-     Vanille #FFF8ED  → Haupt-Hintergrund
-     Rosé    #F4DCE3  → Buttons, Produktkarten, besondere Akzente
-     Salbei  #DDE9D9  → Navigation, dezente Bereiche, Hervorhebungen
-     Text    #2E2E31  (neutrales Dunkelgrau, in Abstufungen)
+   SABOR VENEZOLANO – Designsystem „Gourmet Minimal“
+   Hauptfarben:   Weiß #FFFFFF · Schwarz #171717
+   Akzente (nur dekorativ, sparsam): Gelb #F4C430 · Blau #174A9C · Rot #C83232
+   ≥ 85 % der Fläche Weiß bzw. Fast-Weiß. Keine großen Farbflächen.
    ================================================================ */
 @theme {
   --font-display: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
   --font-sans: "Manrope Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-vanilla: #fff8ed;
-  --color-rose: #f4dce3;
-  --color-sage: #dde9d9;
+  --color-white: #ffffff;
+  --color-ink: #171717;
+  --color-ink-soft: #3a3a3a;
+  --color-ink-muted: #6b6b6b; /* Kontrast 5.3:1 auf Weiß */
+  --color-paper: #fafafa; /* fast weiß – für ruhige Bereiche */
+  --color-line: #e8e8e8; /* Haarlinien */
 
-  /* Neutrales Dunkelgrau – alle Abstufungen erfüllen WCAG AA auf Vanille, Rosé und Salbei */
-  --color-ink: #2e2e31;
-  --color-ink-soft: #46464b;
-  --color-ink-muted: #5f5f65;
-
-  /* Nur für Fehlermeldungen (funktional, kein Deko-Akzent) */
-  --color-danger: #9b2c2c;
+  --color-flag-yellow: #f4c430;
+  --color-flag-blue: #174a9c;
+  --color-flag-red: #c83232;
+  --color-danger: #c83232; /* Fehlermeldungen */
 
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-card: 0 1px 2px rgb(46 46 49 / 0.04), 0 20px 44px -26px rgb(46 46 49 / 0.28);
-  --shadow-lift: 0 2px 4px rgb(46 46 49 / 0.05), 0 28px 54px -28px rgb(46 46 49 / 0.35);
 }
 
-:root {
-  color-scheme: light;
-}
+:root { color-scheme: light; }
 
 html {
   scroll-behavior: smooth;
@@ -44,143 +38,126 @@ html {
 }
 
 body {
-  background: var(--color-vanilla);
+  background: var(--color-white);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-::selection { background: var(--color-rose); color: var(--color-ink); }
+::selection { background: var(--color-ink); color: var(--color-white); }
 
 :focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 3px;
-  border-radius: 8px;
+  border-radius: 2px;
 }
 
-/* ---------- Typografie ---------- */
-h1, h2, h3 { font-feature-settings: "liga", "kern"; letter-spacing: -0.01em; }
+h1, h2, h3 { font-feature-settings: "liga", "kern"; letter-spacing: -0.015em; font-weight: 500; }
 
 @utility eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
 }
 
-/* ---------- Flächen ---------- */
-/* Heller Boutique-Verlauf: Vanille mit sanften Rosé- und Salbei-Lichtern */
-@utility bg-blush {
-  background-color: var(--color-vanilla);
-  background-image:
-    radial-gradient(70% 60% at 90% 10%, rgb(244 220 227 / 0.95) 0%, transparent 65%),
-    radial-gradient(60% 55% at 0% 95%, rgb(221 233 217 / 0.95) 0%, transparent 65%);
+/* ---------- Venezolanische Flaggenlinie (dekorativ, sehr dünn) ---------- */
+@utility flag-line {
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--color-flag-yellow) 0 33.333%,
+    var(--color-flag-blue) 33.333% 66.666%,
+    var(--color-flag-red) 66.666% 100%);
 }
 
-@utility bg-soft {
-  background-color: var(--color-vanilla);
-  background-image:
-    radial-gradient(60% 45% at 100% 0%, rgb(244 220 227 / 0.55), transparent 65%),
-    radial-gradient(55% 40% at 0% 100%, rgb(221 233 217 / 0.55), transparent 65%);
+/* ---------- Fotos ---------- */
+@utility photo-frame {
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-/* Rahmen für Porträts und große Fotos */
-@utility soft-frame {
-  border: 6px solid var(--color-vanilla);
-  box-shadow: 0 0 0 1px rgb(46 46 49 / 0.06), var(--shadow-lift);
-}
-
-/* ---------- Buttons ---------- */
+/* ---------- Buttons: schwarz, weiße Schrift, dezenter Hover ---------- */
 @utility btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
   min-height: 3.25rem;
-  padding: 0 1.7rem;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  color: var(--color-ink);
-  transition: transform 0.35s var(--ease-soft), box-shadow 0.35s var(--ease-soft), background-color 0.25s, filter 0.25s;
+  padding: 0 1.9rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background-color 0.3s var(--ease-soft), color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-soft);
   user-select: none;
-  &:active { transform: scale(0.98); }
-  &:disabled { opacity: 0.55; cursor: not-allowed; }
+  &:active { transform: scale(0.985); }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 
-/* Hauptaktion: Rosé */
 @utility btn-primary {
-  background: var(--color-rose);
-  box-shadow: inset 0 0 0 1px rgb(46 46 49 / 0.08), 0 12px 28px -16px rgb(46 46 49 / 0.45);
-  &:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(0.97); box-shadow: inset 0 0 0 1px rgb(46 46 49 / 0.12), 0 18px 34px -16px rgb(46 46 49 / 0.5); }
+  background: var(--color-ink);
+  color: var(--color-white);
+  &:hover:not(:disabled) { background: #2e2e2e; box-shadow: 0 12px 26px -16px rgb(23 23 23 / 0.7); transform: translateY(-1px); }
 }
 
-/* Zweite Aktion: Salbei */
 @utility btn-secondary {
-  background: var(--color-sage);
-  box-shadow: inset 0 0 0 1px rgb(46 46 49 / 0.08);
-  &:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(0.97); }
+  background: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-ink);
+  &:hover:not(:disabled) { background: var(--color-ink); color: var(--color-white); }
 }
 
 @utility btn-outline {
-  background: var(--color-vanilla);
-  box-shadow: inset 0 0 0 1px rgb(46 46 49 / 0.2);
-  &:hover:not(:disabled) { background: var(--color-sage); box-shadow: inset 0 0 0 1px rgb(46 46 49 / 0.3); }
+  background: var(--color-white);
+  color: var(--color-ink);
+  box-shadow: inset 0 0 0 1px var(--color-line);
+  &:hover:not(:disabled) { box-shadow: inset 0 0 0 1px var(--color-ink); }
 }
 
 /* ---------- Formulare ---------- */
 @utility field {
   width: 100%;
   min-height: 3.1rem;
-  padding: 0.75rem 1.1rem;
-  border-radius: 16px;
-  border: 1px solid rgb(46 46 49 / 0.16);
-  background: var(--color-vanilla);
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  border: 1px solid #d6d6d6;
+  background: var(--color-white);
   color: var(--color-ink);
   font-size: 1rem; /* ≥16px verhindert Zoom auf iOS */
   transition: border-color 0.2s, box-shadow 0.2s;
-  &::placeholder { color: rgb(95 95 101 / 0.85); }
-  &:focus { outline: none; border-color: rgb(46 46 49 / 0.45); box-shadow: 0 0 0 4px var(--color-rose); }
+  &::placeholder { color: #8a8a8a; }
+  &:focus { outline: none; border-color: var(--color-ink); box-shadow: 0 0 0 1px var(--color-ink); }
   &[aria-invalid="true"] { border-color: var(--color-danger); }
 }
 
-/* Allgemeine Karte (Formulare, Infos): Vanille mit feiner Rosé-Kante */
+/* Info-/Formular-Karte: Weiß mit Haarlinie */
 @utility card {
-  background: var(--color-vanilla);
-  border: 1px solid var(--color-rose);
-  border-radius: 28px;
-  box-shadow: var(--shadow-card);
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
 }
 
-/* Produktkarte: Rosé */
-@utility card-rose {
-  background: var(--color-rose);
-  border-radius: 28px;
-  box-shadow: var(--shadow-card);
-  transition: transform 0.5s var(--ease-soft), box-shadow 0.5s var(--ease-soft);
-  &:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+/* Produktkarte: ohne Rahmen, das Foto steht im Mittelpunkt */
+@utility card-product {
+  background: var(--color-white);
 }
 
-/* ---------- Animationen (sanft) ---------- */
-@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-@keyframes twinkle { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+/* ---------- Animationen (dezent) ---------- */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes twinkle { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
 @utility animate-rise { animation: rise 1s var(--ease-soft) both; }
 @utility animate-twinkle { animation: twinkle 3.2s ease-in-out infinite; }
 @utility animate-pop { animation: pop 0.45s var(--ease-soft); }
-@utility animate-float { animation: float 7s ease-in-out infinite; }
 
 .delay-1 { animation-delay: 0.08s; }
 .delay-2 { animation-delay: 0.16s; }
 .delay-3 { animation-delay: 0.24s; }
-.delay-4 { animation-delay: 0.32s; }
 
-/* Platz für die mobile Warenkorb-Leiste */
 .pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
 
 /* Rechtstexte */

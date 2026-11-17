@@ -3,7 +3,7 @@ import type { AdminMessages } from "@/lib/i18n/admin";
 
 export function Card({ title, children, hint }: { title?: string; hint?: string; children: React.ReactNode }) {
   return (
-    <section className="rounded-2xl border border-rose bg-vanilla p-5 shadow-sm sm:p-6">
+    <section className="rounded-md border border-line bg-white p-5 shadow-sm sm:p-6">
       {title ? <h2 className="font-display text-xl text-ink">{title}</h2> : null}
       {hint ? <p className="mt-1 text-sm text-ink-muted">{hint}</p> : null}
       <div className={title || hint ? "mt-5 space-y-5" : "space-y-5"}>{children}</div>
@@ -137,7 +137,7 @@ export function ImageInput({
     <div>
       <p className="mb-1.5 text-sm font-bold text-ink">{label || a.common.image}</p>
       <div className="flex flex-wrap items-center gap-4">
-        <div className="h-24 w-24 overflow-hidden rounded-xl border border-rose bg-sage/60">
+        <div className="h-24 w-24 overflow-hidden rounded-md border border-line bg-paper">
           {current ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={current} alt="" className="h-full w-full object-cover" />
@@ -146,7 +146,7 @@ export function ImageInput({
           )}
         </div>
         <div className="space-y-2">
-          <input type="file" name={name} accept="image/jpeg,image/png,image/webp" className="block w-full text-sm file:mr-3 file:rounded-full file:border-0 file:bg-rose file:px-4 file:py-2 file:text-ink" />
+          <input type="file" name={name} accept="image/jpeg,image/png,image/webp" className="block w-full text-sm file:mr-3 file:rounded-full file:border-0 file:bg-ink file:px-4 file:py-2 file:text-white" />
           <p className="text-xs text-ink-muted">{a.common.uploadHint}</p>
           {current ? (
             <label className="flex items-center gap-2 text-sm text-ink-soft">
@@ -160,10 +160,10 @@ export function ImageInput({
 }
 
 export function Notice({ saved, error, a }: { saved?: string; error?: string; a: AdminMessages }) {
-  if (saved) return <p role="status" className="rounded-xl bg-sage px-4 py-3 text-sm font-semibold text-ink">{a.common.saved}</p>;
+  if (saved) return <p role="status" className="rounded-md bg-paper px-4 py-3 text-sm font-semibold text-ink">{a.common.saved}</p>;
   if (error)
     return (
-      <p role="alert" className="rounded-xl bg-danger/10 px-4 py-3 text-sm font-semibold text-danger">
+      <p role="alert" className="rounded-md bg-danger/10 px-4 py-3 text-sm font-semibold text-danger">
         {error === "upload" ? a.common.uploadError : error === "slug" ? a.products.slugTaken : a.common.error}
       </p>
     );
@@ -172,7 +172,7 @@ export function Notice({ saved, error, a }: { saved?: string; error?: string; a:
 
 export function SaveBar({ a }: { a: AdminMessages }) {
   return (
-    <div className="sticky bottom-0 z-10 -mx-4 border-t border-rose bg-vanilla/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border">
+    <div className="sticky bottom-0 z-10 -mx-4 border-t border-line bg-white/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-md sm:border">
       <button type="submit" className="btn btn-primary w-full sm:w-auto">
         {a.common.save}
       </button>

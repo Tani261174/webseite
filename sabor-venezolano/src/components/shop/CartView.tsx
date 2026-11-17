@@ -48,7 +48,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
   if (done) {
     return (
       <div className="card mx-auto max-w-xl p-8 text-center sm:p-10" role="status">
-        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-rose text-ink">
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink text-white">
           <Icon name="whatsapp" className="h-8 w-8" />
         </span>
         <h2 className="mt-5 font-display text-3xl text-ink">{t.cart.successTitle}</h2>
@@ -57,7 +57,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
           <Icon name="whatsapp" className="h-6 w-6" /> {t.cart.openWhatsApp}
         </a>
         <p className="mt-3 text-xs text-ink-muted">{t.cart.notOpened}</p>
-        <p className="mt-6 rounded-2xl bg-sage/60 p-4 text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
+        <p className="mt-6 rounded-md bg-paper p-4 text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
         <Link href={`/${locale}/productos`} className="btn btn-outline mt-6">
           {t.cart.newOrder}
         </Link>
@@ -172,13 +172,13 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
         <h2 id="cart-items" className="sr-only">
           {t.cart.title}
         </h2>
-        <ul className="divide-y divide-rose">
+        <ul className="divide-y divide-line">
           {lines.map((l) => {
             const pname = pick(l.product.name, locale);
             const max = Math.max(1, Math.min(l.product.maxPerOrder, l.product.remaining ?? Infinity));
             return (
               <li key={`${l.product.id}-${l.entry.variantId}`} className="flex gap-4 py-4 first:pt-0 last:pb-0">
-                <div className="h-20 w-20 shrink-0 overflow-hidden rounded-2xl sm:h-24 sm:w-24">
+                <div className="h-20 w-20 shrink-0 overflow-hidden rounded-md sm:h-24 sm:w-24">
                   <Photo src={l.product.image} alt={pname} label="" tag={t.common.placeholder} />
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col">
@@ -218,7 +218,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
             );
           })}
         </ul>
-        <div className="mt-5 flex items-baseline justify-between border-t border-rose pt-5">
+        <div className="mt-5 flex items-baseline justify-between border-t border-line pt-5">
           <span className="eyebrow text-ink-muted">{t.cart.total}</span>
           <span className="font-display text-3xl font-semibold text-ink" aria-live="polite">
             {formatEuro(totalCents, locale)}
@@ -234,7 +234,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
         </h2>
         <Ornament className="mt-3 justify-start" />
 
-        <p className="mt-4 flex items-start gap-2 rounded-2xl bg-sage/60 p-4 text-sm text-ink">
+        <p className="mt-4 flex items-start gap-2 rounded-md bg-paper p-4 text-sm text-ink">
           <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
           {t.cart.preorderNote}
         </p>
@@ -370,7 +370,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
         </div>
 
         {errors.form ? (
-          <p data-form-error tabIndex={-1} className="mt-5 rounded-2xl bg-danger/10 p-4 text-sm font-semibold text-danger" role="alert">
+          <p data-form-error tabIndex={-1} className="mt-5 rounded-md bg-danger/10 p-4 text-sm font-semibold text-danger" role="alert">
             {errors.form}
           </p>
         ) : null}

@@ -26,7 +26,7 @@ export function Footer({
     { href: `/${locale}/legal/recogida`, label: t.legal.pickup },
   ];
   return (
-    <footer className="bg-sage text-ink">
+    <footer className="border-t border-line bg-white text-ink">
       <div className="mx-auto max-w-6xl px-4 pb-28 pt-16 sm:px-6 md:pb-12">
         <div className="grid gap-12 md:grid-cols-3">
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
@@ -41,7 +41,7 @@ export function Footer({
               href={waLink(whatsappNumber)}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-lg font-semibold text-ink hover:text-ink"
+              className="mt-4 inline-flex items-center gap-2 text-lg font-semibold text-ink hover:opacity-70"
             >
               <Icon name="whatsapp" className="h-6 w-6 text-ink" />
               {whatsappDisplay}

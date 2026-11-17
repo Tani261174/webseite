@@ -19,7 +19,7 @@ import { StickyCart } from "@/components/layout/StickyCart";
 export const dynamic = "force-dynamic";
 
 export const viewport: Viewport = {
-  themeColor: "#DDE9D9",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -59,14 +59,14 @@ export default async function LocaleLayout({
       <body className="min-h-dvh">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-rose focus:px-4 focus:py-2 focus:text-ink"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white"
         >
           {t.common.skip}
         </a>
         <I18nProvider locale={locale} t={t}>
           <CartProvider catalog={catalog}>
             {settings.content.announcementEnabled && pick(settings.content.announcement, locale) ? (
-              <div className="bg-rose px-4 py-2 text-center text-sm font-semibold text-ink">
+              <div className="bg-ink px-4 py-2 text-center text-sm font-semibold text-white">
                 {pick(settings.content.announcement, locale)}
               </div>
             ) : null}

@@ -69,7 +69,7 @@ export default async function EditProduct({
       <Card title={a.products.variants} hint={a.products.variantsHint}>
         <input type="hidden" name="variant_count" value={rows.length} />
         {rows.map((v, i) => (
-          <div key={i} className="grid gap-3 rounded-xl border border-rose p-3 sm:grid-cols-[1fr_1fr_8rem_auto] sm:items-end">
+          <div key={i} className="grid gap-3 rounded-md border border-line p-3 sm:grid-cols-[1fr_1fr_8rem_auto] sm:items-end">
             {v ? <input type="hidden" name={`v${i}_id`} value={v.id} /> : null}
             <label className="block text-xs font-semibold text-ink-muted">
               🇻🇪 {a.common.es}
@@ -97,7 +97,7 @@ export default async function EditProduct({
             <Check key={al} name={`allergen_${al}`} label={allergenNames[al]} checked={p.allergens.includes(al)} />
           ))}
         </div>
-        <div className="rounded-xl bg-sage/60 p-4">
+        <div className="rounded-md bg-paper p-4">
           <Check name="allergens_confirmed" label={a.products.allergensConfirmed} checked={p.allergensConfirmed} />
         </div>
         <BiField label={a.products.ingredients} name="ingredients" value={p.ingredients} a={a} textarea />

@@ -19,8 +19,8 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
       <Notice saved={sp.saved} error={sp.error} a={a} />
       <ul className="space-y-3">
         {products.map((p) => (
-          <li key={p.id} className="flex flex-wrap items-center gap-4 rounded-2xl border border-rose bg-vanilla p-4">
-            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-sage/60">
+          <li key={p.id} className="flex flex-wrap items-center gap-4 rounded-md border border-line bg-white p-4">
+            <div className="h-16 w-16 shrink-0 overflow-hidden rounded-md bg-paper">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               {p.image ? <img src={p.image} alt="" className="h-full w-full object-cover" /> : null}
             </div>
@@ -34,8 +34,8 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
               </p>
               <p className="mt-1 flex flex-wrap gap-1.5 text-xs">
                 {!p.allergensConfirmed ? <span className="rounded-full bg-danger/10 px-2 py-0.5 text-danger">{a.products.allergens} !</span> : null}
-                {!p.image ? <span className="rounded-full bg-rose/70 px-2 py-0.5">{a.common.image} —</span> : null}
-                {p.christmas ? <span className="rounded-full bg-rose/70 px-2 py-0.5 text-ink">✦ {a.nav.christmas}</span> : null}
+                {!p.image ? <span className="rounded-full bg-paper px-2 py-0.5">{a.common.image} —</span> : null}
+                {p.christmas ? <span className="rounded-full bg-paper px-2 py-0.5 text-ink">✦ {a.nav.christmas}</span> : null}
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -43,7 +43,7 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
                 <input type="hidden" name="id" value={p.id} />
                 <input type="hidden" name="field" value="active" />
                 <input type="hidden" name="value" value={p.active ? "0" : "1"} />
-                <button className={`rounded-full px-3 py-2 text-xs font-bold ${p.active ? "bg-sage text-ink" : "bg-ink/5 text-ink-muted"}`}>
+                <button className={`rounded-full px-3 py-2 text-xs font-bold ${p.active ? "bg-paper text-ink" : "bg-ink/5 text-ink-muted"}`}>
                   {p.active ? a.products.visible : a.products.hidden}
                 </button>
               </form>
@@ -51,11 +51,11 @@ export default async function AdminProducts({ searchParams }: { searchParams: Pr
                 <input type="hidden" name="id" value={p.id} />
                 <input type="hidden" name="field" value="sold_out" />
                 <input type="hidden" name="value" value={p.soldOut ? "0" : "1"} />
-                <button className={`rounded-full px-3 py-2 text-xs font-bold ${p.soldOut ? "bg-danger/15 text-danger" : "bg-vanilla text-ink ring-1 ring-rose"}`}>
+                <button className={`rounded-full px-3 py-2 text-xs font-bold ${p.soldOut ? "bg-danger/15 text-danger" : "bg-white text-ink ring-1 ring-line"}`}>
                   {a.products.soldOut}: {p.soldOut ? a.common.yes : a.common.no}
                 </button>
               </form>
-              <Link href={`/admin/productos/${p.id}`} className="rounded-full bg-rose px-4 py-2 text-xs font-bold text-ink">
+              <Link href={`/admin/productos/${p.id}`} className="rounded-full bg-ink px-4 py-2 text-xs font-bold text-white">
                 {a.common.edit}
               </Link>
             </div>

@@ -12,12 +12,12 @@ export default async function CompanyAdmin({ searchParams }: { searchParams: Pro
   return (
     <form action={saveCompanyAction} className="space-y-6">
       <PageTitle>{a.nav.company}</PageTitle>
-      <p className="rounded-2xl border border-rose bg-sage/60 p-4 text-sm">{a.company.intro}</p>
+      <p className="rounded-md border border-line bg-paper p-4 text-sm">{a.company.intro}</p>
       <Notice saved={sp.saved} error={sp.error} a={a} />
       <Card>
         <div className="grid gap-4 sm:grid-cols-2">
           {keys.map((k) => (
-            <div key={k} className={REQUIRED_COMPANY_FIELDS.includes(k) && !s.company[k] ? "rounded-xl ring-2 ring-danger/40 ring-offset-4 ring-offset-vanilla" : ""}>
+            <div key={k} className={REQUIRED_COMPANY_FIELDS.includes(k) && !s.company[k] ? "rounded-md ring-2 ring-danger/40 ring-offset-4 ring-offset-white" : ""}>
               <Field label={a.company.fields[k]} name={`c_${k}`} defaultValue={s.company[k]} type={k === "email" ? "email" : "text"} />
             </div>
           ))}

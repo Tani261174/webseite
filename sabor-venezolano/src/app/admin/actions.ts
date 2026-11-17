@@ -222,6 +222,7 @@ export async function saveTextsAction(form: FormData) {
     };
   }
   saveSettingsSection("content", {
+    heroImage: await imageField(form, "heroImage", s.content.heroImage, back),
     heroTitle: bi(form, "heroTitle", 160),
     heroSubtitle: bi(form, "heroSubtitle", 400),
     heroCta: bi(form, "heroCta", 40),

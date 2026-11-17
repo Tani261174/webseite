@@ -32,30 +32,28 @@ export function StarArc({ className = "", twinkle = false }: { className?: strin
   );
 }
 
-export function Logo({ tone = "light", className = "" }: { tone?: "light" | "dark"; className?: string }) {
-  const main = "text-ink";
+export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex flex-col items-center leading-none ${className}`}>
-      <StarArc className="w-14 text-ink-muted -mb-0.5" />
-      <span className={`font-display text-[1.35rem] font-semibold tracking-[0.18em] ${main}`}>SABOR</span>
-      <span className="mt-1 text-[0.55rem] font-bold tracking-[0.42em] text-ink-muted pl-[0.42em]">VENEZOLANO</span>
+    <span className={`inline-flex flex-col items-center leading-none text-ink ${className}`}>
+      <StarArc className="-mb-0.5 w-12 text-flag-blue" />
+      <span className="font-display text-[1.4rem] font-medium tracking-[0.2em]">SABOR</span>
+      <span className="mt-1 pl-[0.46em] text-[0.52rem] font-semibold tracking-[0.46em]">VENEZOLANO</span>
     </span>
   );
 }
 
+/** Kleiner Akzent unter Überschriften: drei feine Striche in Gelb, Blau, Rot. */
 export function Ornament({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center gap-3 text-ink-muted ${className}`} aria-hidden="true">
-      <span className="h-px w-12 bg-gradient-to-r from-transparent to-ink/25" />
-      <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
-        <path d={starPath(12, 12, 11)} />
-      </svg>
-      <span className="h-px w-12 bg-gradient-to-l from-transparent to-ink/25" />
+    <div className={`flex items-center justify-center gap-1 ${className}`} aria-hidden="true">
+      <span className="h-[2px] w-5 bg-flag-yellow" />
+      <span className="h-[2px] w-5 bg-flag-blue" />
+      <span className="h-[2px] w-5 bg-flag-red" />
     </div>
   );
 }
 
-/** Dezenter Weihnachtsakzent: Tannenzweig mit Goldbeeren (nur Linien, keine Kitsch-Optik). */
+/** Dezenter Weihnachtsakzent: Tannenzweig (feine Linien) (nur Linien, keine Kitsch-Optik). */
 export function PineSprig({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 120 60" className={className} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round">

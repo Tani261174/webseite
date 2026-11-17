@@ -14,13 +14,13 @@ export function AdminNav({ links }: { links: { href: string; label: string; badg
             key={l.href}
             href={l.href}
             aria-current={active ? "page" : undefined}
-            className={`flex shrink-0 items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold whitespace-nowrap ${
-              active ? "bg-rose text-ink" : "text-ink-soft hover:bg-vanilla/60"
+            className={`flex shrink-0 items-center justify-between gap-2 rounded-md px-4 py-2.5 text-sm font-semibold whitespace-nowrap ${
+              active ? "bg-ink text-white" : "text-ink-soft hover:bg-ink/5"
             }`}
           >
             {l.label}
             {l.badge ? (
-              <span className={`rounded-full px-2 text-xs ${active ? "bg-vanilla text-ink" : "bg-rose text-ink"}`}>{l.badge}</span>
+              <span className={`rounded-full px-2 text-xs ${active ? "bg-white text-ink" : "bg-ink text-white"}`}>{l.badge}</span>
             ) : null}
           </Link>
         );

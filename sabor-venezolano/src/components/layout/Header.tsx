@@ -43,7 +43,7 @@ export function Header({ christmas }: { christmas: boolean }) {
   return (
     <header
       className={`sticky top-0 z-40 transition-colors duration-300 ${
-        scrolled || open ? "bg-sage/95 shadow-[0_12px_30px_-22px_rgba(46,46,49,0.45)] backdrop-blur" : "bg-sage"
+        scrolled || open ? "bg-white/95 shadow-[0_10px_30px_-24px_rgba(23,23,23,0.5)] backdrop-blur" : "bg-white"
       }`}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
@@ -68,8 +68,8 @@ export function Header({ christmas }: { christmas: boolean }) {
               key={l.href}
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                isActive(l.href) ? "bg-vanilla text-ink shadow-[0_6px_16px_-10px_rgba(46,46,49,0.4)]" : "text-ink-soft hover:bg-vanilla/60 hover:text-ink"
+              className={`relative px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors after:absolute after:inset-x-4 after:-bottom-0.5 after:h-px after:origin-left after:bg-ink after:transition-transform after:duration-300 ${
+                isActive(l.href) ? "text-ink after:scale-x-100" : "text-ink-muted after:scale-x-0 hover:text-ink hover:after:scale-x-100"
               }`}
             >
               {l.label}
@@ -91,14 +91,14 @@ export function Header({ christmas }: { christmas: boolean }) {
           </Link>
           <Link
             href={`/${locale}/carrito`}
-            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-rose text-ink shadow-[inset_0_0_0_1px_rgba(46,46,49,0.08)] transition-transform hover:scale-105"
+            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-paper"
             aria-label={`${t.nav.cart}${ready && count ? ` (${count})` : ""}`}
           >
             <Icon name="bag" className="h-5 w-5" />
             {ready && count > 0 ? (
               <span
                 key={lastAdded}
-                className="animate-pop absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-vanilla px-1 text-[0.7rem] font-extrabold text-ink ring-1 ring-ink/15"
+                className="animate-pop absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-ink px-1 text-[0.68rem] font-bold text-white"
               >
                 {count}
               </span>
@@ -107,11 +107,14 @@ export function Header({ christmas }: { christmas: boolean }) {
         </div>
       </div>
 
+      {/* Feine Linie in den Farben der venezolanischen Flagge */}
+      <div className="flag-line" aria-hidden="true" />
+
       {/* Mobile Navigation */}
       <div
         id="mobile-nav"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[4.5rem] z-40 overflow-y-auto bg-vanilla px-6 pb-10 pt-6 md:hidden"
+        className="fixed inset-x-0 bottom-0 top-[calc(4.5rem+3px)] z-40 overflow-y-auto bg-white px-6 pb-10 pt-6 md:hidden"
       >
         <nav aria-label="Móvil" className="flex flex-col">
           {links.map((l) => (
@@ -119,7 +122,7 @@ export function Header({ christmas }: { christmas: boolean }) {
               key={l.href}
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
-              className={`border-b border-ink/10 py-4 font-display text-2xl ${isActive(l.href) ? "italic text-ink" : "text-ink-soft"}`}
+              className={`border-b border-line py-5 font-display text-[1.7rem] ${isActive(l.href) ? "text-ink" : "text-ink-soft"}`}
             >
               {l.label}
             </Link>

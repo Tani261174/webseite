@@ -34,16 +34,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Welcome locale={locale} t={t} settings={settings} />
       <Cooks locale={locale} t={t} settings={settings} />
 
-      <section id="especialidades" className="bg-sage/50 px-4 py-20 sm:px-6 sm:py-24">
+      <section id="especialidades" className="border-t border-line bg-white px-5 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow={t.home.specialtiesEyebrow} title={t.home.specialtiesTitle} text={t.home.specialtiesText} />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p, i) => (
               <ProductCard key={p.id} product={p} item={toCatalogItem(p)} locale={locale} t={t} priority={i < 2} />
             ))}
           </div>
-          <div className="mt-10 text-center">
-            <Link href={`/${locale}/productos`} className="btn btn-outline">
+          <div className="mt-16 text-center">
+            <Link href={`/${locale}/productos`} className="btn btn-secondary">
               {t.home.seeAll} <Icon name="arrow" className="h-4 w-4" />
             </Link>
           </div>
@@ -53,7 +53,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       {settings.christmas.enabled ? <ChristmasTeaser locale={locale} t={t} settings={settings} /> : null}
       <Steps t={t} />
       <Reviews t={t} reviews={reviews} />
-      <div className="pt-20 sm:pt-24" />
       <WhatsAppBand t={t} settings={settings} />
     </>
   );

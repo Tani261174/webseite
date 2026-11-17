@@ -13,7 +13,8 @@ export default async function TextsAdmin({ searchParams }: { searchParams: Promi
       <PageTitle>{a.nav.texts}</PageTitle>
       <Notice saved={sp.saved} error={sp.error} a={a} />
 
-      <Card title={a.texts.hero}>
+      <Card title={a.texts.hero} hint={a.texts.photoNote}>
+        <ImageInput name="heroImage" current={c.heroImage} a={a} label={a.texts.heroImage} />
         <BiField label={a.texts.heroTitle} name="heroTitle" value={c.heroTitle} a={a} required />
         <BiField label={a.texts.heroSubtitle} name="heroSubtitle" value={c.heroSubtitle} a={a} textarea />
         <BiField label={a.texts.heroCta} name="heroCta" value={c.heroCta} a={a} />
@@ -21,7 +22,7 @@ export default async function TextsAdmin({ searchParams }: { searchParams: Promi
 
       <Card title={a.texts.cooks} hint={a.texts.photoNote}>
         {c.cooks.map((cook, i) => (
-          <div key={i} className="space-y-4 rounded-xl border border-rose p-4">
+          <div key={i} className="space-y-4 rounded-md border border-line p-4">
             <h3 className="font-bold text-ink">{a.texts.cook} {i + 1}</h3>
             <Field label={a.texts.cookName} name={`cook${i}_name`} defaultValue={cook.name} />
             <ImageInput name={`cook${i}_image`} current={cook.image} a={a} />

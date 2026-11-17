@@ -23,7 +23,7 @@ export default async function ChristmasPage({ params }: { params: Promise<{ loca
 
   return (
     <>
-      <section className="relative bg-rose/50 overflow-hidden px-4 pb-20 pt-14 text-center text-ink sm:px-6">
+      <section className="relative bg-paper overflow-hidden px-4 pb-20 pt-14 text-center text-ink sm:px-6">
         <PineSprig className="pointer-events-none absolute -left-8 top-4 w-60 text-ink/15 sm:w-80" />
         <PineSprig className="pointer-events-none absolute -right-8 bottom-2 w-60 rotate-180 text-ink/15 sm:w-80" />
         <div className="relative mx-auto max-w-3xl">
@@ -46,7 +46,7 @@ export default async function ChristmasPage({ params }: { params: Promise<{ loca
         </div>
       </section>
 
-      <section className="bg-soft px-4 py-20 sm:px-6">
+      <section className="bg-white px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow={t.christmas.eyebrow} title={t.christmas.menuTitle} />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

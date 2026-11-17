@@ -52,7 +52,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   };
 
   return (
-    <div className="bg-soft px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
+    <div className="bg-white px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-6xl">
         <Link href={`/${locale}/productos`} className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">
@@ -67,12 +67,12 @@ export default async function ProductPage({ params }: { params: Params }) {
           <div>
             <div className="flex flex-wrap gap-2">
               {p.christmas ? (
-                <span className="rounded-full bg-rose px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
+                <span className="rounded-[2px] bg-ink px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
                   ✦ {t.product.christmasBadge}
                 </span>
               ) : null}
               {p.seasonal ? (
-                <span className="rounded-full bg-rose/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
+                <span className="rounded-[2px] border border-line px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
                   {t.product.seasonalBadge}
                 </span>
               ) : null}
@@ -100,7 +100,7 @@ export default async function ProductPage({ params }: { params: Params }) {
                   p.allergens.length ? (
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {p.allergens.map((a) => (
-                        <li key={a} className="rounded-full border border-rose bg-vanilla px-3 py-1.5 text-sm font-semibold text-ink">
+                        <li key={a} className="rounded-[2px] border border-line bg-white px-3 py-1.5 text-sm font-semibold text-ink">
                           {t.allergens[a]}
                         </li>
                       ))}
@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: { params: Params }) {
                     <p className="mt-2 text-ink-soft">{t.product.noAllergens}</p>
                   )
                 ) : (
-                  <p className="mt-2 flex items-start gap-2 rounded-2xl bg-sage/60 p-4 text-sm text-ink">
+                  <p className="mt-2 flex items-start gap-2 rounded-md bg-paper p-4 text-sm text-ink">
                     <Icon name="info" className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
                     {t.product.allergensMissing}
                   </p>

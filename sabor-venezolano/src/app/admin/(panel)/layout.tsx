@@ -24,14 +24,14 @@ export default async function PanelLayout({ children }: { children: React.ReactN
 
   return (
     <div className="lg:grid lg:min-h-dvh lg:grid-cols-[250px_1fr]">
-      <aside className="bg-sage px-4 pb-3 pt-4 text-ink lg:sticky lg:top-0 lg:h-dvh lg:overflow-y-auto lg:py-6">
+      <aside className="border-b border-line bg-white lg:border-b-0 lg:border-r px-4 pb-3 pt-4 text-ink lg:sticky lg:top-0 lg:h-dvh lg:overflow-y-auto lg:py-6">
         <div className="mb-4 flex items-center justify-between lg:mb-8 lg:flex-col lg:gap-4">
           <Logo className="scale-90" />
           <div className="flex items-center gap-2 lg:w-full lg:flex-col lg:items-stretch">
             <form action={setAdminLangAction}>
               <input type="hidden" name="lang" value={lang === "es" ? "de" : "es"} />
               <BackInput />
-              <button className="rounded-full bg-vanilla px-3 py-1.5 text-xs font-bold text-ink lg:w-full">
+              <button className="rounded-full border border-ink px-3 py-1.5 text-xs font-bold text-ink lg:w-full">
                 {lang === "es" ? "🇩🇪" : "🇻🇪"} {a.common.switchLang}
               </button>
             </form>

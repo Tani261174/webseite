@@ -33,6 +33,7 @@ export type Settings = {
     image: string | null;
   };
   content: {
+    heroImage: string | null; // großes Foto der beiden Köchinnen
     heroTitle: Bi;
     heroSubtitle: Bi;
     heroCta: Bi;
@@ -101,6 +102,7 @@ export const defaultSettings: Settings = {
     image: null,
   },
   content: {
+    heroImage: null,
     heroTitle: bi("¡El auténtico sabor de Venezuela, hecho con amor!", "Der echte Geschmack Venezuelas – mit Liebe gemacht!"),
     heroSubtitle: bi(
       "Disfruta nuestras especialidades tradicionales, preparadas con cariño para llevar un pedacito de nuestra tierra hasta tu mesa.",

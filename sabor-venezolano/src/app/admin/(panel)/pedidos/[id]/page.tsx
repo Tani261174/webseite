@@ -47,7 +47,7 @@ export default async function OrderDetail({
           <table className="mt-2 w-full text-sm">
             <tbody>
               {o.items.map((i, k) => (
-                <tr key={k} className="border-b border-rose">
+                <tr key={k} className="border-b border-line">
                   <td className="py-2">{i.qty} ×</td>
                   <td className="py-2">{i.name}{i.variant ? ` (${i.variant})` : ""}</td>
                   <td className="py-2 text-right">{formatEuro(i.lineCents, lang)}</td>
@@ -78,7 +78,7 @@ export default async function OrderDetail({
         <Card title={a.orders.changeStatus}>
           <div className="grid gap-2 sm:grid-cols-2">
             {ORDER_STATUSES.map((s) => (
-              <label key={s} className="flex cursor-pointer items-center gap-3 rounded-xl border border-rose px-4 py-3 has-[:checked]:border-rose has-[:checked]:bg-rose/40">
+              <label key={s} className="flex cursor-pointer items-center gap-3 rounded-md border border-line px-4 py-3 has-[:checked]:border-line has-[:checked]:bg-paper">
                 <input type="radio" name="status" value={s} defaultChecked={o.status === s} className="h-5 w-5 accent-[#2e2e31]" />
                 {a.status[s]}
               </label>

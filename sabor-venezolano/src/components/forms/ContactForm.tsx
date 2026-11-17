@@ -48,7 +48,7 @@ export function ContactForm({ token }: { token: string }) {
 
   if (state === "done") {
     return (
-      <div className="flex items-start gap-3 rounded-2xl bg-sage p-5 text-ink" role="status">
+      <div className="flex items-start gap-3 rounded-md bg-paper p-5 text-ink" role="status">
         <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0" />
         <p className="font-semibold">{t.contact.success}</p>
       </div>
@@ -84,7 +84,7 @@ export function ContactForm({ token }: { token: string }) {
         </span>
       </label>
       {error ? (
-        <p className="rounded-2xl bg-danger/10 p-4 text-sm font-semibold text-danger" role="alert">
+        <p className="rounded-md bg-danger/10 p-4 text-sm font-semibold text-danger" role="alert">
           {error}
         </p>
       ) : null}

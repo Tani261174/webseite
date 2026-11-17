@@ -25,7 +25,7 @@ export function QtyStepper({
   const { t } = useI18n();
   const h = size === "sm" ? "h-10 w-10" : "h-12 w-12";
   return (
-    <div className="inline-flex items-center rounded-full border border-ink/15 bg-vanilla" role="group" aria-label={label}>
+    <div className="inline-flex items-center rounded-[4px] border border-line bg-white" role="group" aria-label={label}>
       <button
         type="button"
         className={`${h} inline-flex items-center justify-center rounded-full text-ink disabled:opacity-35`}
@@ -67,7 +67,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
 
   if (!item.available) {
     return (
-      <p className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-ink/5 px-5 text-sm font-bold uppercase tracking-wider text-ink-muted">
+      <p className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-paper px-5 text-sm font-bold uppercase tracking-wider text-ink-muted">
         {item.remaining === 0 ? t.common.soldOut : t.common.notAvailable}
       </p>
     );
@@ -87,8 +87,8 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
               return (
                 <label
                   key={v.id}
-                  className={`cursor-pointer rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${
-                    active ? "border-ink/35 bg-sage text-ink" : "border-ink/15 bg-vanilla text-ink-soft hover:border-ink/30"
+                  className={`cursor-pointer rounded-[4px] border px-4 py-2.5 text-sm font-semibold transition-colors ${
+                    active ? "border-ink bg-ink text-white" : "border-line bg-white text-ink-soft hover:border-ink"
                   }`}
                 >
                   <input
@@ -121,7 +121,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
         >
           {added ? (
             <>
-              <Icon name="check" className="h-5 w-5 text-ink" /> {t.common.added}
+              <Icon name="check" className="h-5 w-5 text-white" /> {t.common.added}
             </>
           ) : (
             <>

@@ -22,15 +22,15 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
   };
 
   return (
-    <div className="bg-soft px-4 pb-24 pt-12 sm:px-6">
+    <div className="bg-white px-4 pb-24 pt-12 sm:px-6">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="Sabor Venezolano" title={t.contact.title} text={t.contact.intro} />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
-          <div className="flex flex-col bg-sage items-center justify-center rounded-[24px] p-8 text-center text-ink">
-            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-rose">
-              <Icon name="whatsapp" className="h-8 w-8 text-ink" />
+          <div className="flex flex-col bg-paper items-center justify-center rounded-md p-8 text-center text-ink">
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-ink">
+              <Icon name="whatsapp" className="h-8 w-8 text-white" />
             </span>
             <h2 className="mt-5 font-display text-2xl">{t.contact.whatsappTitle}</h2>
             <p className="mt-2 text-ink-soft">{t.contact.whatsappText}</p>

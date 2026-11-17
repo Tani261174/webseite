@@ -68,7 +68,7 @@ Der Adminbereich zeigt diese Punkte auch auf der Übersichtsseite an.
 - [ ] **Impressum, Datenschutz, Bestellbedingungen, Abholung** fachkundig prüfen lassen (die Texte sind Entwürfe)
 - [ ] **Allergene und Lebensmittelinformationen** für jedes Produkt eintragen und bestätigen
 - [ ] Produktbeschreibungen prüfen (sie sind Vorschläge)
-- [ ] **Echte Fotos** hochladen: Produkte, beide Köchinnen (Gesichter nicht bearbeiten), Weihnachtsfoto
+- [ ] **Echte Fotos** hochladen: großes Hauptfoto der beiden Köchinnen (Admin → Textos e imágenes), Produkte, Einzelporträts, Weihnachtsfoto – Gesichter nicht bearbeiten
 - [ ] Namen und Vorstellungstexte der Köchinnen eintragen
 - [ ] Vorlaufzeit, Ruhetage und Weihnachts-Bestellschluss einstellen
 - [ ] Ggf. Lebensmittelrechtliche Registrierung beim zuständigen Amt klären
@@ -78,7 +78,7 @@ Der Adminbereich zeigt diese Punkte auch auf der Übersichtsseite an.
 | Bereich | Lösung |
 |---|---|
 | Framework | Next.js 15 (App Router), React 19, TypeScript |
-| Design | Tailwind CSS 4, Boutique-Designsystem in `src/app/globals.css`: Vanille `#FFF8ED` (Hintergrund), Rosé `#F4DCE3` (Buttons, Produktkarten, Akzente), Salbei `#DDE9D9` (Navigation, ruhige Bereiche), Text in neutralem Dunkelgrau `#2E2E31` |
+| Design | Tailwind CSS 4, Designsystem „Gourmet Minimal“ in `src/app/globals.css`: Weiß `#FFFFFF` und Schwarz `#171717`; Flaggenfarben Gelb `#F4C430`, Blau `#174A9C`, Rot `#C83232` nur als feine Deko (Linie unter der Navigation, Akzente unter Überschriften) |
 | Schriften | Playfair Display + Manrope, **selbst gehostet** (keine Google-Verbindung) |
 | Datenbank | SQLite (in Node.js eingebaut) → Datei `data/sabor.db` |
 | Bilder | Upload im Admin, automatische Verkleinerung + WebP (sharp), Ablage in `data/uploads` |

@@ -10,7 +10,7 @@ export default async function ReviewsAdmin({ searchParams }: { searchParams: Pro
   return (
     <div className="space-y-6">
       <PageTitle>{a.nav.reviews}</PageTitle>
-      <p className="rounded-2xl border border-rose bg-sage/60 p-4 text-sm">{a.reviews.intro}</p>
+      <p className="rounded-md border border-line bg-paper p-4 text-sm">{a.reviews.intro}</p>
       <Notice saved={sp.saved} error={sp.error} a={a} />
 
       <form action={addReviewAction}>
@@ -27,7 +27,7 @@ export default async function ReviewsAdmin({ searchParams }: { searchParams: Pro
 
       <ul className="space-y-3">
         {reviews.map((r) => (
-          <li key={r.id} className="rounded-2xl border border-rose bg-vanilla p-5">
+          <li key={r.id} className="rounded-md border border-line bg-white p-5">
             <p className="font-bold text-ink">
               {r.name} · {"★".repeat(r.rating)}
               <span className="ml-2 text-xs font-semibold text-ink-muted">{r.published ? a.reviews.published : a.products.hidden}</span>
@@ -37,7 +37,7 @@ export default async function ReviewsAdmin({ searchParams }: { searchParams: Pro
               <form action={reviewAction}>
                 <input type="hidden" name="id" value={r.id} />
                 <input type="hidden" name="op" value={r.published ? "unpublish" : "publish"} />
-                <button className="rounded-full px-3 py-2 text-xs font-bold ring-1 ring-rose">
+                <button className="rounded-full px-3 py-2 text-xs font-bold ring-1 ring-line">
                   {r.published ? a.reviews.unpublish : a.reviews.publish}
                 </button>
               </form>

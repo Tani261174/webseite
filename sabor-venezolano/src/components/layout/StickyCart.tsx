@@ -23,7 +23,7 @@ export function StickyCart({ whatsappNumber }: { whatsappNumber: string }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={t.common.whatsapp}
-        className="fixed bottom-5 right-4 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full bg-rose text-ink shadow-[0_14px_30px_-12px_rgba(46,46,49,0.35)] ring-4 ring-vanilla transition-transform hover:scale-105"
+        className="fixed bottom-5 right-4 z-30 inline-flex h-14 w-14 items-center justify-center rounded-full bg-ink text-white shadow-[0_14px_30px_-12px_rgba(23,23,23,0.5)] ring-4 ring-white transition-transform hover:scale-105"
         style={{ marginBottom: "env(safe-area-inset-bottom)" }}
       >
         <Icon name="whatsapp" className="h-7 w-7" />
@@ -35,18 +35,18 @@ export function StickyCart({ whatsappNumber }: { whatsappNumber: string }) {
     <div className="pb-safe fixed inset-x-0 bottom-0 z-30 px-3 pt-2 md:hidden">
       <Link
         href={`/${locale}/carrito`}
-        className="flex min-h-[3.6rem] items-center justify-between gap-3 rounded-full bg-rose px-5 text-ink shadow-[0_16px_36px_-14px_rgba(46,46,49,0.45)] ring-1 ring-ink/10"
+        className="flex min-h-[3.6rem] items-center justify-between gap-3 rounded-md bg-ink px-5 text-white shadow-[0_16px_36px_-14px_rgba(23,23,23,0.6)]"
       >
         <span className="flex items-center gap-3">
           <span className="relative">
-            <Icon name="bag" className="h-6 w-6 text-ink" />
-            <span className="absolute -right-2 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-vanilla px-1 text-[0.7rem] font-extrabold text-ink ring-1 ring-ink/15">
+            <Icon name="bag" className="h-6 w-6 text-white" />
+            <span className="absolute -right-2 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-[0.7rem] font-bold text-ink">
               {count}
             </span>
           </span>
-          <span className="font-semibold">{t.cart.stickyLabel}</span>
+          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.14em]">{t.cart.stickyLabel}</span>
         </span>
-        <span className="flex items-center gap-2 font-display text-lg text-ink">
+        <span className="flex items-center gap-2 font-display text-lg text-white">
           {formatEuro(totalCents, locale)}
           <Icon name="arrow" className="h-4 w-4" />
         </span>

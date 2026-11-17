@@ -8,100 +8,80 @@ import { Ornament, PineSprig, Sparkles, StarArc } from "../brand/Brand";
 import { Icon } from "../ui/Icon";
 import { Photo } from "../ui/Photo";
 
-export function SectionHeading({
-  eyebrow,
-  title,
-  text,
-  tone = "light",
-}: {
-  eyebrow: string;
-  title: string;
-  text?: string;
-  tone?: "light" | "dark";
-}) {
+export const SLOGAN = "Un pedacito de Venezuela en tu mesa.";
+const norm = (x: string) => x.toLowerCase().replace(/[^a-záéíóúñü ]/g, "").trim();
+
+export function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <p className={`eyebrow ${tone === "dark" ? "text-ink-muted" : "text-ink-muted"}`}>{eyebrow}</p>
-      <h2 className={`mt-3 font-display text-[2rem] leading-[1.15] sm:text-[2.6rem] ${tone === "dark" ? "text-ink" : "text-ink"}`}>
-        {title}
-      </h2>
-      <Ornament className="mt-5" />
-      {text ? <p className={`mt-5 text-base leading-relaxed sm:text-lg ${tone === "dark" ? "text-ink-soft" : "text-ink-soft"}`}>{text}</p> : null}
+      <p className="eyebrow text-ink-muted">{eyebrow}</p>
+      <h2 className="mt-4 font-display text-[2.1rem] leading-[1.12] text-ink sm:text-[2.75rem]">{title}</h2>
+      <Ornament className="mt-6" />
+      {text ? <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">{text}</p> : null}
     </div>
   );
 }
 
+/** Startseite oben: Slogan, schwarzer Bestellbutton und großes Foto der beiden Köchinnen. */
 export function Hero({ locale, t, settings }: { locale: Locale; t: Messages; settings: Settings }) {
   const c = settings.content;
   const [a, b] = c.cooks;
   return (
-    <section className="bg-blush relative overflow-hidden text-ink">
-      <StarArc className="pointer-events-none absolute -right-16 -top-10 w-[34rem] text-ink/[0.04]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-10 sm:px-6 md:grid-cols-[1.05fr_1fr] md:gap-8 md:pb-24 md:pt-16">
+    <section className="relative bg-white">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-10 sm:px-6 md:grid-cols-[0.95fr_1.05fr] md:gap-14 md:pb-24 md:pt-20">
         <div className="animate-rise text-center md:text-left">
-          <p className="eyebrow text-ink-muted">{t.home.heroEyebrow}</p>
-          <h1 className="mt-4 font-display text-[2.35rem] leading-[1.08] sm:text-5xl lg:text-[3.6rem]">
-            {pick(c.heroTitle, locale)}
+          <div className="flex flex-col items-center justify-center gap-2 md:flex-row md:justify-start md:gap-3">
+            <StarArc className="w-12 text-flag-blue md:w-10" />
+            <p className="eyebrow text-ink-muted">{t.home.heroEyebrow}</p>
+          </div>
+          <h1 lang="es" className="mt-6 font-display text-[2.7rem] leading-[1.04] text-ink sm:text-6xl lg:text-[4.4rem]">
+            {SLOGAN}
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-[1.05rem] leading-relaxed text-ink-soft md:mx-0 sm:text-lg">
-            {pick(c.heroSubtitle, locale)}
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-            <Link href={`/${locale}/productos`} className="btn btn-primary min-h-[3.6rem] px-8 text-lg">
+          <Ornament className="mt-7 md:justify-start" />
+          <p className="mx-auto mt-7 max-w-md font-display text-xl italic leading-snug text-ink md:mx-0">{pick(c.heroTitle, locale)}</p>
+          <p className="mx-auto mt-3 max-w-md text-[1.02rem] leading-relaxed text-ink-soft md:mx-0">{pick(c.heroSubtitle, locale)}</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+            <Link href={`/${locale}/productos`} className="btn btn-primary min-h-[3.6rem] px-10">
               {pick(c.heroCta, locale) || t.common.orderNow}
             </Link>
-            <a
-              href={waLink(settings.shop.whatsappNumber)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary min-h-[3.6rem]"
-            >
+            <a href={waLink(settings.shop.whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-secondary min-h-[3.6rem]">
               <Icon name="whatsapp" className="h-5 w-5" /> WhatsApp
             </a>
           </div>
-          <p className="mx-auto mt-6 flex max-w-md items-start gap-2 text-left text-sm text-ink-soft md:mx-0">
-            <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-ink-muted" />
+          <p className="mx-auto mt-6 flex max-w-md items-start justify-center gap-2 text-left text-sm text-ink-muted md:mx-0 md:justify-start">
+            <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0" />
             {t.cart.preorderNote}
           </p>
         </div>
 
-        {/* Die beiden Gesichter der Marke */}
-        <div className="animate-rise delay-2 relative mx-auto grid w-full max-w-md grid-cols-2 gap-4 md:max-w-none">
-          {[a, b].map((cook, i) => (
-            <figure key={i} className={`${i === 1 ? "mt-10 animate-float" : "animate-float"}`} style={{ animationDelay: `${i * 1.5}s` }}>
-              <div className="soft-frame relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[32px]">
-                <Photo
-                  src={cook.image}
-                  alt={cook.name}
-                  label={t.common.photoSoon}
-                  tag={t.common.placeholder}
-                  kind="portrait"
-                  priority
-                />
-              </div>
-              <figcaption className="mt-3 text-center">
-                <span className="block font-display text-lg text-ink">{cook.name}</span>
-                <span className="text-xs uppercase tracking-[0.16em] text-ink-muted">{pick(cook.specialties, locale)}</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
+        {/* Großes Foto der beiden Köchinnen mit ihren Spezialitäten */}
+        <figure className="animate-rise delay-2 -mx-5 sm:mx-0">
+          <div className="relative aspect-[4/5] overflow-hidden bg-paper sm:aspect-[5/6] sm:rounded-[4px]">
+            <Photo src={c.heroImage} alt={`${a.name} & ${b.name}`} label={t.common.photoSoon} tag={t.common.placeholder} kind="group" priority />
+          </div>
+          <figcaption className="mt-4 flex items-baseline justify-between gap-4 px-5 text-sm sm:px-0">
+            <span className="font-display text-base text-ink">
+              {a.name} <span className="text-ink-muted">&amp;</span> {b.name}
+            </span>
+            <span className="hidden text-right text-xs uppercase tracking-[0.16em] text-ink-muted sm:inline">{t.home.cooksEyebrow}</span>
+          </figcaption>
+        </figure>
       </div>
-      <div className="h-px bg-gradient-to-r from-transparent via-ink/15 to-transparent" />
     </section>
   );
 }
 
 export function Welcome({ locale, t, settings }: { locale: Locale; t: Messages; settings: Settings }) {
   return (
-    <section className="bg-soft px-4 py-20 sm:px-6 sm:py-24">
-      <div className="mx-auto max-w-3xl text-center">
+    <section className="border-t border-line bg-white px-5 py-20 sm:px-6 sm:py-28">
+      <div className="mx-auto max-w-2xl text-center">
         <p className="eyebrow text-ink-muted">{t.home.welcomeEyebrow}</p>
-        <h2 className="mt-3 font-display text-[2rem] italic leading-tight text-ink sm:text-[2.8rem]">
-          {pick(settings.content.welcomeTitle, locale)}
-        </h2>
+        {/* Doppelung vermeiden: steht der Slogan schon oben als Hauptüberschrift, hier nicht wiederholen */}
+        {norm(pick(settings.content.welcomeTitle, locale)) !== norm(SLOGAN) ? (
+          <h2 className="mt-4 font-display text-[2rem] italic leading-tight text-ink sm:text-[2.6rem]">{pick(settings.content.welcomeTitle, locale)}</h2>
+        ) : null}
         <Ornament className="mt-6" />
-        <p className="mt-6 text-lg leading-[1.85] text-ink-soft">{pick(settings.content.welcomeText, locale)}</p>
+        <p className="mt-7 text-[1.05rem] leading-[1.9] text-ink-soft">{pick(settings.content.welcomeText, locale)}</p>
       </div>
     </section>
   );
@@ -109,23 +89,23 @@ export function Welcome({ locale, t, settings }: { locale: Locale; t: Messages; 
 
 export function Cooks({ locale, t, settings }: { locale: Locale; t: Messages; settings: Settings }) {
   return (
-    <section className="px-4 pb-20 sm:px-6 sm:pb-24">
+    <section className="bg-white px-5 pb-20 sm:px-6 sm:pb-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.home.cooksEyebrow} title={t.home.cooksTitle} />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-14 grid gap-14 md:grid-cols-2 md:gap-10">
           {settings.content.cooks.map((cook, i) => (
-            <article key={i} className="card grid overflow-hidden sm:grid-cols-[0.9fr_1.1fr]">
-              <div className="aspect-[4/5] sm:aspect-auto sm:min-h-full">
+            <article key={i}>
+              <div className="aspect-[4/5] overflow-hidden rounded-[4px]">
                 <Photo src={cook.image} alt={cook.name} label={t.common.photoSoon} tag={t.common.placeholder} kind="portrait" />
               </div>
-              <div className="flex flex-col p-6 sm:p-7">
+              <div className="mt-6 text-center md:text-left">
                 <p className="eyebrow text-ink-muted">{pick(cook.role, locale)}</p>
-                <h3 className="mt-2 font-display text-2xl text-ink">{cook.name}</h3>
+                <h3 className="mt-2 font-display text-[1.7rem] text-ink">{cook.name}</h3>
                 <p className="mt-3 leading-relaxed text-ink-soft">{pick(cook.text, locale)}</p>
-                <div className="mt-auto pt-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink-muted">{t.home.specialtiesLabel}</p>
-                  <p className="mt-1 font-display text-lg italic text-ink">{pick(cook.specialties, locale)}</p>
-                </div>
+                <p className="mt-4 text-sm">
+                  <span className="font-semibold uppercase tracking-[0.14em] text-ink-muted">{t.home.specialtiesLabel}: </span>
+                  <span className="font-display italic text-ink">{pick(cook.specialties, locale)}</span>
+                </p>
               </div>
             </article>
           ))}
@@ -138,24 +118,22 @@ export function Cooks({ locale, t, settings }: { locale: Locale; t: Messages; se
 export function ChristmasTeaser({ locale, t, settings }: { locale: Locale; t: Messages; settings: Settings }) {
   const x = settings.christmas;
   return (
-    <section className="relative overflow-hidden bg-rose/50 px-4 py-20 text-ink sm:px-6 sm:py-24">
-      <PineSprig className="pointer-events-none absolute -left-6 top-6 w-56 text-ink/15 sm:w-72" />
-      <PineSprig className="pointer-events-none absolute -right-6 bottom-6 w-56 rotate-180 text-ink/15 sm:w-72" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
-        <div className="text-center md:text-left">
-          <Sparkles className="mx-auto w-32 text-ink-muted md:mx-0" />
-          <p className="eyebrow mt-4 text-ink-muted">{t.christmas.eyebrow}</p>
-          <h2 className="mt-3 font-display text-[2rem] leading-tight sm:text-[2.6rem]">{t.christmas.title}</h2>
-          <p className="mt-5 text-lg leading-relaxed text-ink-soft">{pick(x.text, locale)}</p>
-          <ChristmasDates locale={locale} t={t} settings={settings} />
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-            <Link href={`/${locale}/navidad`} className="btn btn-primary">
-              {t.christmas.cta}
-            </Link>
-          </div>
-        </div>
-        <div className="soft-frame relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[28px]">
+    <section className="relative overflow-hidden border-y border-line bg-paper px-5 py-20 sm:px-6 sm:py-28">
+      <PineSprig className="pointer-events-none absolute -right-6 top-8 w-52 text-ink/10 sm:w-72" />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+        <div className="aspect-[4/5] overflow-hidden rounded-[4px] md:order-2">
           <Photo src={x.image} alt={t.christmas.title} label={t.common.photoSoon} tag={t.common.placeholder} />
+        </div>
+        <div className="text-center md:text-left">
+          <Sparkles className="mx-auto w-28 text-flag-yellow md:mx-0" />
+          <p className="eyebrow mt-5 text-ink-muted">{t.christmas.eyebrow}</p>
+          <h2 className="mt-4 font-display text-[2.1rem] leading-tight text-ink sm:text-[2.7rem]">{t.christmas.title}</h2>
+          <Ornament className="mt-6 md:justify-start" />
+          <p className="mt-6 text-[1.05rem] leading-relaxed text-ink-soft">{pick(x.text, locale)}</p>
+          <ChristmasDates locale={locale} t={t} settings={settings} />
+          <Link href={`/${locale}/navidad`} className="btn btn-primary mt-9">
+            {t.christmas.cta}
+          </Link>
         </div>
       </div>
     </section>
@@ -186,22 +164,22 @@ export function ChristmasDates({ locale, t, settings }: { locale: Locale; t: Mes
 export function Steps({ t }: { t: Messages }) {
   const icons = ["bag", "whatsapp", "chef"] as const;
   return (
-    <section className="bg-sage/50 px-4 py-20 sm:px-6 sm:py-24">
+    <section className="bg-white px-5 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.home.howEyebrow} title={t.home.howTitle} />
-        <ol className="mt-12 grid gap-5 md:grid-cols-3">
+        <ol className="mt-14 grid gap-12 md:grid-cols-3 md:gap-8">
           {t.home.steps.map((s, i) => (
-            <li key={i} className="card relative p-7 text-center">
-              <span className="absolute left-5 top-4 font-display text-4xl italic text-ink/25">{i + 1}</span>
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-rose text-ink">
+            <li key={i} className="text-center">
+              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-ink text-ink">
                 <Icon name={icons[i]} className="h-6 w-6" />
               </span>
-              <h3 className="mt-4 font-display text-xl text-ink">{s.title}</h3>
-              <p className="mt-2 text-ink-soft">{s.text}</p>
+              <p className="mt-5 font-display text-sm italic text-ink-muted">0{i + 1}</p>
+              <h3 className="mt-1 font-display text-2xl text-ink">{s.title}</h3>
+              <p className="mx-auto mt-2 max-w-xs text-ink-soft">{s.text}</p>
             </li>
           ))}
         </ol>
-        <p className="mx-auto mt-8 max-w-xl text-center text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
+        <p className="mx-auto mt-14 max-w-xl border-t border-line pt-6 text-center text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
       </div>
     </section>
   );
@@ -210,19 +188,19 @@ export function Steps({ t }: { t: Messages }) {
 export function Reviews({ t, reviews }: { t: Messages; reviews: { id: number; name: string; text: string; rating: number }[] }) {
   if (reviews.length === 0) return null; // nur echte Bewertungen anzeigen
   return (
-    <section className="px-4 py-20 sm:px-6 sm:py-24">
+    <section className="border-t border-line bg-white px-5 py-20 sm:px-6 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow={t.home.reviewsEyebrow} title={t.home.reviewsTitle} />
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-14 grid gap-10 md:grid-cols-3">
           {reviews.slice(0, 6).map((r) => (
-            <figure key={r.id} className="card p-7">
-              <div className="flex gap-0.5 text-ink-muted" aria-label={`${r.rating}/5`}>
+            <figure key={r.id} className="text-center">
+              <div className="flex justify-center gap-0.5 text-flag-yellow" aria-label={`${r.rating}/5`}>
                 {Array.from({ length: 5 }, (_, i) => (
                   <Icon key={i} name="star" className={`h-4 w-4 ${i < r.rating ? "" : "opacity-25"}`} />
                 ))}
               </div>
               <blockquote className="mt-4 font-display text-lg italic leading-relaxed text-ink">“{r.text}”</blockquote>
-              <figcaption className="mt-4 text-sm font-bold text-ink">— {r.name}</figcaption>
+              <figcaption className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted">{r.name}</figcaption>
             </figure>
           ))}
         </div>
@@ -233,18 +211,13 @@ export function Reviews({ t, reviews }: { t: Messages; reviews: { id: number; na
 
 export function WhatsAppBand({ t, settings }: { t: Messages; settings: Settings }) {
   return (
-    <section className="px-4 pb-20 sm:px-6 sm:pb-24">
-      <div className="mx-auto flex max-w-4xl bg-sage flex-col items-center gap-6 rounded-[32px] px-6 py-12 text-center text-ink sm:px-12">
-        <StarArc className="w-20 text-ink-muted" />
-        <h2 className="font-display text-3xl">{t.home.whatsappTitle}</h2>
+    <section className="bg-white px-5 pb-24 sm:px-6">
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-5 border border-line px-6 py-14 text-center sm:px-12">
+        <StarArc className="w-16 text-flag-blue" />
+        <h2 className="font-display text-[2rem] text-ink">{t.home.whatsappTitle}</h2>
         <p className="max-w-md text-ink-soft">{t.home.whatsappText}</p>
-        <a
-          href={waLink(settings.shop.whatsappNumber)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary min-h-[3.6rem] px-8 text-lg"
-        >
-          <Icon name="whatsapp" className="h-6 w-6" /> {settings.shop.whatsappDisplay}
+        <a href={waLink(settings.shop.whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-2 min-h-[3.6rem]">
+          <Icon name="whatsapp" className="h-5 w-5" /> {settings.shop.whatsappDisplay}
         </a>
       </div>
     </section>

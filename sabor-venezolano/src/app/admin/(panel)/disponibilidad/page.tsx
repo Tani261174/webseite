@@ -25,7 +25,7 @@ export default async function AvailabilityPage({ searchParams }: { searchParams:
           <legend className="mb-2 text-sm font-bold">{a.availability.closedDays}</legend>
           <div className="flex flex-wrap gap-2">
             {[1, 2, 3, 4, 5, 6, 0].map((d) => (
-              <label key={d} className="flex cursor-pointer items-center gap-2 rounded-full border border-rose px-4 py-2 text-sm has-[:checked]:bg-rose has-[:checked]:text-ink">
+              <label key={d} className="flex cursor-pointer items-center gap-2 rounded-full border border-line px-4 py-2 text-sm has-[:checked]:bg-ink has-[:checked]:text-white">
                 <input type="checkbox" name={`wd_${d}`} defaultChecked={o.closedWeekdays.includes(d)} className="sr-only" />
                 {weekdayName(d, lang)}
               </label>
@@ -39,7 +39,7 @@ export default async function AvailabilityPage({ searchParams }: { searchParams:
         {o.blockedDates.length ? (
           <ul className="space-y-2">
             {o.blockedDates.map((b, i) => (
-              <li key={b.date} className={`flex flex-wrap items-center gap-3 rounded-xl border border-rose p-3 ${b.date < today ? "opacity-50" : ""}`}>
+              <li key={b.date} className={`flex flex-wrap items-center gap-3 rounded-md border border-line p-3 ${b.date < today ? "opacity-50" : ""}`}>
                 <input type="hidden" name={`b${i}_date`} value={b.date} />
                 <strong className="min-w-48">{formatDate(b.date, lang, true)}</strong>
                 <input name={`b${i}_note`} defaultValue={b.note} className="field max-w-xs flex-1" aria-label={a.availability.note} />

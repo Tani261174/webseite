@@ -132,6 +132,7 @@ const es = {
   },
   texts: {
     hero: "Portada – sección principal",
+    heroImage: "Foto principal (las dos cocineras con sus especialidades)",
     heroTitle: "Título principal",
     heroSubtitle: "Subtítulo",
     heroCta: "Texto del botón",
@@ -336,6 +337,7 @@ const de: typeof es = {
   },
   texts: {
     hero: "Startseite – Hauptbereich",
+    heroImage: "Hauptfoto (die beiden Köchinnen mit ihren Spezialitäten)",
     heroTitle: "Hauptüberschrift",
     heroSubtitle: "Untertitel",
     heroCta: "Button-Text",

@@ -19,13 +19,13 @@ export default async function InquiriesAdmin({ searchParams }: { searchParams: P
           const isMail = m.contact.includes("@");
           const digits = m.contact.replace(/\D/g, "");
           return (
-            <li key={m.id} className={`rounded-2xl border bg-vanilla p-5 ${m.status === "nuevo" ? "border-rose" : "border-rose opacity-80"}`}>
+            <li key={m.id} className={`rounded-md border bg-white p-5 ${m.status === "nuevo" ? "border-line" : "border-line opacity-80"}`}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p>
                   <strong className="text-ink">{m.name}</strong>{" "}
                   <span className="text-sm text-ink-muted">· {m.createdAt} UTC · {m.locale.toUpperCase()}</span>
                 </p>
-                <span className="rounded-full bg-sage/60 px-2.5 py-1 text-xs font-bold">{a.inquiries.status[m.status]}</span>
+                <span className="rounded-full bg-paper px-2.5 py-1 text-xs font-bold">{a.inquiries.status[m.status]}</span>
               </div>
               <p className="mt-1 text-sm">
                 {a.inquiries.contact}:{" "}
@@ -44,7 +44,7 @@ export default async function InquiriesAdmin({ searchParams }: { searchParams: P
                     <form key={op} action={inquiryAction}>
                       <input type="hidden" name="id" value={m.id} />
                       <input type="hidden" name="op" value={op} />
-                      <button className="rounded-full bg-vanilla px-3 py-2 text-xs font-bold ring-1 ring-rose">
+                      <button className="rounded-full bg-white px-3 py-2 text-xs font-bold ring-1 ring-line">
                         {op === "respondido" ? a.inquiries.markAnswered : a.inquiries.archive}
                       </button>
                     </form>

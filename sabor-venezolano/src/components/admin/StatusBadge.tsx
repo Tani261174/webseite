@@ -2,11 +2,11 @@ import type { AdminMessages } from "@/lib/i18n/admin";
 import type { OrderStatus } from "@/lib/types";
 
 const colors: Record<OrderStatus, string> = {
-  nuevo: "bg-rose text-ink",
-  pendiente: "bg-sage text-ink",
-  confirmado: "bg-rose text-ink",
-  preparacion: "bg-rose text-ink",
-  listo: "bg-sage text-ink ring-1 ring-ink/20",
+  nuevo: "bg-ink text-white",
+  pendiente: "bg-paper text-ink",
+  confirmado: "bg-ink text-white",
+  preparacion: "bg-ink text-white",
+  listo: "bg-paper text-ink ring-1 ring-ink/20",
   entregado: "bg-ink/10 text-ink",
   cancelado: "bg-danger/15 text-danger",
 };

@@ -34,7 +34,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <Welcome locale={locale} t={t} settings={settings} />
       <Cooks locale={locale} t={t} settings={settings} />
 
-      <section id="especialidades" className="bg-cream-deep/50 px-4 py-20 sm:px-6 sm:py-24">
+      <section id="especialidades" className="bg-sage/50 px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <SectionHeading eyebrow={t.home.specialtiesEyebrow} title={t.home.specialtiesTitle} text={t.home.specialtiesText} />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

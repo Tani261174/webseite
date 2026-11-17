@@ -25,10 +25,10 @@ export function QtyStepper({
   const { t } = useI18n();
   const h = size === "sm" ? "h-10 w-10" : "h-12 w-12";
   return (
-    <div className="inline-flex items-center rounded-full border border-cocoa/15 bg-ivory" role="group" aria-label={label}>
+    <div className="inline-flex items-center rounded-full border border-ink/15 bg-vanilla" role="group" aria-label={label}>
       <button
         type="button"
-        className={`${h} inline-flex items-center justify-center rounded-full text-bordeaux disabled:opacity-35`}
+        className={`${h} inline-flex items-center justify-center rounded-full text-ink disabled:opacity-35`}
         onClick={() => onChange(Math.max(0, value - 1))}
         disabled={value <= (size === "sm" ? 0 : 1)}
         aria-label={t.common.decrease}
@@ -40,7 +40,7 @@ export function QtyStepper({
       </output>
       <button
         type="button"
-        className={`${h} inline-flex items-center justify-center rounded-full text-bordeaux disabled:opacity-35`}
+        className={`${h} inline-flex items-center justify-center rounded-full text-ink disabled:opacity-35`}
         onClick={() => onChange(Math.min(max, value + 1))}
         disabled={value >= max}
         aria-label={t.common.increase}
@@ -67,7 +67,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
 
   if (!item.available) {
     return (
-      <p className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-cocoa/8 px-5 text-sm font-bold uppercase tracking-wider text-cocoa-muted">
+      <p className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-ink/5 px-5 text-sm font-bold uppercase tracking-wider text-ink-muted">
         {item.remaining === 0 ? t.common.soldOut : t.common.notAvailable}
       </p>
     );
@@ -80,7 +80,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
     <div className="space-y-4">
       {item.variants.length > 0 ? (
         <fieldset>
-          <legend className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-cocoa-muted">{t.common.variant}</legend>
+          <legend className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-ink-muted">{t.common.variant}</legend>
           <div className="flex flex-wrap gap-2">
             {item.variants.map((v) => {
               const active = v.id === variantId;
@@ -88,7 +88,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
                 <label
                   key={v.id}
                   className={`cursor-pointer rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${
-                    active ? "border-bordeaux bg-bordeaux text-cream" : "border-cocoa/15 bg-ivory text-cocoa hover:border-bordeaux/50"
+                    active ? "border-ink/35 bg-sage text-ink" : "border-ink/15 bg-vanilla text-ink-soft hover:border-ink/30"
                   }`}
                 >
                   <input
@@ -111,7 +111,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
         <QtyStepper value={qty} onChange={(n) => setQty(Math.max(1, n))} max={max} label={t.common.quantity} />
         <button
           type="button"
-          className="btn btn-bordeaux flex-1 px-4"
+          className="btn btn-primary flex-1 px-4"
           onClick={() => {
             add(item.id, variantId, qty);
             setAdded(true);
@@ -121,7 +121,7 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
         >
           {added ? (
             <>
-              <Icon name="check" className="h-5 w-5 text-gold-light" /> {t.common.added}
+              <Icon name="check" className="h-5 w-5 text-ink" /> {t.common.added}
             </>
           ) : (
             <>
@@ -131,12 +131,12 @@ export function AddToCart({ item, layout = "card" }: { item: CatalogItem; layout
         </button>
       </div>
       {layout === "detail" ? (
-        <p className="text-sm text-cocoa-muted">
-          {qty} × {formatEuro(unit, locale)} = <strong className="text-cocoa">{formatEuro(unit * qty, locale)}</strong>
+        <p className="text-sm text-ink-muted">
+          {qty} × {formatEuro(unit, locale)} = <strong className="text-ink">{formatEuro(unit * qty, locale)}</strong>
         </p>
       ) : null}
       {item.remaining != null && item.remaining <= 20 ? (
-        <p className="text-sm font-semibold text-wine">{fmt(t.common.remaining, { n: item.remaining })}</p>
+        <p className="text-sm font-semibold text-ink">{fmt(t.common.remaining, { n: item.remaining })}</p>
       ) : null}
     </div>
   );

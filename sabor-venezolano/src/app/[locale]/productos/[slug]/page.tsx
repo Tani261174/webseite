@@ -52,10 +52,10 @@ export default async function ProductPage({ params }: { params: Params }) {
   };
 
   return (
-    <div className="bg-linen px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
+    <div className="bg-soft px-4 pb-24 pt-8 sm:px-6 sm:pt-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="mx-auto max-w-6xl">
-        <Link href={`/${locale}/productos`} className="inline-flex items-center gap-2 text-sm font-semibold text-bordeaux hover:underline">
+        <Link href={`/${locale}/productos`} className="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:underline">
           <Icon name="arrow" className="h-4 w-4 rotate-180" /> {t.product.back}
         </Link>
 
@@ -67,68 +67,68 @@ export default async function ProductPage({ params }: { params: Params }) {
           <div>
             <div className="flex flex-wrap gap-2">
               {p.christmas ? (
-                <span className="rounded-full bg-bordeaux px-3 py-1 text-xs font-bold uppercase tracking-wider text-gold-light">
+                <span className="rounded-full bg-rose px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
                   ✦ {t.product.christmasBadge}
                 </span>
               ) : null}
               {p.seasonal ? (
-                <span className="rounded-full bg-gold/25 px-3 py-1 text-xs font-bold uppercase tracking-wider text-bordeaux">
+                <span className="rounded-full bg-rose/70 px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink">
                   {t.product.seasonalBadge}
                 </span>
               ) : null}
             </div>
-            <h1 className="mt-3 font-display text-4xl leading-tight text-bordeaux sm:text-5xl">{name}</h1>
+            <h1 className="mt-3 font-display text-4xl leading-tight text-ink sm:text-5xl">{name}</h1>
             <p className="mt-4 flex items-baseline gap-2">
-              <span className="font-display text-3xl font-semibold text-cocoa">{formatEuro(p.priceCents, locale)}</span>
-              <span className="text-cocoa-muted">{pick(p.unit, locale)}</span>
+              <span className="font-display text-3xl font-semibold text-ink">{formatEuro(p.priceCents, locale)}</span>
+              <span className="text-ink-muted">{pick(p.unit, locale)}</span>
             </p>
             <Ornament className="my-6 justify-start" />
-            <p className="text-lg leading-relaxed text-cocoa-soft">{pick(p.description, locale)}</p>
+            <p className="text-lg leading-relaxed text-ink-soft">{pick(p.description, locale)}</p>
 
             <div className="card mt-8 p-5 sm:p-6">
               <AddToCart item={toCatalogItem(p)} layout="detail" />
-              <p className="mt-4 flex items-start gap-2 text-sm text-cocoa-muted">
-                <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-gold-dark" />
+              <p className="mt-4 flex items-start gap-2 text-sm text-ink-muted">
+                <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-ink-muted" />
                 {fmt(t.product.leadTime, { n: lead })}
               </p>
             </div>
 
             <section className="mt-10 space-y-6" aria-label={t.product.foodInfo}>
               <div>
-                <h2 className="eyebrow text-gold-dark">{t.product.allergens}</h2>
+                <h2 className="eyebrow text-ink-muted">{t.product.allergens}</h2>
                 {p.allergensConfirmed ? (
                   p.allergens.length ? (
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {p.allergens.map((a) => (
-                        <li key={a} className="rounded-full border border-bordeaux/25 bg-ivory px-3 py-1.5 text-sm font-semibold text-bordeaux">
+                        <li key={a} className="rounded-full border border-rose bg-vanilla px-3 py-1.5 text-sm font-semibold text-ink">
                           {t.allergens[a]}
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="mt-2 text-cocoa-soft">{t.product.noAllergens}</p>
+                    <p className="mt-2 text-ink-soft">{t.product.noAllergens}</p>
                   )
                 ) : (
-                  <p className="mt-2 flex items-start gap-2 rounded-2xl bg-gold/15 p-4 text-sm text-cocoa">
-                    <Icon name="info" className="mt-0.5 h-4 w-4 shrink-0 text-bordeaux" />
+                  <p className="mt-2 flex items-start gap-2 rounded-2xl bg-sage/60 p-4 text-sm text-ink">
+                    <Icon name="info" className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
                     {t.product.allergensMissing}
                   </p>
                 )}
               </div>
               {ingredients ? (
                 <div>
-                  <h2 className="eyebrow text-gold-dark">{t.product.ingredients}</h2>
-                  <p className="mt-2 whitespace-pre-line text-cocoa-soft">{ingredients}</p>
+                  <h2 className="eyebrow text-ink-muted">{t.product.ingredients}</h2>
+                  <p className="mt-2 whitespace-pre-line text-ink-soft">{ingredients}</p>
                 </div>
               ) : null}
               {foodInfo ? (
                 <div>
-                  <h2 className="eyebrow text-gold-dark">{t.product.foodInfo}</h2>
-                  <p className="mt-2 whitespace-pre-line text-cocoa-soft">{foodInfo}</p>
+                  <h2 className="eyebrow text-ink-muted">{t.product.foodInfo}</h2>
+                  <p className="mt-2 whitespace-pre-line text-ink-soft">{foodInfo}</p>
                 </div>
               ) : null}
               <p className="text-sm">
-                <Link href={`/${locale}/legal/alimentos`} className="text-bordeaux underline underline-offset-4">
+                <Link href={`/${locale}/legal/alimentos`} className="text-ink underline underline-offset-4">
                   {t.legal.food}
                 </Link>
               </p>

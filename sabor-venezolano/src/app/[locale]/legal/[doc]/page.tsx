@@ -32,12 +32,12 @@ export default async function LegalPage({ params }: { params: Params }) {
   const d = doc as Doc;
 
   return (
-    <div className="bg-linen px-4 pb-24 pt-12 sm:px-6">
+    <div className="bg-soft px-4 pb-24 pt-12 sm:px-6">
       <article className="card mx-auto max-w-3xl p-6 sm:p-10">
-        <h1 className="font-display text-3xl text-bordeaux sm:text-4xl">{title(d, t)}</h1>
+        <h1 className="font-display text-3xl text-ink sm:text-4xl">{title(d, t)}</h1>
         <Ornament className="mt-4 justify-start" />
-        <p className="mt-6 flex items-start gap-2 rounded-2xl border border-gold/50 bg-gold/15 p-4 text-sm font-semibold text-cocoa">
-          <Icon name="info" className="mt-0.5 h-4 w-4 shrink-0 text-bordeaux" />
+        <p className="mt-6 flex items-start gap-2 rounded-2xl border border-rose bg-sage/60 p-4 text-sm font-semibold text-ink">
+          <Icon name="info" className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
           {t.legal.draft}
         </p>
         <div className="prose-legal mt-6">

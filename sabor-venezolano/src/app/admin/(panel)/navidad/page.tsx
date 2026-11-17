@@ -12,7 +12,7 @@ export default async function ChristmasAdmin({ searchParams }: { searchParams: P
       <PageTitle>🎄 {a.nav.christmas}</PageTitle>
       <Notice saved={sp.saved} error={sp.error} a={a} />
       <Card>
-        <div className="rounded-xl bg-gold/15 p-4">
+        <div className="rounded-xl bg-sage/60 p-4">
           <Check name="enabled" label={a.christmas.enabled} checked={x.enabled} />
         </div>
         <Field label={a.christmas.deadline} name="deadline" type="date" defaultValue={x.orderDeadline} hint={a.christmas.deadlineHint} />

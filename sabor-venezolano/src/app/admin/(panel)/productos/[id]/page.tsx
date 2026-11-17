@@ -50,7 +50,7 @@ export default async function EditProduct({
 
   return (
     <form action={saveProductAction} className="space-y-6">
-      <Link href="/admin/productos" className="text-sm font-semibold text-bordeaux">← {a.common.back}</Link>
+      <Link href="/admin/productos" className="text-sm font-semibold text-ink">← {a.common.back}</Link>
       <PageTitle>{isNew ? a.products.new : p.name[lang] || p.name.es}</PageTitle>
       <Notice saved={sp.saved} error={sp.error} a={a} />
       {!isNew ? <input type="hidden" name="id" value={p.id} /> : null}
@@ -69,22 +69,22 @@ export default async function EditProduct({
       <Card title={a.products.variants} hint={a.products.variantsHint}>
         <input type="hidden" name="variant_count" value={rows.length} />
         {rows.map((v, i) => (
-          <div key={i} className="grid gap-3 rounded-xl border border-gold/20 p-3 sm:grid-cols-[1fr_1fr_8rem_auto] sm:items-end">
+          <div key={i} className="grid gap-3 rounded-xl border border-rose p-3 sm:grid-cols-[1fr_1fr_8rem_auto] sm:items-end">
             {v ? <input type="hidden" name={`v${i}_id`} value={v.id} /> : null}
-            <label className="block text-xs font-semibold text-cocoa-muted">
+            <label className="block text-xs font-semibold text-ink-muted">
               🇻🇪 {a.common.es}
               <input name={`v${i}_name_es`} defaultValue={v?.name.es ?? ""} className="field mt-1" placeholder={v ? "" : `+ ${a.products.addVariant}`} />
             </label>
-            <label className="block text-xs font-semibold text-cocoa-muted">
+            <label className="block text-xs font-semibold text-ink-muted">
               🇩🇪 {a.common.de}
               <input name={`v${i}_name_de`} defaultValue={v?.name.de ?? ""} className="field mt-1" />
             </label>
-            <label className="block text-xs font-semibold text-cocoa-muted">
+            <label className="block text-xs font-semibold text-ink-muted">
               €
               <input name={`v${i}_price`} defaultValue={centsToInput(v?.priceCents)} className="field mt-1" inputMode="decimal" />
             </label>
             <label className="flex items-center gap-2 pb-3 text-sm">
-              <input type="checkbox" name={`v${i}_active`} defaultChecked={v ? v.active : true} className="h-5 w-5 accent-[#4b0710]" />
+              <input type="checkbox" name={`v${i}_active`} defaultChecked={v ? v.active : true} className="h-5 w-5 accent-[#2e2e31]" />
               {a.products.variantActive}
             </label>
           </div>
@@ -97,7 +97,7 @@ export default async function EditProduct({
             <Check key={al} name={`allergen_${al}`} label={allergenNames[al]} checked={p.allergens.includes(al)} />
           ))}
         </div>
-        <div className="rounded-xl bg-gold/15 p-4">
+        <div className="rounded-xl bg-sage/60 p-4">
           <Check name="allergens_confirmed" label={a.products.allergensConfirmed} checked={p.allergensConfirmed} />
         </div>
         <BiField label={a.products.ingredients} name="ingredients" value={p.ingredients} a={a} textarea />

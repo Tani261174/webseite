@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AdminRootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body className="min-h-dvh bg-cream">{children}</body>
+      <body className="min-h-dvh bg-vanilla">{children}</body>
     </html>
   );
 }

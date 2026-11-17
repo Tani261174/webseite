@@ -33,24 +33,24 @@ export function StarArc({ className = "", twinkle = false }: { className?: strin
 }
 
 export function Logo({ tone = "light", className = "" }: { tone?: "light" | "dark"; className?: string }) {
-  const main = tone === "light" ? "text-cream" : "text-bordeaux";
+  const main = "text-ink";
   return (
     <span className={`inline-flex flex-col items-center leading-none ${className}`}>
-      <StarArc className="w-14 text-gold -mb-0.5" />
+      <StarArc className="w-14 text-ink-muted -mb-0.5" />
       <span className={`font-display text-[1.35rem] font-semibold tracking-[0.18em] ${main}`}>SABOR</span>
-      <span className="mt-1 text-[0.55rem] font-bold tracking-[0.42em] text-gold pl-[0.42em]">VENEZOLANO</span>
+      <span className="mt-1 text-[0.55rem] font-bold tracking-[0.42em] text-ink-muted pl-[0.42em]">VENEZOLANO</span>
     </span>
   );
 }
 
 export function Ornament({ className = "" }: { className?: string }) {
   return (
-    <div className={`flex items-center justify-center gap-3 text-gold ${className}`} aria-hidden="true">
-      <span className="h-px w-12 bg-gradient-to-r from-transparent to-gold/80" />
+    <div className={`flex items-center justify-center gap-3 text-ink-muted ${className}`} aria-hidden="true">
+      <span className="h-px w-12 bg-gradient-to-r from-transparent to-ink/25" />
       <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
         <path d={starPath(12, 12, 11)} />
       </svg>
-      <span className="h-px w-12 bg-gradient-to-l from-transparent to-gold/80" />
+      <span className="h-px w-12 bg-gradient-to-l from-transparent to-ink/25" />
     </div>
   );
 }

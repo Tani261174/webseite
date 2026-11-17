@@ -21,8 +21,8 @@ export default async function TextsAdmin({ searchParams }: { searchParams: Promi
 
       <Card title={a.texts.cooks} hint={a.texts.photoNote}>
         {c.cooks.map((cook, i) => (
-          <div key={i} className="space-y-4 rounded-xl border border-gold/30 p-4">
-            <h3 className="font-bold text-bordeaux">{a.texts.cook} {i + 1}</h3>
+          <div key={i} className="space-y-4 rounded-xl border border-rose p-4">
+            <h3 className="font-bold text-ink">{a.texts.cook} {i + 1}</h3>
             <Field label={a.texts.cookName} name={`cook${i}_name`} defaultValue={cook.name} />
             <ImageInput name={`cook${i}_image`} current={cook.image} a={a} />
             <BiField label={a.texts.cookRole} name={`cook${i}_role`} value={cook.role} a={a} />

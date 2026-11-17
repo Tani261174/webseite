@@ -43,13 +43,13 @@ export function Header({ christmas }: { christmas: boolean }) {
   return (
     <header
       className={`sticky top-0 z-40 transition-colors duration-300 ${
-        scrolled || open ? "bg-bordeaux-deep/95 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.8)] backdrop-blur" : "bg-bordeaux"
+        scrolled || open ? "bg-sage/95 shadow-[0_12px_30px_-22px_rgba(46,46,49,0.45)] backdrop-blur" : "bg-sage"
       }`}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <button
           type="button"
-          className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-cream md:hidden"
+          className="-ml-2 inline-flex h-11 w-11 items-center justify-center rounded-full text-ink md:hidden"
           aria-label={open ? t.common.close : t.common.menu}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -69,7 +69,7 @@ export function Header({ christmas }: { christmas: boolean }) {
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                isActive(l.href) ? "text-gold-light" : "text-cream/85 hover:text-gold-light"
+                isActive(l.href) ? "bg-vanilla text-ink shadow-[0_6px_16px_-10px_rgba(46,46,49,0.4)]" : "text-ink-soft hover:bg-vanilla/60 hover:text-ink"
               }`}
             >
               {l.label}
@@ -82,7 +82,7 @@ export function Header({ christmas }: { christmas: boolean }) {
             href={switchHref}
             hrefLang={other}
             lang={other}
-            className="inline-flex h-11 items-center gap-1.5 rounded-full px-3 text-xs font-bold tracking-wider text-cream/85 hover:text-gold-light"
+            className="inline-flex h-11 items-center gap-1.5 rounded-full px-3 text-xs font-bold tracking-wider text-ink-soft hover:text-ink"
             aria-label={t.common.switchTo}
             title={t.common.switchTo}
           >
@@ -91,14 +91,14 @@ export function Header({ christmas }: { christmas: boolean }) {
           </Link>
           <Link
             href={`/${locale}/carrito`}
-            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-gold/15 text-gold-light ring-1 ring-gold/40 hover:bg-gold/25"
+            className="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-rose text-ink shadow-[inset_0_0_0_1px_rgba(46,46,49,0.08)] transition-transform hover:scale-105"
             aria-label={`${t.nav.cart}${ready && count ? ` (${count})` : ""}`}
           >
             <Icon name="bag" className="h-5 w-5" />
             {ready && count > 0 ? (
               <span
                 key={lastAdded}
-                className="animate-pop absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-gold px-1 text-[0.7rem] font-extrabold text-bordeaux-deep"
+                className="animate-pop absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-vanilla px-1 text-[0.7rem] font-extrabold text-ink ring-1 ring-ink/15"
               >
                 {count}
               </span>
@@ -111,7 +111,7 @@ export function Header({ christmas }: { christmas: boolean }) {
       <div
         id="mobile-nav"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[4.5rem] z-40 overflow-y-auto bg-velvet px-6 pb-10 pt-6 md:hidden"
+        className="fixed inset-x-0 bottom-0 top-[4.5rem] z-40 overflow-y-auto bg-vanilla px-6 pb-10 pt-6 md:hidden"
       >
         <nav aria-label="Móvil" className="flex flex-col">
           {links.map((l) => (
@@ -119,13 +119,13 @@ export function Header({ christmas }: { christmas: boolean }) {
               key={l.href}
               href={l.href}
               aria-current={isActive(l.href) ? "page" : undefined}
-              className={`border-b border-gold/15 py-4 font-display text-2xl ${isActive(l.href) ? "text-gold-light" : "text-cream"}`}
+              className={`border-b border-ink/10 py-4 font-display text-2xl ${isActive(l.href) ? "italic text-ink" : "text-ink-soft"}`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
-        <Link href={`/${locale}/productos`} className="btn btn-gold mt-8 w-full">
+        <Link href={`/${locale}/productos`} className="btn btn-primary mt-8 w-full">
           {t.common.orderNow}
         </Link>
       </div>

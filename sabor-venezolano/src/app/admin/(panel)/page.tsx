@@ -45,30 +45,30 @@ export default async function Dashboard() {
   return (
     <div className="space-y-8">
       <PageTitle>{a.dashboard.hello}</PageTitle>
-      <p className="rounded-2xl border border-gold/50 bg-gold/15 p-4 text-sm text-cocoa">{a.dashboard.whatsappNote}</p>
+      <p className="rounded-2xl border border-rose bg-sage/60 p-4 text-sm text-ink">{a.dashboard.whatsappNote}</p>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {stats.map((st) => (
-          <Link key={st.label} href={st.href} className="rounded-2xl border border-gold/30 bg-ivory p-5 hover:border-gold">
-            <p className="font-display text-4xl text-bordeaux">{st.value}</p>
-            <p className="mt-1 text-sm text-cocoa-muted">{st.label}</p>
+          <Link key={st.label} href={st.href} className="rounded-2xl border border-rose bg-vanilla p-5 hover:border-rose">
+            <p className="font-display text-4xl text-ink">{st.value}</p>
+            <p className="mt-1 text-sm text-ink-muted">{st.label}</p>
           </Link>
         ))}
       </div>
 
-      <section className="rounded-2xl border border-gold/30 bg-ivory p-5 sm:p-6">
-        <h2 className="font-display text-xl text-bordeaux">{a.nav.orders} · {a.orders.open}</h2>
+      <section className="rounded-2xl border border-rose bg-vanilla p-5 sm:p-6">
+        <h2 className="font-display text-xl text-ink">{a.nav.orders} · {a.orders.open}</h2>
         {upcoming.length === 0 ? (
-          <p className="mt-3 text-sm text-cocoa-muted">{a.common.none}</p>
+          <p className="mt-3 text-sm text-ink-muted">{a.common.none}</p>
         ) : (
-          <ul className="mt-4 divide-y divide-gold/20">
+          <ul className="mt-4 divide-y divide-rose">
             {upcoming.map((o) => (
               <li key={o.id}>
-                <Link href={`/admin/pedidos/${o.id}`} className="flex flex-wrap items-center justify-between gap-2 py-3 hover:bg-cream/60">
+                <Link href={`/admin/pedidos/${o.id}`} className="flex flex-wrap items-center justify-between gap-2 py-3 hover:bg-sage/40">
                   <span>
-                    <strong className="text-bordeaux">{formatDate(o.pickupDate, lang, true)}</strong>
-                    <span className="ml-2 text-cocoa-soft">{o.name}</span>
-                    <span className="ml-2 text-xs text-cocoa-muted">{o.code}</span>
+                    <strong className="text-ink">{formatDate(o.pickupDate, lang, true)}</strong>
+                    <span className="ml-2 text-ink-soft">{o.name}</span>
+                    <span className="ml-2 text-xs text-ink-muted">{o.code}</span>
                   </span>
                   <span className="flex items-center gap-3">
                     <span className="font-semibold">{formatEuro(o.totalCents, lang)}</span>
@@ -81,16 +81,16 @@ export default async function Dashboard() {
         )}
       </section>
 
-      <section className="rounded-2xl border border-gold/30 bg-ivory p-5 sm:p-6">
-        <h2 className="font-display text-xl text-bordeaux">{a.dashboard.checklist}</h2>
+      <section className="rounded-2xl border border-rose bg-vanilla p-5 sm:p-6">
+        <h2 className="font-display text-xl text-ink">{a.dashboard.checklist}</h2>
         <ul className="mt-4 space-y-2">
           {checks.map((c) => (
             <li key={c.label}>
-              <Link href={c.href} className="flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-cream">
-                <span className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${c.ok ? "bg-success text-white" : "bg-danger text-white"}`}>
+              <Link href={c.href} className="flex items-center gap-3 rounded-xl px-2 py-2 hover:bg-vanilla">
+                <span className={`flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold ${c.ok ? "bg-sage text-ink" : "bg-rose text-ink ring-1 ring-ink/25"}`}>
                   {c.ok ? "✓" : "!"}
                 </span>
-                <span className={c.ok ? "text-cocoa-muted line-through" : "font-semibold text-cocoa"}>{c.label}</span>
+                <span className={c.ok ? "text-ink-muted line-through" : "font-semibold text-ink"}>{c.label}</span>
               </Link>
             </li>
           ))}

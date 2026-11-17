@@ -12,7 +12,6 @@ export function Photo({
   kind = "food",
   className = "",
   priority = false,
-  tone = "light",
 }: {
   src: string | null | undefined;
   alt: string;
@@ -21,7 +20,6 @@ export function Photo({
   kind?: "food" | "portrait";
   className?: string;
   priority?: boolean;
-  tone?: "light" | "dark";
 }) {
   if (src) {
     return (
@@ -36,22 +34,19 @@ export function Photo({
       />
     );
   }
-  const dark = tone === "dark";
   const compact = label === ""; // kleine Vorschaubilder: nur Symbol
   return (
     <div
       role="img"
       aria-label={`${alt} – ${tag}`}
       className={`relative flex h-full w-full flex-col items-center justify-center overflow-hidden text-center ${
-        dark ? "bg-bordeaux-deep/60 text-gold-light" : "bg-cream-deep text-bordeaux/70"
+        kind === "portrait" ? "bg-sage text-ink-soft" : "bg-rose text-ink-soft"
       } ${className}`}
     >
       <div
         className="absolute inset-0 opacity-60"
         style={{
-          backgroundImage: dark
-            ? "radial-gradient(70% 60% at 50% 35%, rgba(198,161,91,0.18), transparent 70%)"
-            : "radial-gradient(70% 60% at 50% 35%, rgba(198,161,91,0.25), transparent 70%)",
+          backgroundImage: "radial-gradient(70% 60% at 50% 35%, rgba(255,248,237,0.85), transparent 70%)",
         }}
       />
       {kind === "portrait" ? (
@@ -66,11 +61,11 @@ export function Photo({
           <path d="M40 10v6M30 12l2 5M50 12l-2 5" />
         </svg>
       )}
-      {compact ? null : <StarArc className={`relative mt-3 w-16 ${dark ? "text-gold" : "text-gold-dark"}`} />}
+      {compact ? null : <StarArc className="relative mt-3 w-16 text-ink-muted" />}
       {compact ? null : <p className="relative mt-1 px-4 font-display text-base italic">{label}</p>}
       {compact ? null : <span
-        className={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] ${
-          dark ? "bg-gold/20 text-gold-light" : "bg-bordeaux/10 text-bordeaux"
+        className={`absolute ${kind === "portrait" ? "bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap" : "left-3 top-3"} rounded-full px-2.5 py-1 text-[0.62rem] font-bold uppercase tracking-[0.14em] ${
+          "bg-vanilla/90 text-ink"
         }`}
       >
         {tag}

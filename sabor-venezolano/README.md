@@ -78,7 +78,7 @@ Der Adminbereich zeigt diese Punkte auch auf der Übersichtsseite an.
 | Bereich | Lösung |
 |---|---|
 | Framework | Next.js 15 (App Router), React 19, TypeScript |
-| Design | Tailwind CSS 4, eigenes Designsystem (`src/app/globals.css`) |
+| Design | Tailwind CSS 4, Boutique-Designsystem in `src/app/globals.css`: Vanille `#FFF8ED` (Hintergrund), Rosé `#F4DCE3` (Buttons, Produktkarten, Akzente), Salbei `#DDE9D9` (Navigation, ruhige Bereiche), Text in neutralem Dunkelgrau `#2E2E31` |
 | Schriften | Playfair Display + Manrope, **selbst gehostet** (keine Google-Verbindung) |
 | Datenbank | SQLite (in Node.js eingebaut) → Datei `data/sabor.db` |
 | Bilder | Upload im Admin, automatische Verkleinerung + WebP (sharp), Ablage in `data/uploads` |

@@ -48,7 +48,7 @@ export function ContactForm({ token }: { token: string }) {
 
   if (state === "done") {
     return (
-      <div className="flex items-start gap-3 rounded-2xl bg-success/10 p-5 text-success" role="status">
+      <div className="flex items-start gap-3 rounded-2xl bg-sage p-5 text-ink" role="status">
         <Icon name="check" className="mt-0.5 h-5 w-5 shrink-0" />
         <p className="font-semibold">{t.contact.success}</p>
       </div>
@@ -73,11 +73,11 @@ export function ContactForm({ token }: { token: string }) {
         <label htmlFor="c-website">Website</label>
         <input id="c-website" ref={hp} tabIndex={-1} autoComplete="off" />
       </div>
-      <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-cocoa-soft">
-        <input type="checkbox" name="consent" className="mt-1 h-5 w-5 shrink-0 accent-[#4b0710]" aria-invalid={field === "consent"} />
+      <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-ink-soft">
+        <input type="checkbox" name="consent" className="mt-1 h-5 w-5 shrink-0 accent-[#2e2e31]" aria-invalid={field === "consent"} />
         <span>
           {t.contact.consent}{" "}
-          <Link href={`/${locale}/legal/privacidad`} className="text-bordeaux underline underline-offset-2" target="_blank">
+          <Link href={`/${locale}/legal/privacidad`} className="text-ink underline underline-offset-2" target="_blank">
             {t.cart.privacy}
           </Link>
           .
@@ -88,7 +88,7 @@ export function ContactForm({ token }: { token: string }) {
           {error}
         </p>
       ) : null}
-      <button type="submit" className="btn btn-bordeaux w-full" disabled={state === "busy"}>
+      <button type="submit" className="btn btn-primary w-full" disabled={state === "busy"}>
         <Icon name="mail" className="h-5 w-5" /> {state === "busy" ? t.contact.sending : t.contact.submit}
       </button>
     </form>

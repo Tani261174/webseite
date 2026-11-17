@@ -18,7 +18,7 @@ export function LoginForm({ a }: { a: AdminMessages["login"] }) {
         <input id="password" name="password" type="password" className="field" autoComplete="current-password" required />
       </div>
       {error ? <p role="alert" className="rounded-xl bg-danger/10 p-3 text-sm font-semibold text-danger">{error}</p> : null}
-      <button className="btn btn-bordeaux w-full" disabled={pending}>
+      <button className="btn btn-primary w-full" disabled={pending}>
         {a.submit}
       </button>
     </form>

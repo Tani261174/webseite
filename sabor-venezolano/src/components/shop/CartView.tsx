@@ -48,16 +48,16 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
   if (done) {
     return (
       <div className="card mx-auto max-w-xl p-8 text-center sm:p-10" role="status">
-        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-bordeaux text-gold-light">
+        <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-rose text-ink">
           <Icon name="whatsapp" className="h-8 w-8" />
         </span>
-        <h2 className="mt-5 font-display text-3xl text-bordeaux">{t.cart.successTitle}</h2>
-        <p className="mt-3 text-cocoa-soft">{fmt(t.cart.successText, { code: done.code })}</p>
-        <a href={done.url} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp mt-7 w-full text-lg">
+        <h2 className="mt-5 font-display text-3xl text-ink">{t.cart.successTitle}</h2>
+        <p className="mt-3 text-ink-soft">{fmt(t.cart.successText, { code: done.code })}</p>
+        <a href={done.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary mt-7 w-full text-lg">
           <Icon name="whatsapp" className="h-6 w-6" /> {t.cart.openWhatsApp}
         </a>
-        <p className="mt-3 text-xs text-cocoa-muted">{t.cart.notOpened}</p>
-        <p className="mt-6 rounded-2xl bg-gold/15 p-4 text-sm font-semibold text-bordeaux">{t.cart.confirmNote}</p>
+        <p className="mt-3 text-xs text-ink-muted">{t.cart.notOpened}</p>
+        <p className="mt-6 rounded-2xl bg-sage/60 p-4 text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
         <Link href={`/${locale}/productos`} className="btn btn-outline mt-6">
           {t.cart.newOrder}
         </Link>
@@ -72,9 +72,9 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
   if (lines.length === 0) {
     return (
       <div className="card mx-auto max-w-xl p-10 text-center">
-        <Icon name="bag" className="mx-auto h-10 w-10 text-gold-dark" />
-        <p className="mt-4 font-display text-2xl text-bordeaux">{t.cart.empty}</p>
-        <Link href={`/${locale}/productos`} className="btn btn-gold mt-6">
+        <Icon name="bag" className="mx-auto h-10 w-10 text-ink-muted" />
+        <p className="mt-4 font-display text-2xl text-ink">{t.cart.empty}</p>
+        <Link href={`/${locale}/productos`} className="btn btn-primary mt-6">
           {t.cart.emptyCta}
         </Link>
       </div>
@@ -172,7 +172,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
         <h2 id="cart-items" className="sr-only">
           {t.cart.title}
         </h2>
-        <ul className="divide-y divide-gold/20">
+        <ul className="divide-y divide-rose">
           {lines.map((l) => {
             const pname = pick(l.product.name, locale);
             const max = Math.max(1, Math.min(l.product.maxPerOrder, l.product.remaining ?? Infinity));
@@ -184,9 +184,9 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="font-display text-lg leading-tight text-bordeaux">{pname}</p>
-                      {l.variant ? <p className="text-sm text-cocoa-muted">{pick(l.variant.name, locale)}</p> : null}
-                      <p className="text-xs text-cocoa-muted">
+                      <p className="font-display text-lg leading-tight text-ink">{pname}</p>
+                      {l.variant ? <p className="text-sm text-ink-muted">{pick(l.variant.name, locale)}</p> : null}
+                      <p className="text-xs text-ink-muted">
                         {formatEuro(l.unitCents, locale)} {t.cart.each}
                       </p>
                     </div>
@@ -206,7 +206,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
                     <button
                       type="button"
                       onClick={() => remove(l.product.id, l.entry.variantId)}
-                      className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-sm text-cocoa-muted hover:text-danger"
+                      className="inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-sm text-ink-muted hover:text-danger"
                       aria-label={fmt(t.cart.removeItem, { name: pname })}
                     >
                       <Icon name="trash" className="h-4 w-4" />
@@ -218,24 +218,24 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
             );
           })}
         </ul>
-        <div className="mt-5 flex items-baseline justify-between border-t border-gold/40 pt-5">
-          <span className="eyebrow text-cocoa-muted">{t.cart.total}</span>
-          <span className="font-display text-3xl font-semibold text-bordeaux" aria-live="polite">
+        <div className="mt-5 flex items-baseline justify-between border-t border-rose pt-5">
+          <span className="eyebrow text-ink-muted">{t.cart.total}</span>
+          <span className="font-display text-3xl font-semibold text-ink" aria-live="polite">
             {formatEuro(totalCents, locale)}
           </span>
         </div>
-        <p className="mt-3 text-sm text-cocoa-muted">{t.cart.paymentNote}</p>
+        <p className="mt-3 text-sm text-ink-muted">{t.cart.paymentNote}</p>
       </section>
 
       {/* Angaben + Absenden */}
       <form onSubmit={submit} noValidate className="card p-5 sm:p-7" aria-labelledby="order-details">
-        <h2 id="order-details" className="font-display text-2xl text-bordeaux">
+        <h2 id="order-details" className="font-display text-2xl text-ink">
           {t.cart.detailsTitle}
         </h2>
         <Ornament className="mt-3 justify-start" />
 
-        <p className="mt-4 flex items-start gap-2 rounded-2xl bg-gold/15 p-4 text-sm text-cocoa">
-          <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-bordeaux" />
+        <p className="mt-4 flex items-start gap-2 rounded-2xl bg-sage/60 p-4 text-sm text-ink">
+          <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0 text-ink" />
           {t.cart.preorderNote}
         </p>
 
@@ -260,7 +260,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
               aria-invalid={!!errors.date}
               aria-describedby="date-help date-err"
             />
-            <div id="date-help" className="mt-1.5 space-y-0.5 text-xs text-cocoa-muted">
+            <div id="date-help" className="mt-1.5 space-y-0.5 text-xs text-ink-muted">
               <p>{fmt(t.cart.dateHelp, { date: formatDate(minDate, locale, true) })}</p>
               {rules.closedWeekdays.length ? (
                 <p>{fmt(t.cart.closedDays, { days: rules.closedWeekdays.map((d) => weekdayName(d, locale)).join(", ") })}</p>
@@ -322,7 +322,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
               aria-invalid={!!errors.phone}
               aria-describedby="phone-help"
             />
-            <p id="phone-help" className="mt-1.5 text-xs text-cocoa-muted">
+            <p id="phone-help" className="mt-1.5 text-xs text-ink-muted">
               {errors.phone ? <span className="font-semibold text-danger">{errors.phone}</span> : t.cart.phoneHelp}
             </p>
           </div>
@@ -349,17 +349,17 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
           </div>
 
           <div>
-            <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-cocoa-soft">
+            <label className="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-ink-soft">
               <input
                 type="checkbox"
-                className="mt-1 h-5 w-5 shrink-0 accent-[#4b0710]"
+                className="mt-1 h-5 w-5 shrink-0 accent-[#2e2e31]"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
                 aria-invalid={!!errors.consent}
               />
               <span>
                 {t.cart.consent}{" "}
-                <Link href={`/${locale}/legal/privacidad`} className="text-bordeaux underline underline-offset-2" target="_blank">
+                <Link href={`/${locale}/legal/privacidad`} className="text-ink underline underline-offset-2" target="_blank">
                   {t.cart.privacy}
                 </Link>
                 .
@@ -375,7 +375,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
           </p>
         ) : null}
 
-        <button type="submit" className="btn btn-whatsapp mt-6 min-h-[3.75rem] w-full text-[1.05rem]" disabled={busy}>
+        <button type="submit" className="btn btn-primary mt-6 min-h-[3.75rem] w-full text-[1.05rem]" disabled={busy}>
           {busy ? t.cart.sending : t.cart.send}
         </button>
 
@@ -385,7 +385,7 @@ export function CartView({ rules, whatsappNumber, token }: { rules: DateRules; w
           </a>
         ) : null}
 
-        <p className="mt-4 text-center text-sm font-semibold text-wine">{t.cart.confirmNote}</p>
+        <p className="mt-4 text-center text-sm font-semibold text-ink">{t.cart.confirmNote}</p>
       </form>
     </div>
   );

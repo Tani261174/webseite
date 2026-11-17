@@ -24,22 +24,22 @@ export default async function PanelLayout({ children }: { children: React.ReactN
 
   return (
     <div className="lg:grid lg:min-h-dvh lg:grid-cols-[250px_1fr]">
-      <aside className="bg-velvet px-4 pb-3 pt-4 text-cream lg:sticky lg:top-0 lg:h-dvh lg:overflow-y-auto lg:py-6">
+      <aside className="bg-sage px-4 pb-3 pt-4 text-ink lg:sticky lg:top-0 lg:h-dvh lg:overflow-y-auto lg:py-6">
         <div className="mb-4 flex items-center justify-between lg:mb-8 lg:flex-col lg:gap-4">
           <Logo className="scale-90" />
           <div className="flex items-center gap-2 lg:w-full lg:flex-col lg:items-stretch">
             <form action={setAdminLangAction}>
               <input type="hidden" name="lang" value={lang === "es" ? "de" : "es"} />
               <BackInput />
-              <button className="rounded-full border border-gold/50 px-3 py-1.5 text-xs font-bold text-gold-light lg:w-full">
+              <button className="rounded-full bg-vanilla px-3 py-1.5 text-xs font-bold text-ink lg:w-full">
                 {lang === "es" ? "🇩🇪" : "🇻🇪"} {a.common.switchLang}
               </button>
             </form>
-            <a href="/es" target="_blank" className="rounded-full border border-cream/30 px-3 py-1.5 text-center text-xs font-bold text-cream/85">
+            <a href="/es" target="_blank" className="rounded-full border border-ink/15 px-3 py-1.5 text-center text-xs font-bold text-ink-soft">
               {a.nav.viewSite}
             </a>
             <form action={logoutAction}>
-              <button className="rounded-full px-3 py-1.5 text-xs font-bold text-cream/70 hover:text-cream lg:w-full">{a.nav.logout}</button>
+              <button className="rounded-full px-3 py-1.5 text-xs font-bold text-ink-soft hover:text-ink lg:w-full">{a.nav.logout}</button>
             </form>
           </div>
         </div>

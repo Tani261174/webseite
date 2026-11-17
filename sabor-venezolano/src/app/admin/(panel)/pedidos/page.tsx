@@ -22,7 +22,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
   return (
     <div className="space-y-6">
       <PageTitle>{a.nav.orders}</PageTitle>
-      <p className="rounded-2xl border border-gold/50 bg-gold/15 p-4 text-sm text-cocoa">{a.dashboard.whatsappNote}</p>
+      <p className="rounded-2xl border border-rose bg-sage/60 p-4 text-sm text-ink">{a.dashboard.whatsappNote}</p>
 
       <div className="flex gap-2 overflow-x-auto pb-1">
         {filters.map((f) => (
@@ -30,7 +30,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
             key={f.v}
             href={f.v ? `/admin/pedidos?status=${f.v}` : "/admin/pedidos"}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold ${
-              (status || "") === f.v ? "bg-bordeaux text-cream" : "bg-ivory text-cocoa ring-1 ring-gold/30"
+              (status || "") === f.v ? "bg-rose text-ink" : "bg-vanilla text-ink ring-1 ring-rose"
             }`}
           >
             {f.label}
@@ -44,14 +44,14 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
       </form>
 
       {orders.length === 0 ? (
-        <p className="text-cocoa-muted">{a.common.none}</p>
+        <p className="text-ink-muted">{a.common.none}</p>
       ) : (
         <ul className="space-y-3">
           {orders.map((o) => (
             <li key={o.id}>
-              <Link href={`/admin/pedidos/${o.id}`} className="block rounded-2xl border border-gold/30 bg-ivory p-4 hover:border-gold">
+              <Link href={`/admin/pedidos/${o.id}`} className="block rounded-2xl border border-rose bg-vanilla p-4 hover:border-rose">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="font-bold text-bordeaux">{o.code}</span>
+                  <span className="font-bold text-ink">{o.code}</span>
                   <StatusBadge status={o.status} a={a} />
                 </div>
                 <div className="mt-2 flex flex-wrap justify-between gap-2 text-sm">
@@ -60,7 +60,7 @@ export default async function OrdersPage({ searchParams }: { searchParams: Promi
                   </span>
                   <span className="font-semibold">{formatEuro(o.totalCents, lang)}</span>
                 </div>
-                <p className="mt-1 text-xs text-cocoa-muted">
+                <p className="mt-1 text-xs text-ink-muted">
                   {o.items.map((i) => `${i.qty}× ${i.name}${i.variant ? ` (${i.variant})` : ""}`).join(" · ")}
                 </p>
               </Link>

@@ -15,15 +15,15 @@ export default async function ProductsPage({ params }: { params: Promise<{ local
   const products = listProducts();
 
   return (
-    <div className="bg-linen px-4 pb-24 pt-14 sm:px-6">
+    <div className="bg-soft px-4 pb-24 pt-14 sm:px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="Sabor Venezolano" title={t.product.pageTitle} text={t.product.pageIntro} />
-        <p className="mx-auto mt-6 flex max-w-xl items-start justify-center gap-2 text-center text-sm text-wine">
+        <p className="mx-auto mt-6 flex max-w-md items-start gap-2 rounded-2xl bg-sage/60 px-4 py-3 text-left text-sm text-ink">
           <Icon name="clock" className="mt-0.5 h-4 w-4 shrink-0" />
           {t.cart.preorderNote}
         </p>
         {products.length === 0 ? (
-          <p className="mt-16 text-center text-cocoa-muted">{t.product.empty}</p>
+          <p className="mt-16 text-center text-ink-muted">{t.product.empty}</p>
         ) : (
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {products.map((p, i) => (

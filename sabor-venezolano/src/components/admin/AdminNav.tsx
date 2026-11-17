@@ -15,12 +15,12 @@ export function AdminNav({ links }: { links: { href: string; label: string; badg
             href={l.href}
             aria-current={active ? "page" : undefined}
             className={`flex shrink-0 items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold whitespace-nowrap ${
-              active ? "bg-gold text-bordeaux-deep" : "text-cream/85 hover:bg-cream/10"
+              active ? "bg-rose text-ink" : "text-ink-soft hover:bg-vanilla/60"
             }`}
           >
             {l.label}
             {l.badge ? (
-              <span className={`rounded-full px-2 text-xs ${active ? "bg-bordeaux text-cream" : "bg-gold text-bordeaux-deep"}`}>{l.badge}</span>
+              <span className={`rounded-full px-2 text-xs ${active ? "bg-vanilla text-ink" : "bg-rose text-ink"}`}>{l.badge}</span>
             ) : null}
           </Link>
         );
